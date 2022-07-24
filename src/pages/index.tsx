@@ -16,7 +16,7 @@ const Home: NextPage = () => {
                   <h2>
                     <span>Peoples Choice</span>Bestselling Books
                   </h2>
-                  <a className="tg-btn" href="javascript:void(0);">
+                  <a className="tg-btn" href="">
                     View All
                   </a>
                 </div>
@@ -43,10 +43,7 @@ const Home: NextPage = () => {
                             />
                           </div>
                         </div>
-                        <a
-                          className="tg-btnaddtowishlist"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btnaddtowishlist" href="">
                           <i className="icon-heart" />
                           <span>add to wishlist</span>
                         </a>
@@ -54,10 +51,10 @@ const Home: NextPage = () => {
                       <div className="tg-postbookcontent">
                         <ul className="tg-bookscategories">
                           <li>
-                            <a href="javascript:void(0);">Adventure</a>
+                            <a href="">Adventure</a>
                           </li>
                           <li>
-                            <a href="javascript:void(0);">Fun</a>
+                            <a href="">Fun</a>
                           </li>
                         </ul>
                         <div className="tg-themetagbox">
@@ -65,13 +62,11 @@ const Home: NextPage = () => {
                         </div>
                         <div className="tg-booktitle">
                           <h3>
-                            <a href="javascript:void(0);">
-                              Help Me Find My Stomach
-                            </a>
+                            <a href="">Help Me Find My Stomach</a>
                           </h3>
                         </div>
                         <span className="tg-bookwriter">
-                          By: <a href="javascript:void(0);">Angela Gunning</a>
+                          By: <a href="">Angela Gunning</a>
                         </span>
                         <span className="tg-stars">
                           <span />
@@ -80,10 +75,7 @@ const Home: NextPage = () => {
                           <ins>$25.18</ins>
                           <del>$27.20</del>
                         </span>
-                        <a
-                          className="tg-btn tg-btnstyletwo"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btn tg-btnstyletwo" href="">
                           <i className="fa fa-shopping-basket" />
                           <em>Add To Basket</em>
                         </a>
@@ -107,10 +99,7 @@ const Home: NextPage = () => {
                             />
                           </div>
                         </div>
-                        <a
-                          className="tg-btnaddtowishlist"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btnaddtowishlist" href="">
                           <i className="icon-heart" />
                           <span>add to wishlist</span>
                         </a>
@@ -118,10 +107,10 @@ const Home: NextPage = () => {
                       <div className="tg-postbookcontent">
                         <ul className="tg-bookscategories">
                           <li>
-                            <a href="javascript:void(0);">Adventure</a>
+                            <a href="">Adventure</a>
                           </li>
                           <li>
-                            <a href="javascript:void(0);">Fun</a>
+                            <a href="">Fun</a>
                           </li>
                         </ul>
                         <div className="tg-themetagbox">
@@ -129,13 +118,11 @@ const Home: NextPage = () => {
                         </div>
                         <div className="tg-booktitle">
                           <h3>
-                            <a href="javascript:void(0);">
-                              Drive Safely, No Bumping
-                            </a>
+                            <a href="">Drive Safely, No Bumping</a>
                           </h3>
                         </div>
                         <span className="tg-bookwriter">
-                          By: <a href="javascript:void(0);">Angela Gunning</a>
+                          By: <a href="">Angela Gunning</a>
                         </span>
                         <span className="tg-stars">
                           <span />
@@ -144,10 +131,7 @@ const Home: NextPage = () => {
                           <ins>$25.18</ins>
                           <del>$27.20</del>
                         </span>
-                        <a
-                          className="tg-btn tg-btnstyletwo"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btn tg-btnstyletwo" href="">
                           <i className="fa fa-shopping-basket" />
                           <em>Add To Basket</em>
                         </a>
@@ -171,10 +155,7 @@ const Home: NextPage = () => {
                             />
                           </div>
                         </div>
-                        <a
-                          className="tg-btnaddtowishlist"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btnaddtowishlist" href="">
                           <i className="icon-heart" />
                           <span>add to wishlist</span>
                         </a>
@@ -182,21 +163,19 @@ const Home: NextPage = () => {
                       <div className="tg-postbookcontent">
                         <ul className="tg-bookscategories">
                           <li>
-                            <a href="javascript:void(0);">Adventure</a>
+                            <a href="">Adventure</a>
                           </li>
                           <li>
-                            <a href="javascript:void(0);">Fun</a>
+                            <a href="">Fun</a>
                           </li>
                         </ul>
                         <div className="tg-booktitle">
                           <h3>
-                            <a href="javascript:void(0);">
-                              Let The Good Times Roll Up
-                            </a>
+                            <a href="">Let The Good Times Roll Up</a>
                           </h3>
                         </div>
                         <span className="tg-bookwriter">
-                          By: <a href="javascript:void(0);">Angela Gunning</a>
+                          By: <a href="">Angela Gunning</a>
                         </span>
                         <span className="tg-stars">
                           <span />
@@ -205,10 +184,7 @@ const Home: NextPage = () => {
                           <ins>$25.18</ins>
                           <del>$27.20</del>
                         </span>
-                        <a
-                          className="tg-btn tg-btnstyletwo"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btn tg-btnstyletwo" href="">
                           <i className="fa fa-shopping-basket" />
                           <em>Add To Basket</em>
                         </a>
@@ -232,10 +208,7 @@ const Home: NextPage = () => {
                             />
                           </div>
                         </div>
-                        <a
-                          className="tg-btnaddtowishlist"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btnaddtowishlist" href="">
                           <i className="icon-heart" />
                           <span>add to wishlist</span>
                         </a>
@@ -243,10 +216,10 @@ const Home: NextPage = () => {
                       <div className="tg-postbookcontent">
                         <ul className="tg-bookscategories">
                           <li>
-                            <a href="javascript:void(0);">Adventure</a>
+                            <a href="">Adventure</a>
                           </li>
                           <li>
-                            <a href="javascript:void(0);">Fun</a>
+                            <a href="">Fun</a>
                           </li>
                         </ul>
                         <div className="tg-themetagbox">
@@ -254,13 +227,11 @@ const Home: NextPage = () => {
                         </div>
                         <div className="tg-booktitle">
                           <h3>
-                            <a href="javascript:void(0);">
-                              Our State Fair Is A Great State Fair
-                            </a>
+                            <a href="">Our State Fair Is A Great State Fair</a>
                           </h3>
                         </div>
                         <span className="tg-bookwriter">
-                          By: <a href="javascript:void(0);">Angela Gunning</a>
+                          By: <a href="">Angela Gunning</a>
                         </span>
                         <span className="tg-stars">
                           <span />
@@ -269,10 +240,7 @@ const Home: NextPage = () => {
                           <ins>$25.18</ins>
                           <del>$27.20</del>
                         </span>
-                        <a
-                          className="tg-btn tg-btnstyletwo"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btn tg-btnstyletwo" href="">
                           <i className="fa fa-shopping-basket" />
                           <em>Add To Basket</em>
                         </a>
@@ -296,10 +264,7 @@ const Home: NextPage = () => {
                             />
                           </div>
                         </div>
-                        <a
-                          className="tg-btnaddtowishlist"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btnaddtowishlist" href="">
                           <i className="icon-heart" />
                           <span>add to wishlist</span>
                         </a>
@@ -307,21 +272,19 @@ const Home: NextPage = () => {
                       <div className="tg-postbookcontent">
                         <ul className="tg-bookscategories">
                           <li>
-                            <a href="javascript:void(0);">Adventure</a>
+                            <a href="">Adventure</a>
                           </li>
                           <li>
-                            <a href="javascript:void(0);">Fun</a>
+                            <a href="">Fun</a>
                           </li>
                         </ul>
                         <div className="tg-booktitle">
                           <h3>
-                            <a href="javascript:void(0);">
-                              Put The Petal To The Metal
-                            </a>
+                            <a href="">Put The Petal To The Metal</a>
                           </h3>
                         </div>
                         <span className="tg-bookwriter">
-                          By: <a href="javascript:void(0);">Angela Gunning</a>
+                          By: <a href="">Angela Gunning</a>
                         </span>
                         <span className="tg-stars">
                           <span />
@@ -330,10 +293,7 @@ const Home: NextPage = () => {
                           <ins>$25.18</ins>
                           <del>$27.20</del>
                         </span>
-                        <a
-                          className="tg-btn tg-btnstyletwo"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btn tg-btnstyletwo" href="">
                           <i className="fa fa-shopping-basket" />
                           <em>Add To Basket</em>
                         </a>
@@ -357,10 +317,7 @@ const Home: NextPage = () => {
                             />
                           </div>
                         </div>
-                        <a
-                          className="tg-btnaddtowishlist"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btnaddtowishlist" href="">
                           <i className="icon-heart" />
                           <span>add to wishlist</span>
                         </a>
@@ -368,10 +325,10 @@ const Home: NextPage = () => {
                       <div className="tg-postbookcontent">
                         <ul className="tg-bookscategories">
                           <li>
-                            <a href="javascript:void(0);">Adventure</a>
+                            <a href="">Adventure</a>
                           </li>
                           <li>
-                            <a href="javascript:void(0);">Fun</a>
+                            <a href="">Fun</a>
                           </li>
                         </ul>
                         <div className="tg-themetagbox">
@@ -379,13 +336,11 @@ const Home: NextPage = () => {
                         </div>
                         <div className="tg-booktitle">
                           <h3>
-                            <a href="javascript:void(0);">
-                              Help Me Find My Stomach
-                            </a>
+                            <a href="">Help Me Find My Stomach</a>
                           </h3>
                         </div>
                         <span className="tg-bookwriter">
-                          By: <a href="javascript:void(0);">Angela Gunning</a>
+                          By: <a href="">Angela Gunning</a>
                         </span>
                         <span className="tg-stars">
                           <span />
@@ -394,10 +349,7 @@ const Home: NextPage = () => {
                           <ins>$25.18</ins>
                           <del>$27.20</del>
                         </span>
-                        <a
-                          className="tg-btn tg-btnstyletwo"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btn tg-btnstyletwo" href="">
                           <i className="fa fa-shopping-basket" />
                           <em>Add To Basket</em>
                         </a>
@@ -421,10 +373,7 @@ const Home: NextPage = () => {
                             />
                           </div>
                         </div>
-                        <a
-                          className="tg-btnaddtowishlist"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btnaddtowishlist" href="">
                           <i className="icon-heart" />
                           <span>add to wishlist</span>
                         </a>
@@ -432,21 +381,19 @@ const Home: NextPage = () => {
                       <div className="tg-postbookcontent">
                         <ul className="tg-bookscategories">
                           <li>
-                            <a href="javascript:void(0);">Adventure</a>
+                            <a href="">Adventure</a>
                           </li>
                           <li>
-                            <a href="javascript:void(0);">Fun</a>
+                            <a href="">Fun</a>
                           </li>
                         </ul>
                         <div className="tg-booktitle">
                           <h3>
-                            <a href="javascript:void(0);">
-                              Let The Good Times Roll Up
-                            </a>
+                            <a href="">Let The Good Times Roll Up</a>
                           </h3>
                         </div>
                         <span className="tg-bookwriter">
-                          By: <a href="javascript:void(0);">Angela Gunning</a>
+                          By: <a href="">Angela Gunning</a>
                         </span>
                         <span className="tg-stars">
                           <span />
@@ -455,10 +402,7 @@ const Home: NextPage = () => {
                           <ins>$25.18</ins>
                           <del>$27.20</del>
                         </span>
-                        <a
-                          className="tg-btn tg-btnstyletwo"
-                          href="javascript:void(0);"
-                        >
+                        <a className="tg-btn tg-btnstyletwo" href="">
                           <i className="fa fa-shopping-basket" />
                           <em>Add To Basket</em>
                         </a>
@@ -492,13 +436,11 @@ const Home: NextPage = () => {
                     </div>
                     <div className="tg-booktitle">
                       <h3>
-                        <a href="javascript:void(0);">
-                          Things To Know About Green Flat Design
-                        </a>
+                        <a href="">Things To Know About Green Flat Design</a>
                       </h3>
                     </div>
                     <span className="tg-bookwriter">
-                      By: <a href="javascript:void(0);">Farrah Whisenhunt</a>
+                      By: <a href="">Farrah Whisenhunt</a>
                     </span>
                     <span className="tg-stars">
                       <span />
@@ -508,10 +450,7 @@ const Home: NextPage = () => {
                         <ins>$23.18</ins>
                         <del>$30.20</del>
                       </span>
-                      <a
-                        className="tg-btn tg-btnstyletwo tg-active"
-                        href="javascript:void(0);"
-                      >
+                      <a className="tg-btn tg-btnstyletwo tg-active" href="">
                         <i className="fa fa-shopping-basket" />
                         <em>Add To Basket</em>
                       </a>
@@ -549,10 +488,10 @@ const Home: NextPage = () => {
                     </p>
                   </div>
                   <div className="tg-btns">
-                    <a className="tg-btn tg-active" href="javascript:void(0);">
+                    <a className="tg-btn tg-active" href="">
                       View All
                     </a>
-                    <a className="tg-btn" href="javascript:void(0);">
+                    <a className="tg-btn" href="">
                       Read More
                     </a>
                   </div>
@@ -577,10 +516,7 @@ const Home: NextPage = () => {
                                 />
                               </div>
                             </div>
-                            <a
-                              className="tg-btnaddtowishlist"
-                              href="javascript:void(0);"
-                            >
+                            <a className="tg-btnaddtowishlist" href="">
                               <i className="icon-heart" />
                               <span>add to wishlist</span>
                             </a>
@@ -588,24 +524,19 @@ const Home: NextPage = () => {
                           <div className="tg-postbookcontent">
                             <ul className="tg-bookscategories">
                               <li>
-                                <a href="javascript:void(0);">Adventure</a>
+                                <a href="">Adventure</a>
                               </li>
                               <li>
-                                <a href="javascript:void(0);">Fun</a>
+                                <a href="">Fun</a>
                               </li>
                             </ul>
                             <div className="tg-booktitle">
                               <h3>
-                                <a href="javascript:void(0);">
-                                  Help Me Find My Stomach
-                                </a>
+                                <a href="">Help Me Find My Stomach</a>
                               </h3>
                             </div>
                             <span className="tg-bookwriter">
-                              By:{' '}
-                              <a href="javascript:void(0);">
-                                Kathrine Culbertson
-                              </a>
+                              By: <a href="">Kathrine Culbertson</a>
                             </span>
                             <span className="tg-stars">
                               <span />
@@ -630,10 +561,7 @@ const Home: NextPage = () => {
                                 />
                               </div>
                             </div>
-                            <a
-                              className="tg-btnaddtowishlist"
-                              href="javascript:void(0);"
-                            >
+                            <a className="tg-btnaddtowishlist" href="">
                               <i className="icon-heart" />
                               <span>add to wishlist</span>
                             </a>
@@ -641,22 +569,19 @@ const Home: NextPage = () => {
                           <div className="tg-postbookcontent">
                             <ul className="tg-bookscategories">
                               <li>
-                                <a href="javascript:void(0);">Adventure</a>
+                                <a href="">Adventure</a>
                               </li>
                               <li>
-                                <a href="javascript:void(0);">Fun</a>
+                                <a href="">Fun</a>
                               </li>
                             </ul>
                             <div className="tg-booktitle">
                               <h3>
-                                <a href="javascript:void(0);">
-                                  Drive Safely, No Bumping
-                                </a>
+                                <a href="">Drive Safely, No Bumping</a>
                               </h3>
                             </div>
                             <span className="tg-bookwriter">
-                              By:{' '}
-                              <a href="javascript:void(0);">Sunshine Orlando</a>
+                              By: <a href="">Sunshine Orlando</a>
                             </span>
                             <span className="tg-stars">
                               <span />
@@ -681,10 +606,7 @@ const Home: NextPage = () => {
                                 />
                               </div>
                             </div>
-                            <a
-                              className="tg-btnaddtowishlist"
-                              href="javascript:void(0);"
-                            >
+                            <a className="tg-btnaddtowishlist" href="">
                               <i className="icon-heart" />
                               <span>add to wishlist</span>
                             </a>
@@ -692,24 +614,19 @@ const Home: NextPage = () => {
                           <div className="tg-postbookcontent">
                             <ul className="tg-bookscategories">
                               <li>
-                                <a href="javascript:void(0);">Adventure</a>
+                                <a href="">Adventure</a>
                               </li>
                               <li>
-                                <a href="javascript:void(0);">Fun</a>
+                                <a href="">Fun</a>
                               </li>
                             </ul>
                             <div className="tg-booktitle">
                               <h3>
-                                <a href="javascript:void(0);">
-                                  Let The Good Times Roll Up
-                                </a>
+                                <a href="">Let The Good Times Roll Up</a>
                               </h3>
                             </div>
                             <span className="tg-bookwriter">
-                              By:{' '}
-                              <a href="javascript:void(0);">
-                                Elisabeth Ronning
-                              </a>
+                              By: <a href="">Elisabeth Ronning</a>
                             </span>
                             <span className="tg-stars">
                               <span />
@@ -827,7 +744,7 @@ const Home: NextPage = () => {
                   <h2>
                     <span>Some Great Books</span>Picked By Authors
                   </h2>
-                  <a className="tg-btn" href="javascript:void(0);">
+                  <a className="tg-btn" href="">
                     View All
                   </a>
                 </div>
@@ -870,18 +787,13 @@ const Home: NextPage = () => {
                     <div className="tg-postbookcontent">
                       <div className="tg-booktitle">
                         <h3>
-                          <a href="javascript:void(0);">
-                            Seven Minutes In Heaven
-                          </a>
+                          <a href="">Seven Minutes In Heaven</a>
                         </h3>
                       </div>
                       <span className="tg-bookwriter">
-                        By: <a href="javascript:void(0);">Sunshine Orlando</a>
+                        By: <a href="">Sunshine Orlando</a>
                       </span>
-                      <a
-                        className="tg-btn tg-btnstyletwo"
-                        href="javascript:void(0);"
-                      >
+                      <a className="tg-btn tg-btnstyletwo" href="">
                         <i className="fa fa-shopping-basket" />
                         <em>Add To Basket</em>
                       </a>
@@ -922,18 +834,13 @@ const Home: NextPage = () => {
                     <div className="tg-postbookcontent">
                       <div className="tg-booktitle">
                         <h3>
-                          <a href="javascript:void(0);">
-                            Slow And Steady Wins The Race
-                          </a>
+                          <a href="">Slow And Steady Wins The Race</a>
                         </h3>
                       </div>
                       <span className="tg-bookwriter">
-                        By: <a href="javascript:void(0);">Drusilla Glandon</a>
+                        By: <a href="">Drusilla Glandon</a>
                       </span>
-                      <a
-                        className="tg-btn tg-btnstyletwo"
-                        href="javascript:void(0);"
-                      >
+                      <a className="tg-btn tg-btnstyletwo" href="">
                         <i className="fa fa-shopping-basket" />
                         <em>Add To Basket</em>
                       </a>
@@ -974,18 +881,13 @@ const Home: NextPage = () => {
                     <div className="tg-postbookcontent">
                       <div className="tg-booktitle">
                         <h3>
-                          <a href="javascript:void(0);">
-                            There’s No Time Like The Present
-                          </a>
+                          <a href="">There’s No Time Like The Present</a>
                         </h3>
                       </div>
                       <span className="tg-bookwriter">
-                        By: <a href="javascript:void(0);">Patrick Seller</a>
+                        By: <a href="">Patrick Seller</a>
                       </span>
-                      <a
-                        className="tg-btn tg-btnstyletwo"
-                        href="javascript:void(0);"
-                      >
+                      <a className="tg-btn tg-btnstyletwo" href="">
                         <i className="fa fa-shopping-basket" />
                         <em>Add To Basket</em>
                       </a>
@@ -1026,18 +928,13 @@ const Home: NextPage = () => {
                     <div className="tg-postbookcontent">
                       <div className="tg-booktitle">
                         <h3>
-                          <a href="javascript:void(0);">
-                            Seven Minutes In Heaven
-                          </a>
+                          <a href="">Seven Minutes In Heaven</a>
                         </h3>
                       </div>
                       <span className="tg-bookwriter">
-                        By: <a href="javascript:void(0);">Sunshine Orlando</a>
+                        By: <a href="">Sunshine Orlando</a>
                       </span>
-                      <a
-                        className="tg-btn tg-btnstyletwo"
-                        href="javascript:void(0);"
-                      >
+                      <a className="tg-btn tg-btnstyletwo" href="">
                         <i className="fa fa-shopping-basket" />
                         <em>Add To Basket</em>
                       </a>
@@ -1078,18 +975,13 @@ const Home: NextPage = () => {
                     <div className="tg-postbookcontent">
                       <div className="tg-booktitle">
                         <h3>
-                          <a href="javascript:void(0);">
-                            Slow And Steady Wins The Race
-                          </a>
+                          <a href="">Slow And Steady Wins The Race</a>
                         </h3>
                       </div>
                       <span className="tg-bookwriter">
-                        By: <a href="javascript:void(0);">Drusilla Glandon</a>
+                        By: <a href="">Drusilla Glandon</a>
                       </span>
-                      <a
-                        className="tg-btn tg-btnstyletwo"
-                        href="javascript:void(0);"
-                      >
+                      <a className="tg-btn tg-btnstyletwo" href="">
                         <i className="fa fa-shopping-basket" />
                         <em>Add To Basket</em>
                       </a>
@@ -1210,7 +1102,7 @@ const Home: NextPage = () => {
                       Consectetur adipisicing elit sed do eiusmod tempor
                       incididunt ut labore et dolore.
                     </h3>
-                    <a className="tg-btn tg-active" href="javascript:void(0);">
+                    <a className="tg-btn tg-active" href="">
                       Read More
                     </a>
                   </div>
@@ -1233,7 +1125,7 @@ const Home: NextPage = () => {
                   <h2>
                     <span>Latest News &amp; Articles</span>Whats Hot in The News
                   </h2>
-                  <a className="tg-btn" href="javascript:void(0);">
+                  <a className="tg-btn" href="">
                     View All
                   </a>
                 </div>
@@ -1244,7 +1136,7 @@ const Home: NextPage = () => {
               >
                 <article className="item tg-post">
                   <figure>
-                    <a href="javascript:void(0);">
+                    <a href="">
                       <img
                         src="images/blog/img-01.jpg"
                         alt="image description"
@@ -1254,10 +1146,10 @@ const Home: NextPage = () => {
                   <div className="tg-postcontent">
                     <ul className="tg-bookscategories">
                       <li>
-                        <a href="javascript:void(0);">Adventure</a>
+                        <a href="">Adventure</a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">Fun</a>
+                        <a href="">Fun</a>
                       </li>
                     </ul>
                     <div className="tg-themetagbox">
@@ -1265,23 +1157,21 @@ const Home: NextPage = () => {
                     </div>
                     <div className="tg-posttitle">
                       <h3>
-                        <a href="javascript:void(0);">
-                          Where The Wild Things Are
-                        </a>
+                        <a href="">Where The Wild Things Are</a>
                       </h3>
                     </div>
                     <span className="tg-bookwriter">
-                      By: <a href="javascript:void(0);">Kathrine Culbertson</a>
+                      By: <a href="">Kathrine Culbertson</a>
                     </span>
                     <ul className="tg-postmetadata">
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-comment-o" />
                           <i>21,415 Comments</i>
                         </a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-eye" />
                           <i>24,565 Views</i>
                         </a>
@@ -1291,7 +1181,7 @@ const Home: NextPage = () => {
                 </article>
                 <article className="item tg-post">
                   <figure>
-                    <a href="javascript:void(0);">
+                    <a href="">
                       <img
                         src="images/blog/img-02.jpg"
                         alt="image description"
@@ -1301,10 +1191,10 @@ const Home: NextPage = () => {
                   <div className="tg-postcontent">
                     <ul className="tg-bookscategories">
                       <li>
-                        <a href="javascript:void(0);">Adventure</a>
+                        <a href="">Adventure</a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">Fun</a>
+                        <a href="">Fun</a>
                       </li>
                     </ul>
                     <div className="tg-themetagbox">
@@ -1312,23 +1202,21 @@ const Home: NextPage = () => {
                     </div>
                     <div className="tg-posttitle">
                       <h3>
-                        <a href="javascript:void(0);">
-                          All She Wants To Do Is Dance
-                        </a>
+                        <a href="">All She Wants To Do Is Dance</a>
                       </h3>
                     </div>
                     <span className="tg-bookwriter">
-                      By: <a href="javascript:void(0);">Kathrine Culbertson</a>
+                      By: <a href="">Kathrine Culbertson</a>
                     </span>
                     <ul className="tg-postmetadata">
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-comment-o" />
                           <i>21,415 Comments</i>
                         </a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-eye" />
                           <i>24,565 Views</i>
                         </a>
@@ -1338,7 +1226,7 @@ const Home: NextPage = () => {
                 </article>
                 <article className="item tg-post">
                   <figure>
-                    <a href="javascript:void(0);">
+                    <a href="">
                       <img
                         src="images/blog/img-03.jpg"
                         alt="image description"
@@ -1348,10 +1236,10 @@ const Home: NextPage = () => {
                   <div className="tg-postcontent">
                     <ul className="tg-bookscategories">
                       <li>
-                        <a href="javascript:void(0);">Adventure</a>
+                        <a href="">Adventure</a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">Fun</a>
+                        <a href="">Fun</a>
                       </li>
                     </ul>
                     <div className="tg-themetagbox">
@@ -1359,23 +1247,21 @@ const Home: NextPage = () => {
                     </div>
                     <div className="tg-posttitle">
                       <h3>
-                        <a href="javascript:void(0);">
-                          Why Walk When You Can Climb?
-                        </a>
+                        <a href="">Why Walk When You Can Climb?</a>
                       </h3>
                     </div>
                     <span className="tg-bookwriter">
-                      By: <a href="javascript:void(0);">Kathrine Culbertson</a>
+                      By: <a href="">Kathrine Culbertson</a>
                     </span>
                     <ul className="tg-postmetadata">
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-comment-o" />
                           <i>21,415 Comments</i>
                         </a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-eye" />
                           <i>24,565 Views</i>
                         </a>
@@ -1385,7 +1271,7 @@ const Home: NextPage = () => {
                 </article>
                 <article className="item tg-post">
                   <figure>
-                    <a href="javascript:void(0);">
+                    <a href="">
                       <img
                         src="images/blog/img-04.jpg"
                         alt="image description"
@@ -1395,10 +1281,10 @@ const Home: NextPage = () => {
                   <div className="tg-postcontent">
                     <ul className="tg-bookscategories">
                       <li>
-                        <a href="javascript:void(0);">Adventure</a>
+                        <a href="">Adventure</a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">Fun</a>
+                        <a href="">Fun</a>
                       </li>
                     </ul>
                     <div className="tg-themetagbox">
@@ -1406,23 +1292,21 @@ const Home: NextPage = () => {
                     </div>
                     <div className="tg-posttitle">
                       <h3>
-                        <a href="javascript:void(0);">
-                          Dance Like Nobody’s Watching
-                        </a>
+                        <a href="">Dance Like Nobody’s Watching</a>
                       </h3>
                     </div>
                     <span className="tg-bookwriter">
-                      By: <a href="javascript:void(0);">Kathrine Culbertson</a>
+                      By: <a href="">Kathrine Culbertson</a>
                     </span>
                     <ul className="tg-postmetadata">
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-comment-o" />
                           <i>21,415 Comments</i>
                         </a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-eye" />
                           <i>24,565 Views</i>
                         </a>
@@ -1432,7 +1316,7 @@ const Home: NextPage = () => {
                 </article>
                 <article className="item tg-post">
                   <figure>
-                    <a href="javascript:void(0);">
+                    <a href="">
                       <img
                         src="images/blog/img-02.jpg"
                         alt="image description"
@@ -1442,10 +1326,10 @@ const Home: NextPage = () => {
                   <div className="tg-postcontent">
                     <ul className="tg-bookscategories">
                       <li>
-                        <a href="javascript:void(0);">Adventure</a>
+                        <a href="">Adventure</a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">Fun</a>
+                        <a href="">Fun</a>
                       </li>
                     </ul>
                     <div className="tg-themetagbox">
@@ -1453,23 +1337,21 @@ const Home: NextPage = () => {
                     </div>
                     <div className="tg-posttitle">
                       <h3>
-                        <a href="javascript:void(0);">
-                          All She Wants To Do Is Dance
-                        </a>
+                        <a href="">All She Wants To Do Is Dance</a>
                       </h3>
                     </div>
                     <span className="tg-bookwriter">
-                      By: <a href="javascript:void(0);">Kathrine Culbertson</a>
+                      By: <a href="">Kathrine Culbertson</a>
                     </span>
                     <ul className="tg-postmetadata">
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-comment-o" />
                           <i>21,415 Comments</i>
                         </a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-eye" />
                           <i>24,565 Views</i>
                         </a>
@@ -1479,7 +1361,7 @@ const Home: NextPage = () => {
                 </article>
                 <article className="item tg-post">
                   <figure>
-                    <a href="javascript:void(0);">
+                    <a href="">
                       <img
                         src="images/blog/img-03.jpg"
                         alt="image description"
@@ -1489,10 +1371,10 @@ const Home: NextPage = () => {
                   <div className="tg-postcontent">
                     <ul className="tg-bookscategories">
                       <li>
-                        <a href="javascript:void(0);">Adventure</a>
+                        <a href="">Adventure</a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">Fun</a>
+                        <a href="">Fun</a>
                       </li>
                     </ul>
                     <div className="tg-themetagbox">
@@ -1500,23 +1382,21 @@ const Home: NextPage = () => {
                     </div>
                     <div className="tg-posttitle">
                       <h3>
-                        <a href="javascript:void(0);">
-                          Why Walk When You Can Climb?
-                        </a>
+                        <a href="">Why Walk When You Can Climb?</a>
                       </h3>
                     </div>
                     <span className="tg-bookwriter">
-                      By: <a href="javascript:void(0);">Kathrine Culbertson</a>
+                      By: <a href="">Kathrine Culbertson</a>
                     </span>
                     <ul className="tg-postmetadata">
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-comment-o" />
                           <i>21,415 Comments</i>
                         </a>
                       </li>
                       <li>
-                        <a href="javascript:void(0);">
+                        <a href="">
                           <i className="fa fa-eye" />
                           <i>24,565 Views</i>
                         </a>

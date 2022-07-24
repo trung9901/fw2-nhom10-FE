@@ -12,6 +12,8 @@ function Layout({ children }: LayoutProps) {
   return (
     <div className="">
       <Head>
+        <meta charSet="utf-8" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <title>Book Library</title>
         <meta name="description" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
