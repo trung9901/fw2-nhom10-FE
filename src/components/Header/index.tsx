@@ -7,7 +7,7 @@ import Image from 'next/image';
 type Props = {};
 
 const Header = (props: Props) => {
-  return <header></header>;
+  return <header>header</header>;
 };
 
 export default Header;
