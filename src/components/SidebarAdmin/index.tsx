@@ -1,5 +1,9 @@
 /* eslint-disable jsx-a11y/role-supports-aria-props */
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
+
+import { faMenu } from '@fortawesome/free-solid-svg-icons';
 
 type Props = {};
 
@@ -12,6 +16,12 @@ const Sidebar = (props: Props) => {
           <div id="main-menu" className="main-menu collapse navbar-collapse">
             <ul className="nav navbar-nav">
               <li className="active">
+                <Link href={''}>
+                  <FontAwesomeIcon
+                    icon={faMenu}
+                    style={{ fontSize: 100, color: 'blue' }}
+                  />
+                </Link>
                 <a href="index.html">
                   <i className="menu-icon fa fa-laptop" />
                   Dashboard{' '}
