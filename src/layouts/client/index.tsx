@@ -1,8 +1,13 @@
 import React from 'react'
+import Footer from '../components/Footer/Footer'
+import Header from '../components/Header/Header'
 
 const ClientLayouts = () => {
   return (
-    <div>ClientLayouts</div>
+    <div>
+      <Header />
+      <Footer />
+    </div>
   )
 }
 
