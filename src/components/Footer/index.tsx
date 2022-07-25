@@ -6,6 +6,11 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <div className="section footer_wwap clearfix">
+      <link
+        rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+        media="all"
+      />
       <footer className="footer">
         <div className="site-footer">
           <div className="mid-footer section">
@@ -22,7 +27,7 @@ const Footer = (props: Props) => {
                         data-target="#collapseListMenu01"
                         aria-controls="collapseListMenu01"
                       >
-                        Chính sách cửa hàng{" "}
+                        Chính sách cửa hàng{' '}
                         <i className="fa fa-plus hidden" aria-hidden="true" />
                       </a>
                     </h4>
@@ -73,7 +78,7 @@ const Footer = (props: Props) => {
                         data-target="#collapseListMenu02"
                         aria-controls="collapseListMenu02"
                       >
-                        Hỗ trợ online{" "}
+                        Hỗ trợ online{' '}
                         <i className="fa fa-plus hidden" aria-hidden="true" />
                       </a>
                     </h4>
@@ -124,7 +129,7 @@ const Footer = (props: Props) => {
                         data-target="#collapseListMenu03"
                         aria-controls="collapseListMenu03"
                       >
-                        Bảo hành{" "}
+                        Bảo hành{' '}
                         <i className="fa fa-plus hidden" aria-hidden="true" />
                       </a>
                     </h4>
@@ -250,6 +255,7 @@ const Footer = (props: Props) => {
                         id="mc-form"
                         className="newsletter-form"
                         data-toggle="validator"
+                        noValidate="true"
                       >
                         <div className="input-group">
                           <div className="groupiput">
@@ -259,7 +265,7 @@ const Footer = (props: Props) => {
                               name="FNAME"
                               className="form-control"
                               placeholder="Nhập tên của bạn"
-                              required=""
+                              required
                               autoComplete="off"
                             />
                             <input
@@ -268,7 +274,7 @@ const Footer = (props: Props) => {
                               className="form-control"
                               placeholder="Nhập Email"
                               name="EMAIL"
-                              required=""
+                              required
                               autoComplete="off"
                             />
                           </div>
@@ -308,16 +314,16 @@ const Footer = (props: Props) => {
                   >
                     <div className="wsp">
                       <span>
-                        Bản quyền thuộc về{" "}
+                        Bản quyền thuộc về{' '}
                         <a href="https://deltaweb.bizwebvietnam.net/">
                           Ego Creative
                         </a>
-                      </span>{" "}
+                      </span>{' '}
                       <span className="opacity1">
                         Cung cấp bởi
                         <a
                           href="https://www.sapo.vn/?utm_campaign=cpn:site_khach_hang-plm:footer&utm_source=site_khach_hang&utm_medium=referral&utm_content=fm:text_link-km:-sz:&utm_term=&campaign=site_khach_hang"
-                          rel="nofollow noreferrer"
+                          rel="nofollow"
                           title="Sapo"
                           target="_blank"
                         >
@@ -328,7 +334,7 @@ const Footer = (props: Props) => {
                   </div>
                 </div>
               </div>
-              <a href="#" className="backtop" title="Lên đầu trang">
+              <a href="#" className="backtop show" title="Lên đầu trang">
                 <i className="fa fa-angle-up" aria-hidden="true" />
               </a>
             </div>
@@ -336,7 +342,7 @@ const Footer = (props: Props) => {
         </div>
       </footer>
     </div>
-  )
+  );
 };
 
 export default Footer;
