@@ -440,7 +440,7 @@ const Header = (props: Props) => {
                   </li>
                   <li className="nav-item ">
                     <a className="a-img" href="/khuyen-mai" title="Khuyến mại">
-                      <span>Khuyến mại</span>
+                      <span>Khuyến mại abnfjabfaf</span>
                     </a>
                   </li>
                 </ul>
