@@ -19,9 +19,9 @@ function Layout({ children }: LayoutProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <div className="">
-        <div id="" className="">
+        <div id="" className="inbody section">
           <Header />
-          {children}
+          <div className="bodywrap">{children}</div>
           <Footer />
         </div>
       </div>
