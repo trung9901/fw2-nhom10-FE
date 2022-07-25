@@ -3,6 +3,7 @@
 import Head from 'next/head';
 import React from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Props = {};
 
@@ -127,9 +128,9 @@ const Header = (props: Props) => {
             <div className="col-lg-3 col-md-12 col-sm-12 col-12">
               <span className="menubutton"><i className="fas fa-bars" /></span>
               <div className="logo">
-                <a href="/" className="logo-wrapper ">
+                <Link href="/" className="logo-wrapper ">
                   <img src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/logo.png?1656725435979" alt="logo Ego Mall" />
-                </a>
+                </Link>
               </div>
             </div>
             <div className="col-lg-9 col-md-12 col-sm-12 col-12">
@@ -192,12 +193,12 @@ const Header = (props: Props) => {
                   <div className="carthd">
                     <div className="mini-cart text-xs-center">
                       <div className="heading-cart cart_header">
-                        <a className="img_hover_cart" href="/cart" title="Giỏ hàng">
+                        <Link className="img_hover_cart" href="/cart" title="Giỏ hàng">
                           <div className="icon_hotline">
                             <img src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/shopping-bag.svg?1656725435979" alt="Giỏ hàng" />
                             <span className="bolds cartext">Giỏ hàng<span className="count_item count_item_pr" /></span>
                           </div>
-                        </a>
+                        </Link>
                       </div>
                       <div className="top-cart-content">
                         <ul id="cart-sidebar" className="mini-products-list count_li">
@@ -338,9 +339,9 @@ const Header = (props: Props) => {
               <nav className="header-nav">
                 <ul className="item_big">
                   <li className="nav-item active ">
-                    <a className="a-img" href="/" title="Trang chủ">
+                    <Link className="a-img" href="/" title="Trang chủ">
                       <span>Trang chủ</span>
-                    </a>
+                    </Link>
                   </li>
                   <li className="nav-item  has-mega">
                     <a className="a-img" href="/collections/all" title="Sản phẩm">
@@ -462,7 +463,7 @@ const Header = (props: Props) => {
               <div className="menu_mobile">
                 <ul className="ul_collections">
                   <li className="level0 level-top parent">
-                    <a href="/">Trang chủ</a>
+                    <Link href="/">Trang chủ</Link>
                   </li>
                   <li className="level0 level-top parent">
                     <a href="/collections/all">Sản phẩm</a>
