@@ -6,6 +6,7 @@ import Header from '../Header';
 import Footer from '../Footer';
 import { LayoutProps } from '../../models/Layout';
 import Head from 'next/head';
+import ProductPage from '../../pages/products';
 // type Props = {};
 
 function Layout({ children }: LayoutProps) {
