@@ -17,6 +17,9 @@ import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/main
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/index.scss.css?1656725435979'
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/responsive.scss.css?1656725435979'
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/quickviews_popup_cart.scss.css?1656725435979'
+import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/sidebar_style.scss.css?1656725435979'
+import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/collection_style.scss.css?1656725435979'
+
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const LayoutWrapper = Component.Layout ?? Layout;
   return (
