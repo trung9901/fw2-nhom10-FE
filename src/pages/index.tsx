@@ -607,8 +607,7 @@ const Home: NextPage = () => {
             <a className="scale_hover" href="#" title="alt">
               <img
                 className="lazyload banner_leng"
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/banner-leng.jpg?1656725435979"
+                src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct1.png?v=1577470247840"
                 alt="alt"
               />
             </a>
@@ -616,44 +615,7 @@ const Home: NextPage = () => {
         </section>
       </section>
 
-      <section className="awe-section-5">
-        <section className="section_three_banner">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-4 col-md-4 col-sm-12 col-12">
-                <a className="scale_hover" href="#" title="alt1">
-                  <img
-                    className="three_img_banner lazyload"
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                    data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/banner_col_1.jpg?1656725435979"
-                    alt="alt1"
-                  />
-                </a>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-12 col-12">
-                <a className="scale_hover" href="#" title="alt2">
-                  <img
-                    className="three_img_banner lazyload"
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                    data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/banner_col_2.jpg?1656725435979"
-                    alt="alt2"
-                  />
-                </a>
-              </div>
-              <div className="col-lg-4 col-md-4 col-sm-12 col-12">
-                <a className="scale_hover" href="#" title="alt3">
-                  <img
-                    className="three_img_banner lazyload"
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                    data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/banner_col_3.jpg?1656725435979"
-                    alt="alt3"
-                  />
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-      </section>
+
 
       <section className="awe-section-8">
         <section className="section_product_block">
