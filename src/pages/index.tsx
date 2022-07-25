@@ -46,36 +46,201 @@ const Home: NextPage = () => {
       <section className="awe-section-2">
         <section className="section_category">
           <div className="container">
-            <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
-              </div>
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
-              </div>
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
-              </div>
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
-              </div>
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
-              </div>
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
-              </div>
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
-              </div>
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
-              </div>
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
-              </div>
-              <div className="col">
-                <div className="p-3 border bg-light">Row column</div>
+            <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div className="clearfix titlecate">
+                  <h2>
+                    Danh mục nổi bật
+                  </h2>
+                </div>
+                <div className="owlnav_cate clearfix">
+
+
+                  <div className="owl_col_section owl_category slickcategory slick_margin">
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/dien-tu-va-cong-nghe';">
+                        <div className="thumb_s">
+                          <a className="image" href="/dien-tu-va-cong-nghe" title="Điện tử và công nghệ">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct1.png?v=1577470247840" alt="Điện tử và công nghệ" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/dien-tu-va-cong-nghe" title="Điện tử và công nghệ">Điện tử và công nghệ</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/dong-ho-hang-hieu';">
+                        <div className="thumb_s">
+                          <a className="image" href="/dong-ho-hang-hieu" title="Đồng hồ hàng hiệu">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct8.png?v=1577470357530" alt="Đồng hồ hàng hiệu" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/dong-ho-hang-hieu" title="Đồng hồ hàng hiệu">Đồng hồ hàng hiệu</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/thoi-trang-phu-kien';">
+                        <div className="thumb_s">
+                          <a className="image" href="/thoi-trang-phu-kien" title="Thời trang & phụ kiện">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/c2.png?v=1577470400140" alt="Thời trang & phụ kiện" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/thoi-trang-phu-kien" title="Thời trang & phụ kiện">Thời trang & phụ kiện</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/me-be-do-choi';">
+                        <div className="thumb_s">
+                          <a className="image" href="/me-be-do-choi" title="Mẹ, bé & đồ chơi">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct10.png?v=1577470452757" alt="Mẹ, bé & đồ chơi" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/me-be-do-choi" title="Mẹ, bé & đồ chơi">Mẹ, bé & đồ chơi</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/lam-dep';">
+                        <div className="thumb_s">
+                          <a className="image" href="/lam-dep" title="Làm đẹp">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct11.png?v=1577470527843" alt="Làm đẹp" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/lam-dep" title="Làm đẹp">Làm đẹp</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/the-gioi-nuoc-hoa';">
+                        <div className="thumb_s">
+                          <a className="image" href="/the-gioi-nuoc-hoa" title="Thế giới nước hoa">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct5.png?v=1577470543683" alt="Thế giới nước hoa" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/the-gioi-nuoc-hoa" title="Thế giới nước hoa">Thế giới nước hoa</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/do-choi-va-game';">
+                        <div className="thumb_s">
+                          <a className="image" href="/do-choi-va-game" title="Đồ chơi và game">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct12.png?v=1577470573337" alt="Đồ chơi và game" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/do-choi-va-game" title="Đồ chơi và game">Đồ chơi và game</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/the-thao-du-lich';">
+                        <div className="thumb_s">
+                          <a className="image" href="/the-thao-du-lich" title="Thể thao, du lịch">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct10-c7ca391b-3881-4926-8973-3b0057a7967d.png?v=1577470604167" alt="Thể thao, du lịch" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/the-thao-du-lich" title="Thể thao, du lịch">Thể thao, du lịch</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/noi-that-kien-truc';">
+                        <div className="thumb_s">
+                          <a className="image" href="/noi-that-kien-truc" title="Nội thất, kiến trúc">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct14.png?v=1577470610790" alt="Nội thất, kiến trúc" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/noi-that-kien-truc" title="Nội thất, kiến trúc">Nội thất, kiến trúc</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/phu-tung-xe-hoi';">
+                        <div className="thumb_s">
+                          <a className="image" href="/phu-tung-xe-hoi" title="Phụ tùng xe hơi">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct4.png?v=1577470658733" alt="Phụ tùng xe hơi" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/phu-tung-xe-hoi" title="Phụ tùng xe hơi">Phụ tùng xe hơi</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/do-gia-dung';">
+                        <div className="thumb_s">
+                          <a className="image" href="/do-gia-dung" title="Đồ gia dụng">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct17.png?v=1577470678823" alt="Đồ gia dụng" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/do-gia-dung" title="Đồ gia dụng">Đồ gia dụng</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="item_category">
+                      <div className="item" onClick="location.href='/cho-thu-cung';">
+                        <div className="thumb_s">
+                          <a className="image" href="/cho-thu-cung" title="Cho thú cưng">
+
+                            <img className="image_cate_thumb lazyload" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC" data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct18.png?v=1577470728620" alt="Cho thú cưng" />
+
+                          </a>
+                          <div className="info">
+                            <h4 className="title_cate_"><a href="/cho-thu-cung" title="Cho thú cưng">Cho thú cưng</a></h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
