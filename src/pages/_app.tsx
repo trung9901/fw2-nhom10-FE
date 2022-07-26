@@ -20,6 +20,7 @@ import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/quic
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/sidebar_style.scss.css?1656725435979'
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/collection_style.scss.css?1656725435979'
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/product_style.scss.css?1656725435979'
+import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/cartpage.scss.css?1656725435979'
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const LayoutWrapper = Component.Layout ?? Layout;
