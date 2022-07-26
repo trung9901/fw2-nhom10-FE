@@ -21,7 +21,7 @@ const Sidebar = (props: Props) => {
                   Dashboard{' '}
                 </a>
               </li>
-              <li className="menu-title">Elements</li>
+              <li className="menu-title">Menu</li>
               {/* /.menu-title */}
               <li className="menu-item-has-children dropdown">
                 <Link href="admin/products">
