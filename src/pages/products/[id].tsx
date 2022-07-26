@@ -1,10 +1,9 @@
+import Link from 'next/link'
 import React from 'react'
-
 type Props = {}
 
 const ProductDetail = (props: Props) => {
     return (
-
         <div className="container">
             <section className="bread-crumb">
                 <span className="crumb-border" />
@@ -13,9 +12,9 @@ const ProductDetail = (props: Props) => {
                         <div className="col-xs-12 a-left">
                             <ul className="breadcrumb">
                                 <li className="home">
-                                    <a href="/">
+                                    <Link href="/">
                                         <span>Trang chủ</span>
-                                    </a>
+                                    </Link>
                                     <span className="mr_lr">
                                         &nbsp;
                                         <i className="fa fa-angle-right" />
@@ -236,7 +235,6 @@ const ProductDetail = (props: Props) => {
                                             <div
                                                 className="fw w_100"
                                                 itemProp="offers"
-                                                itemScope=""
                                                 itemType="https://schema.org/Offer"
                                             >
                                                 <div className="group-status">
@@ -247,7 +245,7 @@ const ProductDetail = (props: Props) => {
                                                 <div className="price-box">
                                                     <div className="special-price">
                                                         <span className="price product-price">5.490.000₫</span>
-                                                        <meta itemProp="price" content={5490000} />
+                                                        <meta itemProp="price" />
                                                         <meta itemProp="priceCurrency" content="VND" />
                                                     </div>{" "}
                                                     {/* Giá */}
@@ -284,7 +282,7 @@ const ProductDetail = (props: Props) => {
                                                             <div className="custom input_number_product custom-btn-number form-control">
                                                                 <button
                                                                     className="btn_num num_1 button button_qty"
-                                                                    onClick="var result = document.getElementById('qtym'); var qtypro = result.value; if( !isNaN( qtypro ) && qtypro > 1 ) result.value--;return false;"
+
                                                                     type="button"
                                                                 >
                                                                     <i className="fas fa-minus-circle" />
@@ -296,12 +294,10 @@ const ProductDetail = (props: Props) => {
                                                                     defaultValue={1}
                                                                     maxLength={3}
                                                                     className="form-control prd_quantity"
-                                                                    onKeyPress="if ( isNaN(this.value + String.fromCharCode(event.keyCode) )) return false;"
-                                                                    onChange="if(this.value == 0)this.value=1;"
+
                                                                 />
                                                                 <button
                                                                     className="btn_num num_2 button button_qty"
-                                                                    onClick="var result = document.getElementById('qtym'); var qtypro = result.value; if( !isNaN( qtypro )) result.value++;return false;"
                                                                     type="button"
                                                                 >
                                                                     <i className="fas fa-plus-circle" />
@@ -513,7 +509,6 @@ const ProductDetail = (props: Props) => {
                                                         className="hidden-xs btn btn-cart btn btn-views left-to"
                                                         title="Nhiều lựa chọn"
                                                         type="button"
-                                                        onClick="window.location.href='/dien-thoai-xiaomi-redmi-note-4'"
                                                         tabIndex={-1}
                                                     >
                                                         <i className="fas fa-cog" />
