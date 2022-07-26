@@ -20,7 +20,6 @@ const CartPage = (props: Props) => {
               <form
                 action="/cart"
                 method="post"
-                noValidate=""
                 className="formcartpage col-lg-12 col-xl-12 col-md-12 margin-bottom-0"
               >
                 <div className="bg-scroll">
