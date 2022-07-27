@@ -1,12 +1,46 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable jsx-a11y/alt-text */
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import AdminLayout from '../../../components/Layout/admin';
+import { ProductType } from '../../../models/Products';
+import useProducts from './../../../hook/use-products';
 
-type Props = {};
+//
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTrashAlt,
+  faFileAlt,
+  faAdd,
+} from '@fortawesome/free-solid-svg-icons';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+//
+type Props = {
+  products: ProductType[];
+};
+type FormData = {
+  name: String;
+  price: Number;
+  image: String;
+  quantity: Number;
+  status: Number;
+  description: String;
+  category: String;
+};
 
 const ProductList = (props: Props) => {
+  const { data, error, create, remove, update } = useProducts();
+  const {
+    register,
+    setValue,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<FormData>();
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const onSubmit = handleSubmit((data) => create(data));
+  console.log(data);
   return (
     <div>
       <div className="content ">
@@ -14,141 +48,219 @@ const ProductList = (props: Props) => {
           <div className="col">
             <div className="card">
               <div className="card-header">
-                <strong className="card-title">Custom Table</strong>
+                <strong className="card-title">Product List</strong>
               </div>
               <div className="table-stats order-table ov-h">
                 <table className="table ">
                   <thead>
                     <tr>
                       <th className="serial">#</th>
-                      <th className="avatar">Avatar</th>
-                      <th>ID</th>
+                      <th className="avatar">Image</th>
+
                       <th>Name</th>
-                      <th>Product</th>
+                      <th>Category</th>
+                      <th>Price</th>
                       <th>Quantity</th>
+                      <th>Description</th>
                       <th>Status</th>
+                      <th>Action</th>
+                      <th>
+                        <Button
+                          color="primary"
+                          type="button"
+                          onClick={() => setModalOpen(!modalOpen)}
+                        >
+                          thêm mới
+                        </Button>
+
+                        <Modal
+                          toggle={() => setModalOpen(!modalOpen)}
+                          isOpen={modalOpen}
+                          animation={null}
+                        >
+                          <div className=" modal-header d-flex">
+                            <h5 className=" modal-title" id="exampleModalLabel">
+                              Thêm sản phẩm
+                            </h5>
+                            <button
+                              aria-label="Close"
+                              className=" close"
+                              type="button"
+                              onClick={() => setModalOpen(!modalOpen)}
+                            >
+                              <span aria-hidden={true}>×</span>
+                            </button>
+                          </div>
+                          <form action="" onSubmit={onSubmit}>
+                            <ModalBody>
+                              {' '}
+                              <div className="form-group">
+                                <label htmlFor="exampleFormControlInput1">
+                                  Name
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  id="name"
+                                  placeholder="Tên sản phẩm"
+                                  {...register('name')}
+                                />
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="exampleFormControlFile1">
+                                  image
+                                </label>
+                                <input
+                                  type="text"
+                                  className="form-control-file"
+                                  id="img"
+                                  {...register('image')}
+                                />
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="">Price</label>
+                                <input
+                                  type="number"
+                                  className="form-control"
+                                  id="price"
+                                  placeholder="Giá"
+                                  {...register('price')}
+                                />
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="">Quantity</label>
+                                <input
+                                  type="number"
+                                  className="form-control"
+                                  id="quantity"
+                                  placeholder="Số lượng"
+                                  {...register('quantity')}
+                                />
+                              </div>
+                              <div className="form-group">
+                                <label htmlFor="">Status</label>
+
+                                <select {...register('status')}>
+                                  <option value={1}>Còn hàng</option>
+                                  <option value={0}>Hết hàng</option>
+                                </select>
+                              </div>
+                              {/* <div className="from-group">
+      <select
+        className="form-select"
+        aria-label="Default select example"
+        {...register('category')}
+      >
+        <option selected>Danh Muc</option>
+        {props.categories?.map((item, index) => (
+          <option value={item._id}>
+            {item.name}
+          </option>
+        ))}
+      </select>
+    </div> */}
+                              <div className="form-group">
+                                <label htmlFor="exampleFormControlTextarea1">
+                                  Description
+                                </label>
+                                <textarea
+                                  className="form-control"
+                                  id="description"
+                                  {...register('description')}
+                                />
+                              </div>
+                            </ModalBody>
+                            <ModalFooter>
+                              <Button
+                                color="secondary"
+                                type="button"
+                                onClick={() => setModalOpen(!modalOpen)}
+                              >
+                                Đóng
+                              </Button>
+                              <Button
+                                color="primary"
+                                type="submit"
+                                onClick={() => setModalOpen(!modalOpen)}
+                              >
+                                Thêm sản phẩm
+                              </Button>
+                            </ModalFooter>
+                          </form>
+                        </Modal>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td className="serial">1.</td>
-                      <td className="avatar">
-                        <div className="">
-                          <a href="#">
-                            <Image
-                              className=""
-                              src="https://picsum.photos/200"
-                              width={80}
-                              height={80}
-                              priority
-                            />
-                          </a>
-                        </div>
-                      </td>
-                      <td> #5469 </td>
-                      <td>
-                        {' '}
-                        <span className="name">Louis Stanley</span>{' '}
-                      </td>
-                      <td>
-                        {' '}
-                        <span className="product">iMax</span>{' '}
-                      </td>
-                      <td>
-                        <span className="count">231</span>
-                      </td>
-                      <td>
-                        <span className="badge badge-complete">Complete</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="serial">2.</td>
-                      <td className="avatar">
-                        <div className="">
-                          <a href="#">
-                            <Image
-                              className=""
-                              src="https://picsum.photos/id/1/200"
-                              width={80}
-                              height={80}
-                            />
-                          </a>
-                        </div>
-                      </td>
-                      <td> #5468 </td>
-                      <td>
-                        {' '}
-                        <span className="name">Gregory Dixon</span>{' '}
-                      </td>
-                      <td>
-                        {' '}
-                        <span className="product">iPad</span>{' '}
-                      </td>
-                      <td>
-                        <span className="count">250</span>
-                      </td>
-                      <td>
-                        <span className="badge badge-complete">Complete</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="serial">3.</td>
-                      <td className="avatar">
-                        <div className="round-img">
-                          <a href="#">
-                            <img
-                              className="rounded-circle"
-                              src="images/avatar/3.jpg"
-                              alt
-                            />
-                          </a>
-                        </div>
-                      </td>
-                      <td> #5467 </td>
-                      <td>
-                        {' '}
-                        <span className="name">Catherine Dixon</span>{' '}
-                      </td>
-                      <td>
-                        {' '}
-                        <span className="product">SSD</span>{' '}
-                      </td>
-                      <td>
-                        <span className="count">250</span>
-                      </td>
-                      <td>
-                        <span className="badge badge-complete">Complete</span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td className="serial">4.</td>
-                      <td className="avatar">
-                        <div className="round-img">
-                          <a href="#">
-                            <img
-                              className="rounded-circle"
-                              src="images/avatar/4.jpg"
-                              alt
-                            />
-                          </a>
-                        </div>
-                      </td>
-                      <td> #5466 </td>
-                      <td>
-                        {' '}
-                        <span className="name">Mary Silva</span>{' '}
-                      </td>
-                      <td>
-                        {' '}
-                        <span className="product">Magic Mouse</span>{' '}
-                      </td>
-                      <td>
-                        <span className="count">250</span>
-                      </td>
-                      <td>
-                        <span className="badge badge-pending">Pending</span>
-                      </td>
-                    </tr>
+                    {data?.map((item: any, index: number) => (
+                      <tr key={index}>
+                        <td className="serial">{index + 1}</td>
+                        <td className="avatar">
+                          <div className="">
+                            <a href="#">
+                              <Image
+                                className=""
+                                src={item.image}
+                                width={80}
+                                height={80}
+                                priority
+                              />
+                            </a>
+                          </div>
+                        </td>
+
+                        <td>
+                          {' '}
+                          <span className="name">{item.name}</span>{' '}
+                        </td>
+                        <td>
+                          {' '}
+                          <span className="product">iMax</span>{' '}
+                        </td>
+                        <td>
+                          <span className="">{item.price} $</span>
+                        </td>
+                        <td>
+                          <span className="count">{item.quantity}</span>
+                        </td>
+                        <td>
+                          <span className="">{item.description}</span>
+                        </td>
+                        <td>
+                          <span className="badge badge-complete">Complete</span>
+                        </td>
+                        <td>
+                          <div className="d-flex justify-content-evenly">
+                            <div className="">
+                              <button
+                                type="button"
+                                className="btn btn-primary btn-sm  rounded "
+                                onClick={() => {
+                                  if (
+                                    window.confirm(
+                                      'Are you sure you want to delete'
+                                    )
+                                  ) {
+                                    remove(item._id);
+                                  }
+                                }}
+                              >
+                                <FontAwesomeIcon icon={faTrashAlt} />
+                              </button>
+                            </div>
+                            {/* -------------------------------------------- */}
+                            <div className="">
+                              <button
+                                type="button"
+                                className="btn btn-success btn-sm  rounded"
+                              >
+                                <FontAwesomeIcon icon={faFileAlt} />
+                              </button>
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>{' '}
