@@ -6,7 +6,7 @@ import React from 'react';
 import AdminLayout from '../../../components/Layout/admin';
 import { ProductType } from '../../../models/Products';
 import useProducts from './../../../hook/use-products';
-import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+
 //
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -15,6 +15,7 @@ import {
   faAdd,
 } from '@fortawesome/free-solid-svg-icons';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 //
 type Props = {
   products: ProductType[];
@@ -31,13 +32,13 @@ type FormData = {
 
 const ProductList = (props: Props) => {
   const { data, error, create, remove, update } = useProducts();
-  const [modalOpen, setModalOpen] = React.useState(false);
-  const [modalOpen2, setModalOpen2] = React.useState(false);
   const {
     register,
+    setValue,
     handleSubmit,
     formState: { errors },
   } = useForm<FormData>();
+  const [modalOpen, setModalOpen] = React.useState(false);
   const onSubmit = handleSubmit((data) => create(data));
   console.log(data);
   return (
@@ -62,23 +63,20 @@ const ProductList = (props: Props) => {
                       <th>Quantity</th>
                       <th>Description</th>
                       <th>Status</th>
-                      <th className="">Action</th>
+                      <th>Action</th>
                       <th>
-                        <div className="">
-                          <button
-                            className="btn btn-success rounded"
-                            onClick={() => setModalOpen(!modalOpen)}
-                          >
-                            <span className="mx-1">
-                              <FontAwesomeIcon icon={faAdd} />
-                            </span>
-                            <span>New</span>
-                          </button>{' '}
-                        </div>
+                        <Button
+                          color="primary"
+                          type="button"
+                          onClick={() => setModalOpen(!modalOpen)}
+                        >
+                          thêm mới
+                        </Button>
 
                         <Modal
                           toggle={() => setModalOpen(!modalOpen)}
                           isOpen={modalOpen}
+                          animation={null}
                         >
                           <div className=" modal-header d-flex">
                             <h5 className=" modal-title" id="exampleModalLabel">
@@ -143,27 +141,24 @@ const ProductList = (props: Props) => {
                                 <label htmlFor="">Status</label>
 
                                 <select {...register('status')}>
-                                  <option selected>
-                                    --Please choose an option--
-                                  </option>
                                   <option value={1}>Còn hàng</option>
                                   <option value={0}>Hết hàng</option>
                                 </select>
                               </div>
                               {/* <div className="from-group">
-                                <select
-                                  className="form-select"
-                                  aria-label="Default select example"
-                                  {...register('category')}
-                                >
-                                  <option selected>Danh Muc</option>
-                                  {props.categories?.map((item, index) => (
-                                    <option value={item._id}>
-                                      {item.name}
-                                    </option>
-                                  ))}
-                                </select>
-                              </div> */}
+      <select
+        className="form-select"
+        aria-label="Default select example"
+        {...register('category')}
+      >
+        <option selected>Danh Muc</option>
+        {props.categories?.map((item, index) => (
+          <option value={item._id}>
+            {item.name}
+          </option>
+        ))}
+      </select>
+    </div> */}
                               <div className="form-group">
                                 <label htmlFor="exampleFormControlTextarea1">
                                   Description
@@ -235,8 +230,8 @@ const ProductList = (props: Props) => {
                           <span className="badge badge-complete">Complete</span>
                         </td>
                         <td>
-                          <div className="d-flex">
-                            <div className="col">
+                          <div className="d-flex justify-content-evenly">
+                            <div className="">
                               <button
                                 type="button"
                                 className="btn btn-primary btn-sm  rounded "
@@ -254,48 +249,13 @@ const ProductList = (props: Props) => {
                               </button>
                             </div>
                             {/* -------------------------------------------- */}
-                            <div className="col">
+                            <div className="">
                               <button
                                 type="button"
                                 className="btn btn-success btn-sm  rounded"
-                                onClick={() => setModalOpen2(!modalOpen2)}
                               >
                                 <FontAwesomeIcon icon={faFileAlt} />
                               </button>
-                              <Modal
-                                toggle={() => setModalOpen2(!modalOpen2)}
-                                isOpen={modalOpen2}
-                              >
-                                <div className=" modal-header">
-                                  <h5
-                                    className=" modal-title"
-                                    id="exampleModalLabel"
-                                  >
-                                    Modal title
-                                  </h5>
-                                  <button
-                                    aria-label="Close"
-                                    className=" close"
-                                    type="button"
-                                    onClick={() => setModalOpen2(!modalOpen2)}
-                                  >
-                                    <span aria-hidden={true}>×</span>
-                                  </button>
-                                </div>
-                                <ModalBody>...</ModalBody>
-                                <ModalFooter>
-                                  <Button
-                                    color="secondary"
-                                    type="button"
-                                    onClick={() => setModalOpen2(!modalOpen2)}
-                                  >
-                                    Close
-                                  </Button>
-                                  <Button color="primary" type="button">
-                                    Save changes
-                                  </Button>
-                                </ModalFooter>
-                              </Modal>
                             </div>
                           </div>
                         </td>
