@@ -1,5 +1,7 @@
 /* eslint-disable react/jsx-no-undef */
 /* eslint-disable jsx-a11y/alt-text */
+
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import AdminLayout from '../../../components/Layout/admin';
@@ -11,14 +13,13 @@ import {
   faAdd,
   faFileUpload,
 } from '@fortawesome/free-solid-svg-icons';
-
+import Image from 'next/image';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import useSWR from 'swr';
 type Props = {};
 type FormData = {
   name: String;
-
   image: String;
 };
 const CategoryList = (props: Props) => {
@@ -37,6 +38,11 @@ const CategoryList = (props: Props) => {
 
   const onSubmit = handleSubmit((data) => {
     if (data) {
+      toast.success('Thêm danh mục thành công !')
+      create(data)
+      
+      reset()
+      setModalOpen(!modalOpen)
     }
   });
   return (
@@ -88,7 +94,7 @@ const CategoryList = (props: Props) => {
                                 <span aria-hidden={true}>×</span>
                               </button>
                             </div>
-                            <form action="" onSubmit={onSubmit}>
+                            <form onSubmit={onSubmit}>
                               <ModalBody>
                                 <div className="form-group">
                                   <label htmlFor="exampleFormControlFile1">
@@ -156,7 +162,7 @@ const CategoryList = (props: Props) => {
                           <td className="serial">{index + 1}</td>
                           <td className="avatar">
                             <div className="round-img">
-                              <a href="#">
+                              <a >
                                 <Image
                                   className=""
                                   src={item?.image}
@@ -170,7 +176,7 @@ const CategoryList = (props: Props) => {
 
                           <td>
                             {' '}
-                            <span className="name">Louis Stanley</span>{' '}
+                            <span className="name">{item.name}</span>{' '}
                           </td>
 
                           <td>

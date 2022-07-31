@@ -9,21 +9,21 @@ const useCategories = () => {
   const { id } = router.query;
   const { data, error, mutate } = useSWR(`/categories`);
   const create = async (item: any) => {
-    const product = await add(item);
-    mutate([...data, product]);
+    const categories = await add(item);
+    mutate([...data, categories]);
   };
 
   const update = async (id: any, products: any) => {
     const updateData = await updateItem(id, products);
-    const product = data.map((item: any) =>
+    const categories = data.map((item: any) =>
       item.id == id ? updateData : item
     );
-    mutate(product);
+    mutate(categories);
   };
   const remove = async (id: any) => {
     await removeItem(id);
-    const newProducts = data.filter((item: any) => item.id != id);
-    mutate(newProducts);
+    const categories = data.filter((item: any) => item.id != id);
+    mutate(categories);
   };
   return {
     data,
