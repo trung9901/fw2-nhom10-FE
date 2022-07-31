@@ -1,8 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
+import Link from 'next/link';
+import useProducts from '../hook/use-products';
 
 
 const Home: NextPage = () => {
+  const { data: products, error } = useProducts()
+  if (!products) return <div>Loading...</div>
+  if (error) return <div>Failed to loading</div>
   return (
     <div className="bodywrap">
       <h1 className="d-none">Ego Mall - </h1>
@@ -714,752 +719,92 @@ const Home: NextPage = () => {
                       }}
                       role="listbox"
                     >
-                      <div
-                        className="slick-slide slick-current slick-active"
-                        data-slick-index={0}
-                        aria-hidden="false"
-                        style={{ width: 202 }}
-                        tabIndex={-1}
-                        role="option"
-                        aria-describedby="slick-slide30"
-                      >
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610206"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/dien-thoai-honor-7x-64gb-4gb-3-camera"
-                                    title="Điện thoại Honor 7X 64GB/4GB 3 camera"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/7329f4ef40e4ead01e089872faf6ae.jpg?v=1577471328000"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/7329f4ef40e4ead01e089872faf6ae.jpg?v=1577471328000"
-                                      alt="Điện thoại Honor 7X 64GB/4GB 3 camera"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="action">
+                      {products.map((product: any, index: number) => (
+                        <div
+                          className="slick-slide"
+                          data-slick-index={4}
+                          aria-hidden="true"
+                          style={{ width: 202 }}
+                          tabIndex={-1}
+                          role="option"
+                          aria-describedby="slick-slide34"
+                          key={index + 1}
+
+                        >
+
+                          <div>
+                            <div
+                              className="item"
+                              style={{ width: '100%', display: 'inline-block' }}
+                            >
+
+                              <div className="item_product_main" >
+                                <form
+                                  action="/cart/add"
+                                  method="post"
+                                  className="variants product-action"
+                                  data-id="product-actions-16610188"
+                                  encType="multipart/form-data"
+                                >
+                                  <div className="product-thumbnail">
                                     <a
-                                      title="Xem nhanh"
-                                      href="/dien-thoai-honor-7x-64gb-4gb-3-camera"
-                                      data-handle="dien-thoai-honor-7x-64gb-4gb-3-camera"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                    <input
-                                      type="hidden"
-                                      name="variantId"
-                                      defaultValue={29842224}
-                                      tabIndex={0}
-                                    />
-                                    <button
-                                      className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                      title="Thêm vào giỏ hàng"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-shopping-basket iconcart" />
-                                    </button>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/dien-thoai-honor-7x-64gb-4gb-3-camera"
-                                      title="Điện thoại Honor 7X 64GB/4GB 3 camera"
-                                      tabIndex={0}
-                                    >
-                                      Điện thoại Honor 7X 64GB/4GB 3 camera
-                                    </a>
-                                  </h3>
-                                  <div className="price-box">5.490.000₫</div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610205"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/dien-thoai-xiaomi-redmi-note-4"
-                                    title="Điện thoại Xiaomi Redmi Note 4"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/mph1075h1u2769d20170708t101837-257fde55-9593-4828-b325-c098b3da3aac.jpg?v=1577471327120"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/mph1075h1u2769d20170708t101837-257fde55-9593-4828-b325-c098b3da3aac.jpg?v=1577471327120"
-                                      alt="Điện thoại Xiaomi Redmi Note 4"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="action">
-                                    <a
-                                      title="Xem nhanh"
-                                      href="/dien-thoai-xiaomi-redmi-note-4"
-                                      data-handle="dien-thoai-xiaomi-redmi-note-4"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                    <input
-                                      className="hidden"
-                                      type="hidden"
-                                      name="variantId"
-                                      defaultValue={29842223}
-                                      tabIndex={0}
-                                    />
-                                    <button
-                                      className="hidden-xs btn btn-cart btn btn-views left-to"
-                                      title="Nhiều lựa chọn"
-                                      type="button"
-                                      onClick="window.location.href='/dien-thoai-xiaomi-redmi-note-4'"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-cog" />
-                                    </button>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/dien-thoai-xiaomi-redmi-note-4"
-                                      title="Điện thoại Xiaomi Redmi Note 4"
-                                      tabIndex={0}
-                                    >
-                                      Điện thoại Xiaomi Redmi Note 4
-                                    </a>
-                                  </h3>
-                                  <div className="price-box">3.990.000₫</div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="slick-slide slick-active"
-                        data-slick-index={1}
-                        aria-hidden="false"
-                        style={{ width: 202 }}
-                        tabIndex={-1}
-                        role="option"
-                        aria-describedby="slick-slide31"
-                      >
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610204"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/iphone-6-32gb-hang-chinh-hang"
-                                    title="iPhone 6 32GB - hàng chính hãng"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/f08e0e8a8c06ae2d12cbd3ccaedbf9.jpg?v=1577471325000"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/f08e0e8a8c06ae2d12cbd3ccaedbf9.jpg?v=1577471325000"
-                                      alt="iPhone 6 32GB - hàng chính hãng"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="action">
-                                    <a
-                                      title="Xem nhanh"
-                                      href="/iphone-6-32gb-hang-chinh-hang"
-                                      data-handle="iphone-6-32gb-hang-chinh-hang"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/iphone-6-32gb-hang-chinh-hang"
-                                      title="iPhone 6 32GB - hàng chính hãng"
-                                      tabIndex={0}
-                                    >
-                                      iPhone 6 32GB - hàng chính hãng
-                                    </a>
-                                  </h3>
-                                  <div className="price-box">6.990.000₫</div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610203"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/dien-thoai-xiaomi-mi-a1-64gb-4gb"
-                                    title="Điện thoại Xiaomi Mi A1 64GB/4GB"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/0u4939d20170926t1409476909912.jpg?v=1577471325000"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/0u4939d20170926t1409476909912.jpg?v=1577471325000"
-                                      alt="Điện thoại Xiaomi Mi A1 64GB/4GB"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <span
-                                    className="smart lazyload"
-                                    data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979"
-                                    data-was-processed="true"
-                                    style={{
-                                      backgroundImage:
-                                        'url("//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979")',
-                                    }}
-                                  />
-                                  <div className="action">
-                                    <a
-                                      title="Xem nhanh"
-                                      href="/dien-thoai-xiaomi-mi-a1-64gb-4gb"
-                                      data-handle="dien-thoai-xiaomi-mi-a1-64gb-4gb"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/dien-thoai-xiaomi-mi-a1-64gb-4gb"
-                                      title="Điện thoại Xiaomi Mi A1 64GB/4GB"
-                                      tabIndex={0}
-                                    >
-                                      Điện thoại Xiaomi Mi A1 64GB/4GB
-                                    </a>
-                                  </h3>
-                                  <div className="price-box">
-                                    4.790.000₫&nbsp;
-                                    <span className="compare-price">
-                                      5.590.000₫
-                                    </span>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="slick-slide slick-active"
-                        data-slick-index={2}
-                        aria-hidden="false"
-                        style={{ width: 202 }}
-                        tabIndex={-1}
-                        role="option"
-                        aria-describedby="slick-slide32"
-                      >
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610202"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/dien-thoai-samsung-galaxy-j7-prime"
-                                    title="Điện thoại Samsung Galaxy J7 Prime"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/samsunggalaxyj7black1u504d2016.jpg?v=1577471324203"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/samsunggalaxyj7black1u504d2016.jpg?v=1577471324203"
-                                      alt="Điện thoại Samsung Galaxy J7 Prime"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <span
-                                    className="smart lazyload"
-                                    data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979"
-                                    data-was-processed="true"
-                                    style={{
-                                      backgroundImage:
-                                        'url("//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979")',
-                                    }}
-                                  />
-                                  <div className="action">
-                                    <a
-                                      title="Xem nhanh"
-                                      href="/dien-thoai-samsung-galaxy-j7-prime"
-                                      data-handle="dien-thoai-samsung-galaxy-j7-prime"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                    <input
-                                      type="hidden"
-                                      name="variantId"
-                                      defaultValue={29842220}
-                                      tabIndex={0}
-                                    />
-                                    <button
-                                      className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                      title="Thêm vào giỏ hàng"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-shopping-basket iconcart" />
-                                    </button>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/dien-thoai-samsung-galaxy-j7-prime"
-                                      title="Điện thoại Samsung Galaxy J7 Prime"
-                                      tabIndex={0}
-                                    >
-                                      Điện thoại Samsung Galaxy J7 Prime
-                                    </a>
-                                  </h3>
-                                  <div className="price-box">
-                                    4.690.000₫&nbsp;
-                                    <span className="compare-price">
-                                      5.900.000₫
-                                    </span>
-                                  </div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610201"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/dien-thoai-xiaomi-redmi-5-16gb"
-                                    title="Điện Thoại Xiaomi Redmi 5 16GB"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/1348fb2bd0f05cdebcf54b3f03d8bf.jpg?v=1577471323167"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/1348fb2bd0f05cdebcf54b3f03d8bf.jpg?v=1577471323167"
-                                      alt="Điện Thoại Xiaomi Redmi 5 16GB"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="action">
-                                    <a
-                                      title="Xem nhanh"
-                                      href="/dien-thoai-xiaomi-redmi-5-16gb"
-                                      data-handle="dien-thoai-xiaomi-redmi-5-16gb"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                    <input
-                                      type="hidden"
-                                      name="variantId"
-                                      defaultValue={29842219}
-                                      tabIndex={0}
-                                    />
-                                    <button
-                                      className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                      title="Thêm vào giỏ hàng"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-shopping-basket iconcart" />
-                                    </button>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/dien-thoai-xiaomi-redmi-5-16gb"
-                                      title="Điện Thoại Xiaomi Redmi 5 16GB"
-                                      tabIndex={0}
-                                    >
-                                      Điện Thoại Xiaomi Redmi 5 16GB
-                                    </a>
-                                  </h3>
-                                  <div className="price-box">2.700.000₫</div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="slick-slide slick-active"
-                        data-slick-index={3}
-                        aria-hidden="false"
-                        style={{ width: 202 }}
-                        tabIndex={-1}
-                        role="option"
-                        aria-describedby="slick-slide33"
-                      >
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610200"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/dien-thoai-blackberry-keyone-black-edition"
-                                    title="Điện thoại BlackBerry KEYone Black Edition"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/779db757e1a7de8820fb21a47e2af4.jpg?v=1577471321977"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/779db757e1a7de8820fb21a47e2af4.jpg?v=1577471321977"
-                                      alt="Điện thoại BlackBerry KEYone Black Edition"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="action">
-                                    <a
-                                      title="Xem nhanh"
-                                      href="/dien-thoai-blackberry-keyone-black-edition"
-                                      data-handle="dien-thoai-blackberry-keyone-black-edition"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                    <input
-                                      type="hidden"
-                                      name="variantId"
-                                      defaultValue={29842218}
-                                      tabIndex={0}
-                                    />
-                                    <button
-                                      className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                      title="Thêm vào giỏ hàng"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-shopping-basket iconcart" />
-                                    </button>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/dien-thoai-blackberry-keyone-black-edition"
-                                      title="Điện thoại BlackBerry KEYone Black Edition"
-                                      tabIndex={0}
-                                    >
-                                      Điện thoại BlackBerry KEYone Black Edition
-                                    </a>
-                                  </h3>
-                                  <div className="price-box">15.890.000₫</div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610199"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/dien-thoai-oppo-f3-hang-chinh-hang"
-                                    title="Điện thoại OPPO F3 - hàng chính hãng"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/1u5395d20170803t122400533902.jpg?v=1577471320537"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/1u5395d20170803t122400533902.jpg?v=1577471320537"
-                                      alt="Điện thoại OPPO F3 - hàng chính hãng"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="action">
-                                    <a
-                                      title="Xem nhanh"
-                                      href="/dien-thoai-oppo-f3-hang-chinh-hang"
-                                      data-handle="dien-thoai-oppo-f3-hang-chinh-hang"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                    <input
-                                      className="hidden"
-                                      type="hidden"
-                                      name="variantId"
-                                      defaultValue={29842216}
-                                      tabIndex={0}
-                                    />
-                                    <button
-                                      className="hidden-xs btn btn-cart btn btn-views left-to"
-                                      title="Nhiều lựa chọn"
-                                      type="button"
-                                      onClick="window.location.href='/dien-thoai-oppo-f3-hang-chinh-hang'"
-                                      tabIndex={0}
-                                    >
-                                      <i className="fas fa-cog" />
-                                    </button>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/dien-thoai-oppo-f3-hang-chinh-hang"
-                                      title="Điện thoại OPPO F3 - hàng chính hãng"
-                                      tabIndex={0}
-                                    >
-                                      Điện thoại OPPO F3 - hàng chính hãng
-                                    </a>
-                                  </h3>
-                                  <div className="price-box">5.100.000₫</div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        className="slick-slide"
-                        data-slick-index={4}
-                        aria-hidden="true"
-                        style={{ width: 202 }}
-                        tabIndex={-1}
-                        role="option"
-                        aria-describedby="slick-slide34"
-                      >
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610189"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/ipad-mini-4-128gb-wifi"
-                                    title="iPad Mini 4 128GB WiFi"
-                                    tabIndex={-1}
-                                  >
-                                    <img
-                                      className="lazyload"
-                                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/ebbcb9e41038659c714722e1e287f1.jpg?v=1577471310643"
-                                      alt="iPad Mini 4 128GB WiFi"
-                                    />
-                                  </a>
-                                  <div className="action">
-                                    <a
-                                      title="Xem nhanh"
-                                      href="/ipad-mini-4-128gb-wifi"
-                                      data-handle="ipad-mini-4-128gb-wifi"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={-1}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                    <input
-                                      type="hidden"
-                                      name="variantId"
-                                      defaultValue={29842206}
-                                      tabIndex={-1}
-                                    />
-                                    <button
-                                      className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                      title="Thêm vào giỏ hàng"
-                                      tabIndex={-1}
-                                    >
-                                      <i className="fas fa-shopping-basket iconcart" />
-                                    </button>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/ipad-mini-4-128gb-wifi"
-                                      title="iPad Mini 4 128GB WiFi"
-                                      tabIndex={-1}
-                                    >
-                                      iPad Mini 4 128GB WiFi
-                                    </a>
-                                  </h3>
-                                  <div className="price-box">12.000.000₫</div>
-                                </div>
-                              </form>
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <div
-                            className="item"
-                            style={{ width: '100%', display: 'inline-block' }}
-                          >
-                            <div className="item_product_main">
-                              <form
-                                action="/cart/add"
-                                method="post"
-                                className="variants product-action"
-                                data-id="product-actions-16610188"
-                                encType="multipart/form-data"
-                              >
-                                <div className="product-thumbnail">
-                                  <a
-                                    className="image_thumb scale_hover"
-                                    href="/ipad-pro-9-7-inch-wifi-cellular"
-                                    title="iPad Pro 9.7 inch Wifi Cellular"
-                                    tabIndex={-1}
-                                  >
-                                    <img
-                                      className="lazyload"
-                                      src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
-                                      data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/256gbgray1u696d20160331t224235.jpg?v=1577471309610"
-                                      alt="iPad Pro 9.7 inch Wifi Cellular"
-                                    />
-                                  </a>
-                                  <div className="action">
-                                    <a
-                                      title="Xem nhanh"
-                                      href="/ipad-pro-9-7-inch-wifi-cellular"
-                                      data-handle="ipad-pro-9-7-inch-wifi-cellular"
-                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                      tabIndex={-1}
-                                    >
-                                      <i className="fas fa-search-plus" />
-                                    </a>
-                                    <input
-                                      type="hidden"
-                                      name="variantId"
-                                      defaultValue={29842205}
-                                      tabIndex={-1}
-                                    />
-                                    <button
-                                      className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                      title="Thêm vào giỏ hàng"
-                                      tabIndex={-1}
-                                    >
-                                      <i className="fas fa-shopping-basket iconcart" />
-                                    </button>
-                                  </div>
-                                </div>
-                                <div className="product-info">
-                                  <h3 className="product-name">
-                                    <a
-                                      href="/ipad-pro-9-7-inch-wifi-cellular"
+                                      className="image_thumb scale_hover"
+                                      href={`/products/${product.id}`}
                                       title="iPad Pro 9.7 inch Wifi Cellular"
                                       tabIndex={-1}
                                     >
-                                      iPad Pro 9.7 inch Wifi Cellular
+                                      <img
+                                        className="lazyload"
+                                        src={product.img}
+                                        data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/256gbgray1u696d20160331t224235.jpg?v=1577471309610"
+                                        alt="iPad Pro 9.7 inch Wifi Cellular"
+                                      />
                                     </a>
-                                  </h3>
-                                  <div className="price-box">9.000.000₫</div>
-                                </div>
-                              </form>
+                                    <div className="action">
+                                      <a
+                                        title="Xem nhanh"
+                                        href="/ipad-pro-9-7-inch-wifi-cellular"
+                                        data-handle="ipad-pro-9-7-inch-wifi-cellular"
+                                        className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
+                                        tabIndex={-1}
+                                      >
+                                        <i className="fas fa-search-plus" />
+                                      </a>
+                                      <input
+                                        type="hidden"
+                                        name="variantId"
+                                        defaultValue={29842205}
+                                        tabIndex={-1}
+                                      />
+                                      <button
+                                        className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
+                                        title="Thêm vào giỏ hàng"
+                                        tabIndex={-1}
+                                      >
+                                        <i className="fas fa-shopping-basket iconcart" />
+                                      </button>
+                                    </div>
+                                  </div>
+                                  <div className="product-info">
+                                    <h3 className="product-name">
+                                      <Link href={`/products/${product.id}`}
+                                        title="iPad Pro 9.7 inch Wifi Cellular"
+                                        tabIndex={-1}
+                                      >
+                                        {product.name}
+                                      </Link>
+                                    </h3>
+                                    <a href={`/products/${product.id}`}>
+                                      <div className="price-box" >{product.price}₫</div>
+                                    </a>
+                                  </div>
+                                </form>
+                              </div>
+
                             </div>
                           </div>
                         </div>
-                      </div>
+                      ))}
                     </div>
                   </div>
                   <button
@@ -1477,8 +822,8 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-        </section>
-      </section>
+        </section >
+      </section >
       <section className="awe-section-9">
         <section className="section_phukien">
           <div className="container">
@@ -1982,7 +1327,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </section>
-    </div>
+    </div >
   );
 };
 
