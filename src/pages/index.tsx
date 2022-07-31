@@ -82,7 +82,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/dien-tu-va-cong-nghe';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -121,7 +120,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/dong-ho-hang-hieu';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -170,7 +168,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/thoi-trang-phu-kien';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -209,7 +206,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/me-be-do-choi';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -258,7 +254,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/lam-dep';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -297,7 +292,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/the-gioi-nuoc-hoa';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -346,7 +340,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/do-choi-va-game';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -385,7 +378,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/the-thao-du-lich';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -434,7 +426,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/noi-that-kien-truc';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -473,7 +464,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/phu-tung-xe-hoi';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -522,7 +512,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/do-gia-dung';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -561,7 +550,6 @@ const Home: NextPage = () => {
                             >
                               <div
                                 className="item"
-                                onClick="location.href='/cho-thu-cung';"
                               >
                                 <div className="thumb_s">
                                   <a
@@ -1131,7 +1119,6 @@ const Home: NextPage = () => {
                                 className="hidden-xs btn btn-cart btn btn-views left-to"
                                 title="Nhiều lựa chọn"
                                 type="button"
-                                onClick="window.location.href='/dien-thoai-oppo-f3-hang-chinh-hang'"
                                 tabIndex={0}
                               >
                                 <i className="fas fa-cog" />
