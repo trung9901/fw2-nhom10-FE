@@ -19,6 +19,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import useSWR from 'swr';
+import useCategories from './../../../hook/use-categories';
 //
 type Props = {
   products: ProductType[];
@@ -34,7 +35,8 @@ type FormData = {
 };
 
 const ProductList = (props: Props) => {
-  const { data, error, create, remove, update } = useProducts();
+  const { data: categories } = useCategories();
+  const { data: products, error, create, remove, update } = useProducts();
 
   const {
     register,
@@ -58,7 +60,6 @@ const ProductList = (props: Props) => {
   });
 
   const onSubmit2 = handleSubmit((data2) => {
-
     if (data2) {
       toast.success('Cập nhật sản phẩm thành công');
 
@@ -67,14 +68,11 @@ const ProductList = (props: Props) => {
       setModalOpen2(!modalOpen2);
 
       reset();
-
     }
-
   });
   const onAdd = () => {
-    setModalOpen(!modalOpen)
-
-  }
+    setModalOpen(!modalOpen);
+  };
   const onDelete = (id: any) => {
     if (window.confirm('Are you sure you want to delete')) {
       toast.success('Xoá sản phẩm thành công !');
@@ -84,18 +82,22 @@ const ProductList = (props: Props) => {
     }
   };
   const [idProduct, setIdProduct] = React.useState();
-  const { data: product } = useSWR(idProduct ? `/products/${idProduct}` : null);
+  // const { data: product } = useSWR(idProduct ? `/products/${idProduct}` : null);
   React.useEffect(() => {
-
-    console.log(idProduct)
-    reset(product)
-  }, [idProduct, product, reset])
+    fetch(`/products/${idProduct}`)
+    .then((res) => res.json())
+    .then((data) => {
+      reset(data);
+      console.log(data)
+    })
+    // reset(product);
+  }, [idProduct, product, reset]);
 
   const onUpdate = (id: any) => {
     setModalOpen2(!modalOpen2);
     setIdProduct(id);
     // reset(product)
-  }
+  };
 
   const getDays = (data: any) => {
     const datas = new Date(data);
@@ -246,20 +248,19 @@ const ProductList = (props: Props) => {
                                   <option value={0}>Hết hàng</option>
                                 </select>
                               </div>
-                              {/* <div className="from-group">
-      <select
-        className="form-select"
-        aria-label="Default select example"
-        {...register('category')}
-      >
-        <option selected>Danh Muc</option>
-        {props.categories?.map((item, index) => (
-          <option value={item._id}>
-            {item.name}
-          </option>
-        ))}
-      </select>
-    </div> */}
+                              <div className="from-group">
+                                <label htmlFor="">Danh Muc</label>
+                                <select
+                                  className="form-control"
+                                  {...register('category')}
+                                >
+                                  {categories?.map((item: any) => (
+                                    <option value={item._id} key={item._id}>
+                                      {item.name}
+                                    </option>
+                                  ))}
+                                </select>
+                              </div>
                               <div className="form-group">
                                 <label htmlFor="exampleFormControlTextarea1">
                                   Description
@@ -285,9 +286,9 @@ const ProductList = (props: Props) => {
                                 color="primary"
                                 type="submit"
                                 className="rounded"
-                              // onClick={() => {
+                                // onClick={() => {
 
-                              // }}
+                                // }}
                               >
                                 Thêm sản phẩm
                               </Button>
@@ -298,7 +299,7 @@ const ProductList = (props: Props) => {
                     </tr>
                   </thead>
                   <tbody>
-                    {data?.map((item: any, index: number) => (
+                    {products?.map((item: any, index: number) => (
                       <tr key={index}>
                         <td className="serial">{index + 1}</td>
                         <td className="avatar">
@@ -321,7 +322,7 @@ const ProductList = (props: Props) => {
                         </td>
                         <td>
                           {' '}
-                          <span className="product">iMax</span>{' '}
+                          <span className="product">{item.category}</span>{' '}
                         </td>
                         <td>
                           <span className="">{item.price} $</span>
@@ -432,7 +433,7 @@ const ProductList = (props: Props) => {
                         {...register('image', {
                           required: 'Không được để trống !',
                         })}
-                      // value={product?.image}
+                        // value={product?.image}
                       />
                       <div className="text-danger">{errors.image?.message}</div>
                     </div>
@@ -478,26 +479,32 @@ const ProductList = (props: Props) => {
                       <label htmlFor="">Status</label>
 
                       <select {...register('status')}>
-                        <option selected value={product?.status == 1 ? 1 : 0} >{product?.status == 1 ? 'Còn hàng' : 'Hết hàng'}</option>
-                        {product?.status == 1 ? <option value={0}>Hết hàng</option> : <option value={1}>Còn hàng</option>}
-
-
+                        <option selected value={product?.status == 1 ? 1 : 0}>
+                          {product?.status == 1 ? 'Còn hàng' : 'Hết hàng'}
+                        </option>
+                        {product?.status == 1 ? (
+                          <option value={0}>Hết hàng</option>
+                        ) : (
+                          <option value={1}>Còn hàng</option>
+                        )}
                       </select>
                     </div>
-                    {/* <div className="from-group">
-      <select
-        className="form-select"
-        aria-label="Default select example"
-        {...register('category')}
-      >
-        <option selected>Danh Muc</option>
-        {props.categories?.map((item, index) => (
-          <option value={item._id}>
-            {item.name}
-          </option>
-        ))}
-      </select>
-    </div> */}
+                    <div className="from-group">
+                      <label htmlFor="">Danh Muc</label>
+                      <select
+                        className="form-control"
+                        {...register('category')}
+                      >
+                        <option value={product?.category} selected>
+                          default
+                        </option>
+                        {categories?.map((item: any) => (
+                          <option value={item._id} key={item._id}>
+                            {item.name}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
                     <div className="form-group">
                       <label htmlFor="exampleFormControlTextarea1">
                         Description
@@ -506,7 +513,6 @@ const ProductList = (props: Props) => {
                         className="form-control"
                         id="description"
                         placeholder="Mô tả"
-
                         {...register('description')}
                       >
                         {/* {product?.description} */}
@@ -526,9 +532,9 @@ const ProductList = (props: Props) => {
                       color="primary"
                       type="submit"
                       className="rounded"
-                    // onClick={() => {
+                      // onClick={() => {
 
-                    // }}
+                      // }}
                     >
                       Cập nhật sản phẩm
                     </Button>
