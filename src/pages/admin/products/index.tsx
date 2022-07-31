@@ -43,12 +43,12 @@ const ProductList = (props: Props) => {
   } = useForm<FormData>({ mode: 'onChange' });
 
   const [modalOpen, setModalOpen] = React.useState(false);
-  
+
   const onSubmit = handleSubmit((data) => {
     if (data) {
       toast.success('Thêm sản phẩm thành công')
       create(data);
-      
+
       setModalOpen(!modalOpen)
       reset()
     }
@@ -58,10 +58,11 @@ const ProductList = (props: Props) => {
     if (window.confirm('Are you sure you want to delete')) {
       toast.success('Xoá sản phẩm thành công !')
       remove(id);
-    }else{
+    } else {
       toast.error('Xoá sản phẩm thất bại !')
     }
   };
+
   const getDays = (data: any) => {
     const datas = new Date(data);
     return datas.toLocaleDateString('pt-PT');
@@ -250,9 +251,9 @@ const ProductList = (props: Props) => {
                                 color="primary"
                                 type="submit"
                                 className='rounded'
-                                // onClick={() => {
-                                  
-                                // }}
+                              // onClick={() => {
+
+                              // }}
                               >
                                 Thêm sản phẩm
                               </Button>

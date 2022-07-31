@@ -1,8 +1,20 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 import React from 'react'
-type Props = {}
+import useSWR from 'swr';
+import useProducts from '../../hook/use-products'
+import { ProductType } from '../../models/Products';
 
-const ProductDetail = (props: Props) => {
+
+type ProductProps = {
+    product: ProductType[];
+};
+const ProductDetail = (props: ProductProps) => {
+    const router = useRouter();
+    const { id } = router.query;
+    const { data, error } = useSWR(id ? `/products/${id}` : null);
+    if (!data) <div>Loading...</div>;
+    if (error) <div>Error</div>;
     return (
         <div className="container">
             <section className="bread-crumb">
@@ -33,7 +45,7 @@ const ProductDetail = (props: Props) => {
                                 </li>
                                 <li>
                                     <strong>
-                                        <span>Điện thoại Honor 7X 64GB/4GB 3 camera</span>
+                                        <span>{data?.name}</span>
                                     </strong>
                                 </li>
                                 <li></li>
@@ -49,7 +61,8 @@ const ProductDetail = (props: Props) => {
                         <div className="row ">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <h1 className="title-product">
-                                    Điện thoại Honor 7X 64GB/4GB 3 camera
+                                    {/* {props.product.price} */}
+                                    {data?.name}
                                 </h1>
                                 <div className="row">
                                     <div className="product-detail-left product-images col-xs-12 col-sm-12 col-md-12 col-lg-6">
@@ -70,7 +83,7 @@ const ProductDetail = (props: Props) => {
                                                             <img
                                                                 className="checkurl img-responsive"
                                                                 id="img_01"
-                                                                src="//bizweb.dktcdn.net/thumb/1024x1024/100/374/880/products/7329f4ef40e4ead01e089872faf6ae.jpg?v=1577471328247"
+                                                                src={data?.image}
                                                                 alt="Điện thoại Honor 7X 64GB/4GB 3 camera"
                                                                 style={{ position: "absolute" }}
                                                             />
@@ -244,7 +257,7 @@ const ProductDetail = (props: Props) => {
                                                 </div>
                                                 <div className="price-box">
                                                     <div className="special-price">
-                                                        <span className="price product-price">5.490.000₫</span>
+                                                        <span className="price product-price">{data?.price}₫</span>
                                                         <meta itemProp="price" />
                                                         <meta itemProp="priceCurrency" content="VND" />
                                                     </div>{" "}
@@ -261,7 +274,7 @@ const ProductDetail = (props: Props) => {
                                                 </div>
                                                 <div className="product-summary">
                                                     <div className="rte">
-                                                        <em>Mô tả đang cập nhật</em>
+                                                        <em>{data?.description}</em>
                                                     </div>
                                                 </div>
                                             </div>

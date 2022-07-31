@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import useSWR, { useSWRConfig } from 'swr';
-
 import instance from '../api/instance';
 import { add, removeItem, updateItem } from '../api/products';
-import { ProductType } from '../models/Products';
+
+
 const useProducts = () => {
   const router = useRouter();
   const { id } = router.query;
