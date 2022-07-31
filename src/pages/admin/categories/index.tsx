@@ -40,7 +40,6 @@ const CategoryList = (props: Props) => {
     if (data) {
       toast.success('Thêm danh mục thành công !')
       create(data)
-      
       reset()
       setModalOpen(!modalOpen)
     }
@@ -83,7 +82,7 @@ const CategoryList = (props: Props) => {
                                 className=" modal-title"
                                 id="exampleModalLabel"
                               >
-                                Modal title
+                                Thêm danh mục
                               </h5>
                               <button
                                 aria-label="Close"
@@ -144,11 +143,12 @@ const CategoryList = (props: Props) => {
                                   color="secondary"
                                   type="button"
                                   onClick={() => setModalOpen(!modalOpen)}
+                                  className="rounded"
                                 >
-                                  Close
+                                  Đóng
                                 </Button>
-                                <Button color="primary" type="submit">
-                                  Save changes
+                                <Button color="primary" type="submit" className="rounded">
+                                  Thêm mới
                                 </Button>
                               </ModalFooter>
                             </form>
