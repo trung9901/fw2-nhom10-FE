@@ -13,6 +13,7 @@ import {
   faTrashAlt,
   faFileAlt,
   faAdd,
+  faFileUpload,
 } from '@fortawesome/free-solid-svg-icons';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
@@ -36,11 +37,28 @@ const ProductList = (props: Props) => {
     register,
     setValue,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>({ mode: 'onChange' });
   const [modalOpen, setModalOpen] = React.useState(false);
-  const onSubmit = handleSubmit((data) => create(data));
-  console.log(data);
+  const onSubmit = handleSubmit((data) => {
+    if (data) {
+      create(data);
+      setModalOpen(!modalOpen)
+      reset()
+    }
+  });
+
+  const onDelete = (id: any) => {
+    if (window.confirm('Are you sure you want to delete')) {
+      remove(id);
+    }
+  };
+  const getDays = (data: any) => {
+    const datas = new Date(data);
+    return datas.toLocaleDateString('pt-PT');
+  };
+
   return (
     <div>
       <div className="content ">
@@ -63,20 +81,23 @@ const ProductList = (props: Props) => {
                       <th>Quantity</th>
                       <th>Description</th>
                       <th>Status</th>
+                      <th>Creat At</th>
+                      <th>Updated At</th>
                       <th>Action</th>
                       <th>
                         <Button
-                          color="primary"
+                          color="warning"
                           type="button"
                           onClick={() => setModalOpen(!modalOpen)}
+                          className="border rounded text-white"
                         >
-                          thêm mới
+                          <FontAwesomeIcon icon={faFileUpload} />
                         </Button>
 
                         <Modal
                           toggle={() => setModalOpen(!modalOpen)}
                           isOpen={modalOpen}
-                          animation={null}
+                          animation={false}
                         >
                           <div className=" modal-header d-flex">
                             <h5 className=" modal-title" id="exampleModalLabel">
@@ -103,8 +124,21 @@ const ProductList = (props: Props) => {
                                   className="form-control"
                                   id="name"
                                   placeholder="Tên sản phẩm"
-                                  {...register('name')}
+                                  {...register('name', {
+                                    required: 'Không được để trống !',
+                                    minLength: {
+                                      value: 5,
+                                      message: 'Tối thiểu 5 kí tự !',
+                                    },
+                                    maxLength: {
+                                      value: 20,
+                                      message: 'Tối đa 20 kí tự !',
+                                    },
+                                  })}
                                 />
+                                <div className="text-danger">
+                                  {errors.name?.message}
+                                </div>
                               </div>
                               <div className="form-group">
                                 <label htmlFor="exampleFormControlFile1">
@@ -114,28 +148,52 @@ const ProductList = (props: Props) => {
                                   type="text"
                                   className="form-control-file"
                                   id="img"
-                                  {...register('image')}
+                                  {...register('image', {
+                                    required: 'Không được để trống !',
+                                  })}
+                                  value="https://picsum.photos/200"
                                 />
+                                <div className="text-danger">
+                                  {errors.image?.message}
+                                </div>
                               </div>
                               <div className="form-group">
                                 <label htmlFor="">Price</label>
                                 <input
-                                  type="number"
+                                  type="text"
                                   className="form-control"
                                   id="price"
                                   placeholder="Giá"
-                                  {...register('price')}
+                                  {...register('price', {
+                                    required: 'Không được để trống !',
+                                    pattern: {
+                                      value: /\d+/,
+                                      message: 'Kí tự nhập vào phải là số !',
+                                    },
+                                  })}
                                 />
+                                <div className="text-danger">
+                                  {errors.price?.message}
+                                </div>
                               </div>
                               <div className="form-group">
                                 <label htmlFor="">Quantity</label>
                                 <input
-                                  type="number"
+                                  type="text"
                                   className="form-control"
                                   id="quantity"
                                   placeholder="Số lượng"
-                                  {...register('quantity')}
+                                  {...register('quantity', {
+                                    required: 'Không được để trống !',
+                                    pattern: {
+                                      value: /\d+/,
+                                      message: 'Kí tự nhập vào phải là số !',
+                                    },
+                                  })}
                                 />
+                                <div className="text-danger">
+                                  {errors.quantity?.message}
+                                </div>
                               </div>
                               <div className="form-group">
                                 <label htmlFor="">Status</label>
@@ -166,6 +224,7 @@ const ProductList = (props: Props) => {
                                 <textarea
                                   className="form-control"
                                   id="description"
+                                  placeholder="Mô tả"
                                   {...register('description')}
                                 />
                               </div>
@@ -181,7 +240,9 @@ const ProductList = (props: Props) => {
                               <Button
                                 color="primary"
                                 type="submit"
-                                onClick={() => setModalOpen(!modalOpen)}
+                                // onClick={() => {
+                                  
+                                // }}
                               >
                                 Thêm sản phẩm
                               </Button>
@@ -200,7 +261,7 @@ const ProductList = (props: Props) => {
                             <a href="#">
                               <Image
                                 className=""
-                                src={item.image}
+                                src={item?.image}
                                 width={80}
                                 height={80}
                                 priority
@@ -227,7 +288,23 @@ const ProductList = (props: Props) => {
                           <span className="">{item.description}</span>
                         </td>
                         <td>
-                          <span className="badge badge-complete">Complete</span>
+                          {item.status == 1 ? (
+                            <span className="badge badge-complete">
+                              Còn hàng
+                            </span>
+                          ) : (
+                            <span className="badge badge-pending">
+                              Hết hàng
+                            </span>
+                          )}
+
+                          {/* <span className="badge badge-complete">Complete</span> */}
+                        </td>
+                        <td>
+                          <span className="">{getDays(item.createdAt)} </span>
+                        </td>
+                        <td>
+                          <span className="">{getDays(item.updatedAt)}</span>
                         </td>
                         <td>
                           <div className="d-flex justify-content-evenly">
@@ -235,15 +312,7 @@ const ProductList = (props: Props) => {
                               <button
                                 type="button"
                                 className="btn btn-primary btn-sm  rounded "
-                                onClick={() => {
-                                  if (
-                                    window.confirm(
-                                      'Are you sure you want to delete'
-                                    )
-                                  ) {
-                                    remove(item._id);
-                                  }
-                                }}
+                                onClick={() => onDelete(item._id)}
                               >
                                 <FontAwesomeIcon icon={faTrashAlt} />
                               </button>
