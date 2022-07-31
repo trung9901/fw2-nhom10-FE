@@ -73,6 +73,7 @@ const ProductList = (props: Props) => {
   });
   const onAdd = () => {
     setModalOpen(!modalOpen)
+    
   }
   const onDelete = (id: any) => {
     if (window.confirm('Are you sure you want to delete')) {
