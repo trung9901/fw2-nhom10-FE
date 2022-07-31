@@ -12,7 +12,7 @@ import type { AppProps } from 'next/app';
 import Layout from '../components/Layout';
 import { AppPropsWithLayout } from '../models/Layout';
 import { SWRConfig } from 'swr';
-// import instance from '../api/instance';
+import instance from '../api/instance';
 
 import '../assets/admin/css/style.css';
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/main.scss.css?1656725435979';
