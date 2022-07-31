@@ -44,6 +44,17 @@ const CategoryList = (props: Props) => {
       setModalOpen(!modalOpen)
     }
   });
+
+
+  const onDelete=(id) => {
+    if(confirm('Are you sure you want to delete')){
+      toast.success('Xoá danh mục thành công')
+      remove(id)
+    }else{
+      toast.error('Xoá danh mục thất bại')
+    }
+    
+  }
   return (
     <div>
       <div className="content">
@@ -180,7 +191,29 @@ const CategoryList = (props: Props) => {
                           </td>
 
                           <td>
-                            <span className=""></span>
+                            <span className="">
+                            <div className="d-flex justify-content-evenly">
+                            <div className="">
+                              <button
+                                type="button"
+                                className="btn btn-primary btn-sm  rounded "
+                                onClick={() => onDelete(item._id)}
+                              >
+                                <FontAwesomeIcon icon={faTrashAlt} />
+                              </button>
+                            </div>
+                            {/* -------------------------------------------- */}
+                            <div className="mx-1">
+                              <button
+                                type="button"
+                                className="btn btn-success btn-sm  rounded"
+                                onClick={() => onUpdate(item._id)}
+                              >
+                                <FontAwesomeIcon icon={faFileAlt} />
+                              </button>
+                            </div>
+                          </div>
+                            </span>
                           </td>
                         </tr>
                       ))}
