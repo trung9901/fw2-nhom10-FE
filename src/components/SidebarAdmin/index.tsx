@@ -24,7 +24,7 @@ const Sidebar = (props: Props) => {
               <li className="menu-title">Menu</li>
               {/* /.menu-title */}
               <li className="menu-item-has-children dropdown">
-                <Link href="admin/products">
+                <Link href="/admin/products">
                   <a>
                     <i className="menu-icon fa fa-cogs" />
                     Products
@@ -32,7 +32,7 @@ const Sidebar = (props: Props) => {
                 </Link>
               </li>
               <li className="menu-item-has-children dropdown">
-                <Link href="admin/categories">
+                <Link href="/admin/categories">
                   <a>
                     <i className="menu-icon fa fa-cogs" />
                     Categories
@@ -40,7 +40,7 @@ const Sidebar = (props: Props) => {
                 </Link>
               </li>
               <li className="menu-item-has-children dropdown">
-                <Link href="admin/users">
+                <Link href="/admin/users">
                   <a>
                     <i className="menu-icon fa fa-cogs" />
                     Users
@@ -48,7 +48,7 @@ const Sidebar = (props: Props) => {
                 </Link>
               </li>
               <li className="menu-item-has-children dropdown">
-                <Link href="admin/news">
+                <Link href="/admin/news">
                   <a>
                     <i className="menu-icon fa fa-cogs" />
                     News
