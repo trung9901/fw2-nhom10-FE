@@ -71,6 +71,7 @@ const ProductList = (props: Props) => {
     }
   });
   const onAdd = () => {
+   
     setModalOpen(!modalOpen);
   };
   const onDelete = (id: any) => {
@@ -82,15 +83,11 @@ const ProductList = (props: Props) => {
     }
   };
   const [idProduct, setIdProduct] = React.useState();
-  // const { data: product } = useSWR(idProduct ? `/products/${idProduct}` : null);
+
+  const { data: product } = useSWR(idProduct ? `/products/${idProduct}` : null);
   React.useEffect(() => {
-    fetch(`/products/${idProduct}`)
-    .then((res) => res.json())
-    .then((data) => {
-      reset(data);
-      console.log(data)
-    })
-    // reset(product);
+   
+    reset(product);
   }, [idProduct, product, reset]);
 
   const onUpdate = (id: any) => {
@@ -495,9 +492,7 @@ const ProductList = (props: Props) => {
                         className="form-control"
                         {...register('category')}
                       >
-                        <option value={product?.category} selected>
-                          default
-                        </option>
+                
                         {categories?.map((item: any) => (
                           <option value={item._id} key={item._id}>
                             {item.name}
