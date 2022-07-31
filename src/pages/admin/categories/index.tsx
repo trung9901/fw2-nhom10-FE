@@ -64,6 +64,7 @@ const CategoryList = (props: Props) => {
   React.useEffect(() => {
 
     console.log(idCategory)
+
     reset(category)
   },[idCategory, category, reset])
 
@@ -79,6 +80,12 @@ const CategoryList = (props: Props) => {
       toast.error('Xoá danh mục thất bại');
     }
   };
+  const getDays = (data: any) => {
+    const datas = new Date(data);
+    return datas.toLocaleDateString('pt-PT');
+  };
+
+
   return (
     <div>
       <div className="content">
@@ -97,8 +104,10 @@ const CategoryList = (props: Props) => {
                         <th className="avatar">Image</th>
 
                         <th>Name</th>
-
+                        <th>Creat At</th>
+                        <th>Updated At</th>
                         <th>Actions</th>
+
                         <th>
                           <Button
                             color="warning"
@@ -217,7 +226,12 @@ const CategoryList = (props: Props) => {
                             {' '}
                             <span className="name">{item.name}</span>{' '}
                           </td>
-
+                          <td>
+                          <span className="">{getDays(item.createdAt)} </span>
+                        </td>
+                        <td>
+                          <span className="">{getDays(item.updatedAt)}</span>
+                        </td>
                           <td>
                             <span className="">
                               <div className="d-flex justify-content-evenly">
