@@ -58,22 +58,22 @@ const ProductList = (props: Props) => {
   });
 
   const onSubmit2 = handleSubmit((data2) => {
-    
+
     if (data2) {
       toast.success('Cập nhật sản phẩm thành công');
-      
-      update(idProduct,data2);
-      
+
+      update(idProduct, data2);
+
       setModalOpen2(!modalOpen2);
 
       reset();
 
     }
-   
+
   });
   const onAdd = () => {
     setModalOpen(!modalOpen)
-    
+
   }
   const onDelete = (id: any) => {
     if (window.confirm('Are you sure you want to delete')) {
@@ -89,9 +89,9 @@ const ProductList = (props: Props) => {
 
     console.log(idProduct)
     reset(product)
-  },[idProduct, product, reset])
+  }, [idProduct, product, reset])
 
-  const onUpdate= (id:any)=>{    
+  const onUpdate = (id: any) => {
     setModalOpen2(!modalOpen2);
     setIdProduct(id);
     // reset(product)
@@ -101,7 +101,7 @@ const ProductList = (props: Props) => {
     const datas = new Date(data);
     return datas.toLocaleDateString('pt-PT');
   };
-  
+
   return (
     <div>
       <div className="content ">
@@ -285,9 +285,9 @@ const ProductList = (props: Props) => {
                                 color="primary"
                                 type="submit"
                                 className="rounded"
-                                // onClick={() => {
+                              // onClick={() => {
 
-                                // }}
+                              // }}
                               >
                                 Thêm sản phẩm
                               </Button>
@@ -393,7 +393,7 @@ const ProductList = (props: Props) => {
                     aria-label="Close"
                     className=" close"
                     type="button"
-                    onClick={() =>  setModalOpen2(!modalOpen2)}
+                    onClick={() => setModalOpen2(!modalOpen2)}
                   >
                     <span aria-hidden={true}>×</span>
                   </button>
@@ -432,7 +432,7 @@ const ProductList = (props: Props) => {
                         {...register('image', {
                           required: 'Không được để trống !',
                         })}
-                        // value={product?.image}
+                      // value={product?.image}
                       />
                       <div className="text-danger">{errors.image?.message}</div>
                     </div>
@@ -478,10 +478,10 @@ const ProductList = (props: Props) => {
                       <label htmlFor="">Status</label>
 
                       <select {...register('status')}>
-                        <option selected value={product?.status == 1? 1 : 0} >{product?.status == 1? 'Còn hàng':'Hết hàng'}</option>
-                        {product?.status == 1?<option value={0}>Hết hàng</option>:<option value={1}>Còn hàng</option>}
-                        
-                        
+                        <option selected value={product?.status == 1 ? 1 : 0} >{product?.status == 1 ? 'Còn hàng' : 'Hết hàng'}</option>
+                        {product?.status == 1 ? <option value={0}>Hết hàng</option> : <option value={1}>Còn hàng</option>}
+
+
                       </select>
                     </div>
                     {/* <div className="from-group">
@@ -506,11 +506,11 @@ const ProductList = (props: Props) => {
                         className="form-control"
                         id="description"
                         placeholder="Mô tả"
-                  
+
                         {...register('description')}
                       >
                         {/* {product?.description} */}
-                     </textarea>
+                      </textarea>
                     </div>
                   </ModalBody>
                   <ModalFooter>
@@ -526,9 +526,9 @@ const ProductList = (props: Props) => {
                       color="primary"
                       type="submit"
                       className="rounded"
-                      // onClick={() => {
+                    // onClick={() => {
 
-                      // }}
+                    // }}
                     >
                       Cập nhật sản phẩm
                     </Button>

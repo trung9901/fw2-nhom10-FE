@@ -707,7 +707,7 @@ const Home: NextPage = () => {
                       }}
                       role="listbox"
                     >
-                      {products.map((product: any, index: number) => (
+                      {products.map((product: any) => (
                         <div
                           className="slick-slide"
                           data-slick-index={4}
@@ -716,7 +716,7 @@ const Home: NextPage = () => {
                           tabIndex={-1}
                           role="option"
                           aria-describedby="slick-slide34"
-                          key={index + 1}
+                          key={product.id}
 
                         >
 
@@ -737,13 +737,13 @@ const Home: NextPage = () => {
                                   <div className="product-thumbnail">
                                     <a
                                       className="image_thumb scale_hover"
-                                      href={`/products/${product.id}`}
+                                      href={`/products/${product._id}`}
                                       title="iPad Pro 9.7 inch Wifi Cellular"
                                       tabIndex={-1}
                                     >
                                       <img
                                         className="lazyload"
-                                        src={product.img}
+                                        src={product?.image}
                                         data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/256gbgray1u696d20160331t224235.jpg?v=1577471309610"
                                         alt="iPad Pro 9.7 inch Wifi Cellular"
                                       />
@@ -775,14 +775,14 @@ const Home: NextPage = () => {
                                   </div>
                                   <div className="product-info">
                                     <h3 className="product-name">
-                                      <Link href={`/products/${product.id}`}
+                                      <Link href={`/products/${product._id}`}
                                         title="iPad Pro 9.7 inch Wifi Cellular"
                                         tabIndex={-1}
                                       >
                                         {product.name}
                                       </Link>
                                     </h3>
-                                    <a href={`/products/${product.id}`}>
+                                    <a href={`/products/${product._id}`}>
                                       <div className="price-box" >{product.price}₫</div>
                                     </a>
                                   </div>
