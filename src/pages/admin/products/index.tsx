@@ -18,6 +18,7 @@ import {
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
+import useSWR from 'swr';
 //
 type Props = {
   products: ProductType[];
@@ -34,34 +35,68 @@ type FormData = {
 
 const ProductList = (props: Props) => {
   const { data, error, create, remove, update } = useProducts();
+
   const {
     register,
     setValue,
     handleSubmit,
     reset,
     formState: { errors },
-  } = useForm<FormData>({ mode: 'onChange' });
+  } = useForm<FormData>();
 
   const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalOpen2, setModalOpen2] = React.useState(false);
 
   const onSubmit = handleSubmit((data) => {
     if (data) {
-      toast.success('Thêm sản phẩm thành công')
+      toast.success('Thêm sản phẩm thành công');
       create(data);
 
-      setModalOpen(!modalOpen)
-      reset()
+      setModalOpen(!modalOpen);
+      reset();
     }
   });
 
+  const onSubmit2 = handleSubmit((data2) => {
+
+    if (data2) {
+      toast.success('Cập nhật sản phẩm thành công');
+
+      update(idProduct, data2);
+
+      setModalOpen2(!modalOpen2);
+
+      reset();
+
+    }
+
+  });
+  const onAdd = () => {
+    setModalOpen(!modalOpen)
+
+  }
   const onDelete = (id: any) => {
     if (window.confirm('Are you sure you want to delete')) {
-      toast.success('Xoá sản phẩm thành công !')
+      toast.success('Xoá sản phẩm thành công !');
       remove(id);
     } else {
-      toast.error('Xoá sản phẩm thất bại !')
+      toast.error('Xoá sản phẩm thất bại !');
     }
   };
+  const [idProduct, setIdProduct] = React.useState();
+  const { data: product } = useSWR(idProduct ? `/products/${idProduct}` : null);
+  React.useEffect(() => {
+
+    console.log(idProduct)
+    reset(product)
+  }, [idProduct, product, reset])
+
+  const onUpdate = (id: any) => {
+    setModalOpen2(!modalOpen2);
+    setIdProduct(id);
+    // reset(product)
+  }
+
   const getDays = (data: any) => {
     const datas = new Date(data);
     return datas.toLocaleDateString('pt-PT');
@@ -96,7 +131,7 @@ const ProductList = (props: Props) => {
                         <Button
                           color="warning"
                           type="button"
-                          onClick={() => setModalOpen(!modalOpen)}
+                          onClick={() => onAdd()}
                           className="border rounded text-white"
                         >
                           <FontAwesomeIcon icon={faFileUpload} />
@@ -241,7 +276,7 @@ const ProductList = (props: Props) => {
                               <Button
                                 color="secondary"
                                 type="button"
-                                className='rounded'
+                                className="rounded"
                                 onClick={() => setModalOpen(!modalOpen)}
                               >
                                 Đóng
@@ -249,7 +284,7 @@ const ProductList = (props: Props) => {
                               <Button
                                 color="primary"
                                 type="submit"
-                                className='rounded'
+                                className="rounded"
                               // onClick={() => {
 
                               // }}
@@ -332,6 +367,7 @@ const ProductList = (props: Props) => {
                               <button
                                 type="button"
                                 className="btn btn-success btn-sm  rounded"
+                                onClick={() => onUpdate(item._id)}
                               >
                                 <FontAwesomeIcon icon={faFileAlt} />
                               </button>
@@ -344,6 +380,161 @@ const ProductList = (props: Props) => {
                 </table>
               </div>{' '}
               {/* /.table-stats */}
+              <Modal
+                toggle={() => setModalOpen2(!modalOpen2)}
+                isOpen={modalOpen2}
+                animation={false}
+              >
+                <div className=" modal-header d-flex">
+                  <h5 className=" modal-title" id="exampleModalLabel">
+                    Cập nhật sản phẩm
+                  </h5>
+                  <button
+                    aria-label="Close"
+                    className=" close"
+                    type="button"
+                    onClick={() => setModalOpen2(!modalOpen2)}
+                  >
+                    <span aria-hidden={true}>×</span>
+                  </button>
+                </div>
+                <form action="" onSubmit={onSubmit2}>
+                  <ModalBody>
+                    {' '}
+                    <div className="form-group">
+                      <label htmlFor="exampleFormControlInput1">Name</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="name"
+                        placeholder="Tên sản phẩm"
+                        // value={product?.name}
+                        {...register('name', {
+                          required: 'Không được để trống !',
+                          minLength: {
+                            value: 5,
+                            message: 'Tối thiểu 5 kí tự !',
+                          },
+                          maxLength: {
+                            value: 20,
+                            message: 'Tối đa 20 kí tự !',
+                          },
+                        })}
+                      />
+                      <div className="text-danger">{errors.name?.message}</div>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="exampleFormControlFile1">image</label>
+                      <input
+                        type="text"
+                        className="form-control-file"
+                        id="img"
+                        {...register('image', {
+                          required: 'Không được để trống !',
+                        })}
+                      // value={product?.image}
+                      />
+                      <div className="text-danger">{errors.image?.message}</div>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="">Price</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="price"
+                        placeholder="Giá"
+                        // value={product?.price}
+                        {...register('price', {
+                          required: 'Không được để trống !',
+                          pattern: {
+                            value: /\d+/,
+                            message: 'Kí tự nhập vào phải là số !',
+                          },
+                        })}
+                      />
+                      <div className="text-danger">{errors.price?.message}</div>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="">Quantity</label>
+                      <input
+                        type="text"
+                        className="form-control"
+                        id="quantity"
+                        placeholder="Số lượng"
+                        // value={product?.quantity}
+                        {...register('quantity', {
+                          required: 'Không được để trống !',
+                          pattern: {
+                            value: /\d+/,
+                            message: 'Kí tự nhập vào phải là số !',
+                          },
+                        })}
+                      />
+                      <div className="text-danger">
+                        {errors.quantity?.message}
+                      </div>
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="">Status</label>
+
+                      <select {...register('status')}>
+                        <option selected value={product?.status == 1 ? 1 : 0} >{product?.status == 1 ? 'Còn hàng' : 'Hết hàng'}</option>
+                        {product?.status == 1 ? <option value={0}>Hết hàng</option> : <option value={1}>Còn hàng</option>}
+
+
+                      </select>
+                    </div>
+                    {/* <div className="from-group">
+      <select
+        className="form-select"
+        aria-label="Default select example"
+        {...register('category')}
+      >
+        <option selected>Danh Muc</option>
+        {props.categories?.map((item, index) => (
+          <option value={item._id}>
+            {item.name}
+          </option>
+        ))}
+      </select>
+    </div> */}
+                    <div className="form-group">
+                      <label htmlFor="exampleFormControlTextarea1">
+                        Description
+                      </label>
+                      <textarea
+                        className="form-control"
+                        id="description"
+                        placeholder="Mô tả"
+
+                        {...register('description')}
+                      >
+                        {/* {product?.description} */}
+                      </textarea>
+                    </div>
+                  </ModalBody>
+                  <ModalFooter>
+                    <Button
+                      color="secondary"
+                      type="button"
+                      className="rounded"
+                      onClick={() => setModalOpen2(!modalOpen2)}
+                    >
+                      Đóng
+                    </Button>
+                    <Button
+                      color="primary"
+                      type="submit"
+                      className="rounded"
+                    // onClick={() => {
+
+                    // }}
+                    >
+                      Cập nhật sản phẩm
+                    </Button>
+                  </ModalFooter>
+                </form>
+              </Modal>
             </div>
           </div>
         </div>
