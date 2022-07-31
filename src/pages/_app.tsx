@@ -4,6 +4,8 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 config.autoAddCss = false;
 
 import 'bootstrap/dist/css/bootstrap.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //
 
 import type { AppProps } from 'next/app';
@@ -22,7 +24,15 @@ import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/coll
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/product_style.scss.css?1656725435979';
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/blog_article_style.scss.css?1656725435979';
 import '../assets/client/bizweb.dktcdn.net/100/374/880/themes/748270/assets/cartpage.scss.css?1656725435979';
+import { useEffect } from 'react';
+import React from 'react';
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+  // useEffect(() => {
+  //   typeof document !== undefined
+  //     ? require('bootstrap/dist/js/bootstrap')
+  //     : null;
+  // }, []);
+
   const LayoutWrapper = Component.Layout ?? Layout;
   return (
     <LayoutWrapper>
@@ -33,6 +43,7 @@ function MyApp({ Component, pageProps }: AppPropsWithLayout) {
         }}
       >
         <Component {...pageProps} />
+        <ToastContainer />
       </SWRConfig>
     </LayoutWrapper>
   );

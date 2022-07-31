@@ -1,8 +1,13 @@
+import Link from 'next/link'
 import React from 'react'
+import useProducts from '../../hook/use-products'
 
 type Props = {}
 
 const ProductPage = (props: Props) => {
+    const { data: products, error } = useProducts()
+    if (!products) return <div>Loading...</div>
+    if (error) return <div>Failed to loading</div>
     return (
         <div className="bodywrap">
             <div className="section wrap_background">
@@ -13,9 +18,9 @@ const ProductPage = (props: Props) => {
                             <div className="col-xs-12 a-left">
                                 <ul className="breadcrumb">
                                     <li className="home">
-                                        <a href="/">
+                                        <Link href="/">
                                             <span>Trang chủ</span>
-                                        </a>
+                                        </Link>
                                         <span className="mr_lr">
                                             &nbsp;
                                             <i className="fa fa-angle-right" />
@@ -47,9 +52,9 @@ const ProductPage = (props: Props) => {
                                             <nav className="nav-category navbar-toggleable-md">
                                                 <ul className="nav navbar-pills">
                                                     <li className="nav-item">
-                                                        <a className="nav-link" href="/">
+                                                        <Link className="nav-link" href="/">
                                                             Trang chủ
-                                                        </a>
+                                                        </Link>
                                                     </li>
                                                     <li className="nav-item">
                                                         <a href="/collections/all" className="nav-link">
@@ -286,7 +291,6 @@ const ProductPage = (props: Props) => {
                                                     </span>
                                                     <a
                                                         href="javascript:void(0)"
-                                                        onClick="clearAllFiltered()"
                                                         className="filter-container__clear-all"
                                                     >
                                                         Bỏ hết <i className="fa fa-angle-right" />
@@ -1937,7 +1941,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/dien-tu-va-cong-nghe';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -1979,7 +1982,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/dong-ho-hang-hieu';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2021,7 +2023,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/thoi-trang-phu-kien';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2063,7 +2064,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/me-be-do-choi';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2105,7 +2105,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/lam-dep';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2147,7 +2146,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/the-gioi-nuoc-hoa';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2188,7 +2186,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/do-choi-va-game';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2229,7 +2226,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/the-thao-du-lich';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2270,7 +2266,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/noi-that-kien-truc';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2311,7 +2306,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/phu-tung-xe-hoi';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2352,7 +2346,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/do-gia-dung';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2393,7 +2386,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/cho-thu-cung';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2454,7 +2446,6 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('published-on:desc')"
                                                                             >
                                                                                 Theo ngày đăng
                                                                             </a>
@@ -2462,7 +2453,6 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('alpha-asc')"
                                                                             >
                                                                                 A → Z
                                                                             </a>
@@ -2470,7 +2460,6 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('alpha-desc')"
                                                                             >
                                                                                 Z → A
                                                                             </a>
@@ -2478,7 +2467,6 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('price-asc')"
                                                                             >
                                                                                 Giá tăng dần
                                                                             </a>
@@ -2486,7 +2474,7 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('price-desc')"
+
                                                                             >
                                                                                 Giá giảm dần
                                                                             </a>
@@ -2494,7 +2482,7 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('created-desc')"
+
                                                                             >
                                                                                 Hàng mới nhất
                                                                             </a>
@@ -2502,7 +2490,7 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('created-asc')"
+
                                                                             >
                                                                                 Hàng cũ nhất
                                                                             </a>
@@ -2510,7 +2498,7 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('quantity-descending')"
+
                                                                             >
                                                                                 Theo tồn kho giảm dần
                                                                             </a>
@@ -2524,242 +2512,69 @@ const ProductPage = (props: Props) => {
                                             </div>
                                             <section className="products-view products-view-grid collection_reponsive list_hover_pro">
                                                 <div className="row">
-                                                    <div className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 product-col">
-                                                        <div className="item_product_main margin-bottom-15">
-                                                            <form
-                                                                action="/cart/add"
-                                                                method="post"
-                                                                className="variants product-action"
-                                                                data-id="product-actions-16610444"
-                                                                encType="multipart/form-data"
-                                                            >
-                                                                <div className="product-thumbnail">
-                                                                    <a
-                                                                        className="image_thumb scale_hover"
-                                                                        href="/ban-ibie-rec-f-chan-den-mau-kem"
-                                                                        title="Bàn IBIE Rec-F chân đen màu kem"
-                                                                    >
-                                                                        <img
-                                                                            className="lazyload loaded"
-                                                                            src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/a6262f97a6f41dded346b37a0aaece-c1369390-32b5-4f97-a259-46ca3535447c.jpg?v=1577497546640"
-                                                                            data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/a6262f97a6f41dded346b37a0aaece-c1369390-32b5-4f97-a259-46ca3535447c.jpg?v=1577497546640"
-                                                                            alt="Bàn IBIE Rec-F chân đen màu kem"
-                                                                            data-was-processed="true"
-                                                                        />
-                                                                    </a>
-                                                                    <div className="action">
+                                                    {products.map((product: any, index: number) => (
+                                                        <div className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 product-col" key={index + 1}>
+                                                            <div className="item_product_main margin-bottom-15">
+                                                                <form
+                                                                    action="/cart/add"
+                                                                    method="post"
+                                                                    className="variants product-action"
+                                                                    data-id="product-actions-16610444"
+                                                                    encType="multipart/form-data"
+                                                                >
+                                                                    <div className="product-thumbnail">
                                                                         <a
-                                                                            title="Xem nhanh"
-                                                                            href="/ban-ibie-rec-f-chan-den-mau-kem"
-                                                                            data-handle="ban-ibie-rec-f-chan-den-mau-kem"
-                                                                            className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                                                        >
-                                                                            <i className="fas fa-search-plus" />
-                                                                        </a>
-                                                                        <input
-                                                                            type="hidden"
-                                                                            name="variantId"
-                                                                            defaultValue={29845331}
-                                                                        />
-                                                                        <button
-                                                                            className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                                                            title="Thêm vào giỏ hàng"
-                                                                        >
-                                                                            <i className="fas fa-shopping-basket iconcart" />
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="product-info">
-                                                                    <h3 className="product-name">
-                                                                        <a
-                                                                            href="/ban-ibie-rec-f-chan-den-mau-kem"
+                                                                            className="image_thumb scale_hover"
+                                                                            href={`/products/${product._id}`}
                                                                             title="Bàn IBIE Rec-F chân đen màu kem"
                                                                         >
-                                                                            Bàn IBIE Rec-F chân đen màu kem
+                                                                            <img
+                                                                                className="lazyload loaded"
+                                                                                src={product?.image}
+                                                                                data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/a6262f97a6f41dded346b37a0aaece-c1369390-32b5-4f97-a259-46ca3535447c.jpg?v=1577497546640"
+                                                                                alt="Bàn IBIE Rec-F chân đen màu kem"
+                                                                                data-was-processed="true"
+                                                                            />
                                                                         </a>
-                                                                    </h3>
-                                                                    <div className="price-box">1.299.000₫</div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 product-col">
-                                                        <div className="item_product_main margin-bottom-15">
-                                                            <form
-                                                                action="/cart/add"
-                                                                method="post"
-                                                                className="variants product-action"
-                                                                data-id="product-actions-16610442"
-                                                                encType="multipart/form-data"
-                                                            >
-                                                                <div className="product-thumbnail">
-                                                                    <a
-                                                                        className="image_thumb scale_hover"
-                                                                        href="/giuong-ngu-doi-malmila"
-                                                                        title="Giường ngủ đôi Malmila"
-                                                                    >
-                                                                        <img
-                                                                            className="lazyload loaded"
-                                                                            src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/4e58d3b1bc76ab5bd06557d719845d-8e690f5c-a66b-40c3-93a0-acbbdb7c12cd.jpg?v=1577497505000"
-                                                                            data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/4e58d3b1bc76ab5bd06557d719845d-8e690f5c-a66b-40c3-93a0-acbbdb7c12cd.jpg?v=1577497505000"
-                                                                            alt="Giường ngủ đôi Malmila"
-                                                                            data-was-processed="true"
-                                                                        />
-                                                                    </a>
-                                                                    <div className="action">
-                                                                        <a
-                                                                            title="Xem nhanh"
-                                                                            href="/giuong-ngu-doi-malmila"
-                                                                            data-handle="giuong-ngu-doi-malmila"
-                                                                            className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                                                        >
-                                                                            <i className="fas fa-search-plus" />
-                                                                        </a>
-                                                                        <input
-                                                                            type="hidden"
-                                                                            name="variantId"
-                                                                            defaultValue={29845329}
-                                                                        />
-                                                                        <button
-                                                                            className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                                                            title="Thêm vào giỏ hàng"
-                                                                        >
-                                                                            <i className="fas fa-shopping-basket iconcart" />
-                                                                        </button>
+                                                                        <div className="action">
+                                                                            <a
+                                                                                title="Xem nhanh"
+                                                                                href="/ban-ibie-rec-f-chan-den-mau-kem"
+                                                                                data-handle="ban-ibie-rec-f-chan-den-mau-kem"
+                                                                                className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
+                                                                            >
+                                                                                <i className="fas fa-search-plus" />
+                                                                            </a>
+                                                                            <input
+                                                                                type="hidden"
+                                                                                name="variantId"
+                                                                                defaultValue={29845331}
+                                                                            />
+                                                                            <button
+                                                                                className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
+                                                                                title="Thêm vào giỏ hàng"
+                                                                            >
+                                                                                <i className="fas fa-shopping-basket iconcart" />
+                                                                            </button>
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                                <div className="product-info">
-                                                                    <h3 className="product-name">
-                                                                        <a
-                                                                            href="/giuong-ngu-doi-malmila"
-                                                                            title="Giường ngủ đôi Malmila"
-                                                                        >
-                                                                            Giường ngủ đôi Malmila
-                                                                        </a>
-                                                                    </h3>
-                                                                    <div className="price-box">10.490.000₫</div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 product-col">
-                                                        <div className="item_product_main margin-bottom-15">
-                                                            <form
-                                                                action="/cart/add"
-                                                                method="post"
-                                                                className="variants product-action"
-                                                                data-id="product-actions-16610440"
-                                                                encType="multipart/form-data"
-                                                            >
-                                                                <div className="product-thumbnail">
-                                                                    <a
-                                                                        className="image_thumb scale_hover"
-                                                                        href="/giuong-ngu-boc-vai-kieu-dang-hien-dai"
-                                                                        title="Giường ngủ bọc vải kiểu dáng hiện đại"
-                                                                    >
-                                                                        <img
-                                                                            className="lazyload loaded"
-                                                                            src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/06af91156e3c8cf76d2b15f212a7fc-01523697-5154-432b-9dc6-f1bf353f8a51.jpg?v=1577497470450"
-                                                                            data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/06af91156e3c8cf76d2b15f212a7fc-01523697-5154-432b-9dc6-f1bf353f8a51.jpg?v=1577497470450"
-                                                                            alt="Giường ngủ bọc vải kiểu dáng hiện đại"
-                                                                            data-was-processed="true"
-                                                                        />
-                                                                    </a>
-                                                                    <div className="action">
-                                                                        <a
-                                                                            title="Xem nhanh"
-                                                                            href="/giuong-ngu-boc-vai-kieu-dang-hien-dai"
-                                                                            data-handle="giuong-ngu-boc-vai-kieu-dang-hien-dai"
-                                                                            className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                                                        >
-                                                                            <i className="fas fa-search-plus" />
-                                                                        </a>
-                                                                        <input
-                                                                            type="hidden"
-                                                                            name="variantId"
-                                                                            defaultValue={29845327}
-                                                                        />
-                                                                        <button
-                                                                            className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                                                            title="Thêm vào giỏ hàng"
-                                                                        >
-                                                                            <i className="fas fa-shopping-basket iconcart" />
-                                                                        </button>
+                                                                    <div className="product-info">
+                                                                        <h3 className="product-name">
+                                                                            <a
+                                                                                href="/ban-ibie-rec-f-chan-den-mau-kem"
+                                                                                title="Bàn IBIE Rec-F chân đen màu kem"
+                                                                            >
+                                                                                {product.name}
+                                                                            </a>
+                                                                        </h3>
+                                                                        <div className="price-box">{product.price}₫</div>
                                                                     </div>
-                                                                </div>
-                                                                <div className="product-info">
-                                                                    <h3 className="product-name">
-                                                                        <a
-                                                                            href="/giuong-ngu-boc-vai-kieu-dang-hien-dai"
-                                                                            title="Giường ngủ bọc vải kiểu dáng hiện đại"
-                                                                        >
-                                                                            Giường ngủ bọc vải kiểu dáng hiện đại
-                                                                        </a>
-                                                                    </h3>
-                                                                    <div className="price-box">16.490.000₫</div>
-                                                                </div>
-                                                            </form>
+                                                                </form>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 product-col">
-                                                        <div className="item_product_main margin-bottom-15">
-                                                            <form
-                                                                action="/cart/add"
-                                                                method="post"
-                                                                className="variants product-action"
-                                                                data-id="product-actions-16610434"
-                                                                encType="multipart/form-data"
-                                                            >
-                                                                <div className="product-thumbnail">
-                                                                    <a
-                                                                        className="image_thumb scale_hover"
-                                                                        href="/ban-rec-t-trang-va-ghe-den-ibie-ib16c"
-                                                                        title="Bàn Rec-T trắng và ghế đen IBIE IB16C"
-                                                                    >
-                                                                        <img
-                                                                            className="lazyload loaded"
-                                                                            src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/dbc1f618339c73fd42830958cd41cd-f6e7f51d-dc1d-4c8c-9d18-62b2db6c5ec2-412a6748-36cb-4607-9a18-86c290b11d20.jpg?v=1577497386050"
-                                                                            data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/dbc1f618339c73fd42830958cd41cd-f6e7f51d-dc1d-4c8c-9d18-62b2db6c5ec2-412a6748-36cb-4607-9a18-86c290b11d20.jpg?v=1577497386050"
-                                                                            alt="Bàn Rec-T trắng và ghế đen IBIE IB16C"
-                                                                            data-was-processed="true"
-                                                                        />
-                                                                    </a>
-                                                                    <div className="action">
-                                                                        <a
-                                                                            title="Xem nhanh"
-                                                                            href="/ban-rec-t-trang-va-ghe-den-ibie-ib16c"
-                                                                            data-handle="ban-rec-t-trang-va-ghe-den-ibie-ib16c"
-                                                                            className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                                                        >
-                                                                            <i className="fas fa-search-plus" />
-                                                                        </a>
-                                                                        <input
-                                                                            type="hidden"
-                                                                            name="variantId"
-                                                                            defaultValue={29845321}
-                                                                        />
-                                                                        <button
-                                                                            className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                                                            title="Thêm vào giỏ hàng"
-                                                                        >
-                                                                            <i className="fas fa-shopping-basket iconcart" />
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                <div className="product-info">
-                                                                    <h3 className="product-name">
-                                                                        <a
-                                                                            href="/ban-rec-t-trang-va-ghe-den-ibie-ib16c"
-                                                                            title="Bàn Rec-T trắng và ghế đen IBIE IB16C"
-                                                                        >
-                                                                            Bàn Rec-T trắng và ghế đen IBIE IB16C
-                                                                        </a>
-                                                                    </h3>
-                                                                    <div className="price-box">2.550.000₫</div>
-                                                                </div>
-                                                            </form>
-                                                        </div>
-                                                    </div>
+                                                    ))}
+
+
 
                                                 </div>
                                                 <div className="section pagenav clearfix">
@@ -2778,7 +2593,7 @@ const ProductPage = (props: Props) => {
                                                             <li className="page-item">
                                                                 <a
                                                                     className="page-link"
-                                                                    onClick="doSearch(2)"
+
                                                                     href="javascript:;"
                                                                 >
                                                                     2
@@ -2787,7 +2602,7 @@ const ProductPage = (props: Props) => {
                                                             <li className="page-item">
                                                                 <a
                                                                     className="page-link"
-                                                                    onClick="doSearch(3)"
+
                                                                     href="javascript:;"
                                                                 >
                                                                     3
@@ -2796,7 +2611,6 @@ const ProductPage = (props: Props) => {
                                                             <li className="page-item">
                                                                 <a
                                                                     className="page-link"
-                                                                    onClick="doSearch(4)"
                                                                     href="javascript:;"
                                                                 >
                                                                     4
@@ -2805,7 +2619,6 @@ const ProductPage = (props: Props) => {
                                                             <li className="page-item hidden-xs">
                                                                 <a
                                                                     className="page-link"
-                                                                    onClick="doSearch(2)"
                                                                     href="javascript:;"
                                                                 >
                                                                     <i
