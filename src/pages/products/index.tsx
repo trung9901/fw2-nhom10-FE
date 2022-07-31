@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 type Props = {}
@@ -13,9 +14,9 @@ const ProductPage = (props: Props) => {
                             <div className="col-xs-12 a-left">
                                 <ul className="breadcrumb">
                                     <li className="home">
-                                        <a href="/">
+                                        <Link href="/">
                                             <span>Trang chủ</span>
-                                        </a>
+                                        </Link>
                                         <span className="mr_lr">
                                             &nbsp;
                                             <i className="fa fa-angle-right" />
@@ -47,9 +48,9 @@ const ProductPage = (props: Props) => {
                                             <nav className="nav-category navbar-toggleable-md">
                                                 <ul className="nav navbar-pills">
                                                     <li className="nav-item">
-                                                        <a className="nav-link" href="/">
+                                                        <Link className="nav-link" href="/">
                                                             Trang chủ
-                                                        </a>
+                                                        </Link>
                                                     </li>
                                                     <li className="nav-item">
                                                         <a href="/collections/all" className="nav-link">
@@ -286,7 +287,6 @@ const ProductPage = (props: Props) => {
                                                     </span>
                                                     <a
                                                         href="javascript:void(0)"
-                                                        onClick="clearAllFiltered()"
                                                         className="filter-container__clear-all"
                                                     >
                                                         Bỏ hết <i className="fa fa-angle-right" />
@@ -1937,7 +1937,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/dien-tu-va-cong-nghe';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -1979,7 +1978,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/dong-ho-hang-hieu';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2021,7 +2019,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/thoi-trang-phu-kien';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2063,7 +2060,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/me-be-do-choi';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2105,7 +2101,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/lam-dep';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2147,7 +2142,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/the-gioi-nuoc-hoa';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2188,7 +2182,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/do-choi-va-game';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2229,7 +2222,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/the-thao-du-lich';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2270,7 +2262,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/noi-that-kien-truc';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2311,7 +2302,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/phu-tung-xe-hoi';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2352,7 +2342,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/do-gia-dung';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2393,7 +2382,6 @@ const ProductPage = (props: Props) => {
                                                         >
                                                             <div
                                                                 className="item"
-                                                                onClick="location.href='/cho-thu-cung';"
                                                             >
                                                                 <div className="thumb_s">
                                                                     <a
@@ -2454,7 +2442,6 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('published-on:desc')"
                                                                             >
                                                                                 Theo ngày đăng
                                                                             </a>
@@ -2462,7 +2449,6 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('alpha-asc')"
                                                                             >
                                                                                 A → Z
                                                                             </a>
@@ -2470,7 +2456,6 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('alpha-desc')"
                                                                             >
                                                                                 Z → A
                                                                             </a>
@@ -2478,7 +2463,6 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('price-asc')"
                                                                             >
                                                                                 Giá tăng dần
                                                                             </a>
@@ -2486,7 +2470,7 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('price-desc')"
+
                                                                             >
                                                                                 Giá giảm dần
                                                                             </a>
@@ -2494,7 +2478,7 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('created-desc')"
+
                                                                             >
                                                                                 Hàng mới nhất
                                                                             </a>
@@ -2502,7 +2486,7 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('created-asc')"
+
                                                                             >
                                                                                 Hàng cũ nhất
                                                                             </a>
@@ -2510,7 +2494,7 @@ const ProductPage = (props: Props) => {
                                                                         <li>
                                                                             <a
                                                                                 href="javascript:;"
-                                                                                onClick="sortby('quantity-descending')"
+
                                                                             >
                                                                                 Theo tồn kho giảm dần
                                                                             </a>
@@ -2778,7 +2762,7 @@ const ProductPage = (props: Props) => {
                                                             <li className="page-item">
                                                                 <a
                                                                     className="page-link"
-                                                                    onClick="doSearch(2)"
+
                                                                     href="javascript:;"
                                                                 >
                                                                     2
@@ -2787,7 +2771,7 @@ const ProductPage = (props: Props) => {
                                                             <li className="page-item">
                                                                 <a
                                                                     className="page-link"
-                                                                    onClick="doSearch(3)"
+
                                                                     href="javascript:;"
                                                                 >
                                                                     3
@@ -2796,7 +2780,6 @@ const ProductPage = (props: Props) => {
                                                             <li className="page-item">
                                                                 <a
                                                                     className="page-link"
-                                                                    onClick="doSearch(4)"
                                                                     href="javascript:;"
                                                                 >
                                                                     4
@@ -2805,7 +2788,6 @@ const ProductPage = (props: Props) => {
                                                             <li className="page-item hidden-xs">
                                                                 <a
                                                                     className="page-link"
-                                                                    onClick="doSearch(2)"
                                                                     href="javascript:;"
                                                                 >
                                                                     <i
