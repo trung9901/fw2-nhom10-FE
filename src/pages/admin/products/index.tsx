@@ -17,6 +17,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
+import { ToastContainer, toast } from 'react-toastify';
 //
 type Props = {
   products: ProductType[];
@@ -40,10 +41,14 @@ const ProductList = (props: Props) => {
     reset,
     formState: { errors },
   } = useForm<FormData>({ mode: 'onChange' });
+
   const [modalOpen, setModalOpen] = React.useState(false);
+  
   const onSubmit = handleSubmit((data) => {
     if (data) {
+      toast.success('Thêm sản phẩm thành công')
       create(data);
+      
       setModalOpen(!modalOpen)
       reset()
     }
@@ -51,7 +56,10 @@ const ProductList = (props: Props) => {
 
   const onDelete = (id: any) => {
     if (window.confirm('Are you sure you want to delete')) {
+      toast.success('Xoá sản phẩm thành công !')
       remove(id);
+    }else{
+      toast.error('Xoá sản phẩm thất bại !')
     }
   };
   const getDays = (data: any) => {
@@ -233,6 +241,7 @@ const ProductList = (props: Props) => {
                               <Button
                                 color="secondary"
                                 type="button"
+                                className='rounded'
                                 onClick={() => setModalOpen(!modalOpen)}
                               >
                                 Đóng
@@ -240,6 +249,7 @@ const ProductList = (props: Props) => {
                               <Button
                                 color="primary"
                                 type="submit"
+                                className='rounded'
                                 // onClick={() => {
                                   
                                 // }}
@@ -318,7 +328,7 @@ const ProductList = (props: Props) => {
                               </button>
                             </div>
                             {/* -------------------------------------------- */}
-                            <div className="">
+                            <div className="mx-1">
                               <button
                                 type="button"
                                 className="btn btn-success btn-sm  rounded"
