@@ -62,7 +62,6 @@ const ProductList = (props: Props) => {
       toast.error('Xoá sản phẩm thất bại !')
     }
   };
-
   const getDays = (data: any) => {
     const datas = new Date(data);
     return datas.toLocaleDateString('pt-PT');
