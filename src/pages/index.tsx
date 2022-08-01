@@ -8,6 +8,7 @@ const Home: NextPage = () => {
   const { data: products, error } = useProducts()
   if (!products) return <div>Loading...</div>
   if (error) return <div>Failed to loading</div>
+
   return (
     <div className="bodywrap">
       <h1 className="d-none">Ego Mall - </h1>
@@ -606,7 +607,7 @@ const Home: NextPage = () => {
         </section>
       </section>
 
-      <section className="awe-section-5">
+      {/* <section className="awe-section-5">
         <section className="section_three_banner">
           <div className="container">
             <div className="row">
@@ -643,7 +644,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
-      </section>
+      </section> */}
 
       <section className="awe-section-8">
         <section className="section_product_block">
@@ -782,9 +783,12 @@ const Home: NextPage = () => {
                                         {product.name}
                                       </Link>
                                     </h3>
-                                    <a href={`/products/${product._id}`}>
-                                      <div className="price-box" >{product.price}₫</div>
-                                    </a>
+                                    <div className=""></div>
+                                    <div className=""> <a href={`/products/${product._id}`}>
+                                      <div className='price-box'>{product.price}đ</div>
+                                    </a></div>
+
+                                    <div className="price-box" >{product.status == 1 ? 'Còn Hàng' : 'Hết Hàng'}</div>
                                   </div>
                                 </form>
                               </div>
