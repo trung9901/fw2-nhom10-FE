@@ -49,7 +49,7 @@ const ProductList = (props: Props) => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [modalOpen2, setModalOpen2] = React.useState(false);
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit((data: any) => {
     if (data) {
       toast.success('Thêm sản phẩm thành công');
       create(data);
@@ -59,7 +59,7 @@ const ProductList = (props: Props) => {
     }
   });
 
-  const onSubmit2 = handleSubmit((data2) => {
+  const onSubmit2 = handleSubmit((data2: any) => {
     if (data2) {
       toast.success('Cập nhật sản phẩm thành công');
 
@@ -71,7 +71,7 @@ const ProductList = (props: Props) => {
     }
   });
   const onAdd = () => {
-   
+
     setModalOpen(!modalOpen);
   };
   const onDelete = (id: any) => {
@@ -86,7 +86,7 @@ const ProductList = (props: Props) => {
 
   const { data: product } = useSWR(idProduct ? `/products/${idProduct}` : null);
   React.useEffect(() => {
-   
+
     reset(product);
   }, [idProduct, product, reset]);
 
@@ -283,9 +283,9 @@ const ProductList = (props: Props) => {
                                 color="primary"
                                 type="submit"
                                 className="rounded"
-                                // onClick={() => {
+                              // onClick={() => {
 
-                                // }}
+                              // }}
                               >
                                 Thêm sản phẩm
                               </Button>
@@ -430,7 +430,7 @@ const ProductList = (props: Props) => {
                         {...register('image', {
                           required: 'Không được để trống !',
                         })}
-                        // value={product?.image}
+                      // value={product?.image}
                       />
                       <div className="text-danger">{errors.image?.message}</div>
                     </div>
@@ -492,7 +492,7 @@ const ProductList = (props: Props) => {
                         className="form-control"
                         {...register('category')}
                       >
-                
+
                         {categories?.map((item: any) => (
                           <option value={item._id} key={item._id}>
                             {item.name}
@@ -527,9 +527,9 @@ const ProductList = (props: Props) => {
                       color="primary"
                       type="submit"
                       className="rounded"
-                      // onClick={() => {
+                    // onClick={() => {
 
-                      // }}
+                    // }}
                     >
                       Cập nhật sản phẩm
                     </Button>
