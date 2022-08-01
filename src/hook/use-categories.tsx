@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import useSWR, { useSWRConfig } from 'swr';
 
 import instance from '../api/instance';
-import { add, getCategory, removeItem, updateItem } from '../api/categories';
+import { add, removeItem, updateItem } from '../api/categories';
 // import { ProductType } from '../models/Products';
 const useCategories = () => {
   const router = useRouter();
@@ -27,16 +27,13 @@ const useCategories = () => {
     mutate(categories);
   };
 
-  const getById = async (id: number) => {
-    return await getCategory(id);
-  }
+
   return {
     data,
     error,
     create,
     remove,
     update,
-    getById
   };
 };
 
