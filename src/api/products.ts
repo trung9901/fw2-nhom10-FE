@@ -1,5 +1,6 @@
 
 import instance from './instance';
+
 export const add = (products: any) => {
   return instance.post('/products', products);
 };
