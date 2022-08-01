@@ -49,7 +49,7 @@ const ProductList = (props: Props) => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [modalOpen2, setModalOpen2] = React.useState(false);
 
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit((data: any) => {
     if (data) {
       toast.success('Thêm sản phẩm thành công');
       create(data);
@@ -59,7 +59,7 @@ const ProductList = (props: Props) => {
     }
   });
 
-  const onSubmit2 = handleSubmit((data2) => {
+  const onSubmit2 = handleSubmit((data2: any) => {
     if (data2) {
       toast.success('Cập nhật sản phẩm thành công');
 
