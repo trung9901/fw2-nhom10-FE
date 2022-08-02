@@ -1,17 +1,32 @@
 import React from 'react'
 import useCategories from '../../hook/use-categories'
+
 import useProducts from '../../hook/use-products'
 import { CategoryType } from '../../models/Category'
+import  useSWR  from 'swr';
 
 type Props = {}
 
-const Category = (props: Props) => {
-    const { data: category, error } = useCategories()
-    console.log(category);
+const CategoryHead = (props: Props) => {
+    const [data, setData] = React.useState(null)
+    React.useEffect(() => {
+        fetch('http://localhost:8000/api/categories')
+          .then((res) => res.json())
+          .then((data) => {
+            setData(data)
+            setLoading(false)
+          })
+      }, [])
+    
+    // const res = await fetch(
+    //         `http://localhost:8000/api/categories`
+    //       );
+    //       const data = await res.json();
+    // console.log(category);
 
-    if (!category) return <div>Loading...</div>
+    // if (!category) return <div>Loading...</div>
 
-    if (error) return <div>Failed to loading</div>
+    // if (error) return <div>Failed to loading</div>
     return (
         <div className="menu_mega">
             <div className="title_menu">
@@ -23,7 +38,7 @@ const Category = (props: Props) => {
                 </span>
             </div>
             <div className="list_menu_header menu_all_site col-lg-3 col-md-3">
-                {category?.map((item: CategoryType, index: any) => (
+                {data?.map((item: CategoryType, index: any) => (
                     <ul className="ul_menu site-nav-vetical" key={index + 1}>
                         <li className="nav_item lev-1 lv1 li_check">
                             <a href="/do-gia-dung" title="Đồ gia dụng">
@@ -37,4 +52,4 @@ const Category = (props: Props) => {
     )
 }
 
-export default Category
+export default CategoryHead

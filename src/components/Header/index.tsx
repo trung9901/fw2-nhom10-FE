@@ -5,7 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CategoryType } from '../../models/Category';
-import Category from '../../pages/categories';
+import CategoryHead from '../../pages/categories';
 
 
 type Props = {
@@ -347,7 +347,7 @@ const Header = (props: Props) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 col-mega hidden-sm hidden-xs">
-                <Category />
+                <CategoryHead />
               </div>
               <div className="col-lg-9 col-md-9">
                 <nav className="header-nav">
