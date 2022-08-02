@@ -3,7 +3,7 @@ import useCategories from '../../hook/use-categories'
 
 import useProducts from '../../hook/use-products'
 import { CategoryType } from '../../models/Category'
-import  useSWR  from 'swr';
+import useSWR from 'swr';
 
 type Props = {}
 
@@ -11,14 +11,12 @@ const CategoryHead = (props: Props) => {
     const [data, setData] = React.useState(null)
     React.useEffect(() => {
         fetch('http://localhost:8000/api/categories')
-          .then((res) => res.json())
-          .then((data) => {
-            setData(data)
-   
-          })
-      }, [])
-    
+            .then((res) => res.json())
+            .then((data) => {
+                setData(data)
 
+            })
+    }, [])
 
     return (
         <div className="menu_mega">

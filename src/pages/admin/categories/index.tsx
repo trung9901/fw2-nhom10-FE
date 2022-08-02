@@ -45,30 +45,30 @@ const CategoryList = (props: Props) => {
   });
 
   const onSubmit2 = handleSubmit((data2) => {
-    
+
     if (data2) {
       toast.success('Cập nhật danh mục thành công');
-      
-      update(idCategory,data2);
-      
+
+      update(idCategory, data2);
+
       setModalOpen2(!modalOpen2);
 
       reset();
 
     }
-   
+
   });
-  const [idCategory,setIdCategory] = React.useState()
+  const [idCategory, setIdCategory] = React.useState()
   const { data: category } = useSWR(idCategory ? `/categories/${idCategory}` : null);
-  
+
   React.useEffect(() => {
 
     console.log(idCategory)
 
     reset(category)
-  },[idCategory, category, reset])
+  }, [idCategory, category, reset])
 
-  const onUpdate = (id:any) => {
+  const onUpdate = (id: any) => {
     setModalOpen2(!modalOpen2);
     setIdCategory(id);
   };
@@ -227,11 +227,11 @@ const CategoryList = (props: Props) => {
                             <span className="name">{item.name}</span>{' '}
                           </td>
                           <td>
-                          <span className="">{getDays(item.createdAt)} </span>
-                        </td>
-                        <td>
-                          <span className="">{getDays(item.updatedAt)}</span>
-                        </td>
+                            <span className="">{getDays(item.createdAt)} </span>
+                          </td>
+                          <td>
+                            <span className="">{getDays(item.updatedAt)}</span>
+                          </td>
                           <td>
                             <span className="">
                               <div className="d-flex justify-content-evenly">
