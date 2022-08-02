@@ -2543,7 +2543,10 @@ const ProductPage = (props: Props) => {
                                         href="/ban-ibie-rec-f-chan-den-mau-kem"
                                         title="Bàn IBIE Rec-F chân đen màu kem"
                                       >
-                                        {product.name}
+                                        <div className="fw-bold text-uppercase">
+                                          {' '}
+                                          {product.name}
+                                        </div>
                                       </a>
                                     </h3>
                                     <div className="price-box">
