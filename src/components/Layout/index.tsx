@@ -21,7 +21,7 @@ function Layout({ children }: LayoutProps) {
       <div className="">
         <div id="" className="inbody section">
           <Header />
-          <div className="bodywrap">{children}</div>
+          <div className="bodywrap ">{children}</div>
           <Footer />
         </div>
       </div>
