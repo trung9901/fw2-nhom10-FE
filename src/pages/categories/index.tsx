@@ -14,19 +14,12 @@ const CategoryHead = (props: Props) => {
           .then((res) => res.json())
           .then((data) => {
             setData(data)
-            setLoading(false)
+   
           })
       }, [])
     
-    // const res = await fetch(
-    //         `http://localhost:8000/api/categories`
-    //       );
-    //       const data = await res.json();
-    // console.log(category);
 
-    // if (!category) return <div>Loading...</div>
 
-    // if (error) return <div>Failed to loading</div>
     return (
         <div className="menu_mega">
             <div className="title_menu">
