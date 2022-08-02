@@ -53,7 +53,7 @@ const Signup = (props: Props) => {
                 <div className="page-login pagecustome clearfix">
                   <div className="wpx">
                     <h1 className="title_heads a-center"><span>ĐĂNG KÝ</span></h1>
-                    <span className="block a-center dkm margin-top-10">Đã có tài khoản, đăng nhập <Link href="/signin"><a className="btn-link-style btn-register">tại đây</a></Link> </span>
+                    <span className="block a-center dkm margin-top-10 mb-3">Đã có tài khoản, đăng nhập <Link href="/signin"><a className="btn-link-style btn-register">tại đây</a></Link> </span>
                     <div id="login" className="section">
                       <form onSubmit={handleSubmit(onSubmit)}>
                         <input name="FormType" type="hidden" defaultValue="customer_register" />

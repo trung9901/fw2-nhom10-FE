@@ -60,7 +60,7 @@ const Signin = (props: Props) => {
                     <p className="a-center">
                       Hoặc đăng nhập bằng
                     </p>
-                    <a href="javascript:void(0)" className="social-login--facebook" ><img width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg" /></a>
+                    <a href="javascript:void(0)" className="social-login--facebook" ><img className='m-2' width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg" /></a>
                     <a href="javascript:void(0)" className="social-login--google" ><img width="129px" height="37px" alt="google-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg" /></a>
                   </div>
                 </div>

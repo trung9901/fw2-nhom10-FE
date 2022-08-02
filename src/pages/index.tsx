@@ -64,11 +64,11 @@ const Home: NextPage = () => {
       </section>
       <section className="awe-section-3">
         <section className="clearfix">
-          <div className="container">
+          <div className="container mb-3">
             <a className="scale_hover" href="#" title="alt">
               <img
                 className="lazyload banner_leng"
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
+                src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/banner-leng.jpg?1656725435979"
                 data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/banner-leng.jpg?1656725435979"
                 alt="alt"
               />
