@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 type Props = {}
 
@@ -10,9 +11,13 @@ const Signin = (props: Props) => {
           <div className="col-lg-4 col-md-6 col-sm-12 col-xl-4 offset-0 offset-xl-4 offset-lg-4 offset-md-3 offset-xl-3 col-12">
             <div className="row">
               <div className="page-login pagecustome clearfix">
-                <div className="wpx">
-                  <h1 className="title_heads a-center"><span>Đăng nhập</span></h1>
-                  <span className="block a-center dkm margin-top-10">Nếu bạn chưa có tài khoản, <a href="/sigunup" className="btn-link-style btn-register">đăng ký tại đây</a></span>
+                <div className="wpx ">
+                  <h1 className="title_heads a-center"><span>ĐĂNG NHẬP</span></h1>
+                  <span className="block a-center dkm margin-top-10 mb-2">Nếu bạn chưa có tài khoản,
+                    <Link href="/signup">
+                      <a className="btn-link-style btn-register">đăng ký tại đây</a>
+                    </Link>
+                  </span>
                   <div id="login" className="section">
                     <form acceptCharset="utf-8" action="/signin" id="customer_login" method="post">
                       <input name="FormType" type="hidden" defaultValue="customer_login" />
@@ -26,10 +31,10 @@ const Signin = (props: Props) => {
                         <fieldset className="form-group">
                           <input type="password" className="form-control form-control-lg" name="password" id="customer_password" placeholder="Mật khẩu" required />
                         </fieldset>
-                        <div className="pull-xs-left">
-                          <input className="btn btn-style btn_50" type="submit" defaultValue="Đăng nhập" />
-                          <span className="block a-center quenmk">Quên mật khẩu</span>
+                        <div className="d-flex flex-column-reverse">
+                          <button type="submit" value="Đăng nhập" className="btn btn-success ">Đăng Nhập</button>
                         </div>
+                        <span className="block a-center mt-2">Quên mật khẩu</span>
                       </div>
                     </form>
                   </div>
