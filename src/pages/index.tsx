@@ -3,14 +3,13 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 import useProducts from '../hook/use-products';
 
-
 const Home: NextPage = () => {
-  const { data: products, error } = useProducts()
-  if (!products) return <div>Loading...</div>
-  if (error) return <div>Failed to loading</div>
+  const { data: products, error } = useProducts();
+  if (!products) return <div>Loading...</div>;
+  if (error) return <div>Failed to loading</div>;
 
   return (
-    <div className="bodywrap">
+    <div className="bodywrap bg-white">
       <h1 className="d-none">Ego Mall - </h1>
       <section className="awe-section-1">
         <section className="s_slider">
@@ -81,9 +80,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -119,9 +116,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -167,9 +162,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -205,9 +198,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -253,9 +244,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -291,9 +280,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -339,9 +326,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -377,9 +362,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -425,9 +408,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -463,9 +444,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -511,9 +490,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -549,9 +526,7 @@ const Home: NextPage = () => {
                               className="item_category"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-                              <div
-                                className="item"
-                              >
+                              <div className="item">
                                 <div className="thumb_s">
                                   <a
                                     className="image"
@@ -718,16 +693,13 @@ const Home: NextPage = () => {
                           role="option"
                           aria-describedby="slick-slide34"
                           key={product.id}
-
                         >
-
                           <div>
                             <div
                               className="item"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-
-                              <div className="item_product_main" >
+                              <div className="item_product_main">
                                 <form
                                   action="/cart/add"
                                   method="post"
@@ -776,23 +748,41 @@ const Home: NextPage = () => {
                                   </div>
                                   <div className="product-info">
                                     <h3 className="product-name">
-                                      <Link href={`/products/${product._id}`}
+                                      <Link
+                                        href={`/products/${product._id}`}
                                         title="iPad Pro 9.7 inch Wifi Cellular"
                                         tabIndex={-1}
                                       >
-                                        {product.name}
+                                        <div className="fw-bold text-uppercase">
+                                          {' '}
+                                          {product.name}
+                                        </div>
                                       </Link>
                                     </h3>
                                     <div className=""></div>
-                                    <div className=""> <a href={`/products/${product._id}`}>
-                                      <div className='price-box'>{product.price}đ</div>
-                                    </a></div>
+                                    <div className="">
+                                      {' '}
+                                      <a href={`/products/${product._id}`}>
+                                        <div className="price-box">
+                                          {product.price}đ
+                                        </div>
+                                      </a>
+                                    </div>
 
-                                    <div className="price-box" >{product.status == 1 ? 'Còn Hàng' : 'Hết Hàng'}</div>
+                                    <div className="">
+                                      {product.status == 1 ? (
+                                        <span className="border border-white rounded bg-success text-white p-1">
+                                          Còn Hàng
+                                        </span>
+                                      ) : (
+                                        <span className="border border-white rounded bg-danger text-white p-1">
+                                          Hết Hàng
+                                        </span>
+                                      )}
+                                    </div>
                                   </div>
                                 </form>
                               </div>
-
                             </div>
                           </div>
                         </div>
@@ -814,8 +804,8 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-        </section >
-      </section >
+        </section>
+      </section>
       <section className="awe-section-9">
         <section className="section_phukien">
           <div className="container">
@@ -1318,7 +1308,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </section>
-    </div >
+    </div>
   );
 };
 
