@@ -54,7 +54,6 @@ const CategoryList = (props: Props) => {
       setModalOpen2(!modalOpen2);
 
       reset();
-
     }
 
   });
@@ -84,8 +83,6 @@ const CategoryList = (props: Props) => {
     const datas = new Date(data);
     return datas.toLocaleDateString('pt-PT');
   };
-
-
   return (
     <div>
       <div className="content">

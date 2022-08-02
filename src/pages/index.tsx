@@ -64,7 +64,7 @@ const Home: NextPage = () => {
       </section>
       <section className="awe-section-3">
         <section className="clearfix">
-          <div className="container mb-3">
+          <div className="container mb-2">
             <a className="scale_hover" href="#" title="alt">
               <img
                 className="lazyload banner_leng"
