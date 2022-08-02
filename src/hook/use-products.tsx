@@ -20,6 +20,7 @@ const useProducts = () => {
     );
     mutate(product);
   };
+
   const remove = async (id: any) => {
     await removeItem(id);
     const newProducts = data.filter((item: any) => item.id != id);

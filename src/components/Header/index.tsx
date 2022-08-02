@@ -4,11 +4,16 @@ import Head from 'next/head';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import useCategories from '../../hook/use-categories';
+import { CategoryType } from '../../models/Category';
+import Category from '../../pages/categories';
 
-type Props = {};
+
+type Props = {
+  category: CategoryType
+};
 
 const Header = (props: Props) => {
+
   // const { data, error } = useCategories()
   // if (!data) return <div>Loading...</div>
   // if (error) return <div>Failed to loading</div>
@@ -342,27 +347,7 @@ const Header = (props: Props) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 col-mega hidden-sm hidden-xs">
-                <div className="menu_mega">
-                  <div className="title_menu">
-                    <span className="title_">Danh mục sản phẩm</span>
-                    <span className="nav_button">
-                      <span>
-                        <i className="fa fa-align-left" aria-hidden="true" />
-                      </span>
-                    </span>
-                  </div>
-                  <div className="list_menu_header menu_all_site col-lg-3 col-md-3">
-                    {/* {data?.map((item: any, index: any) => ( */}
-                    <ul className="ul_menu site-nav-vetical" >
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/do-gia-dung" title="Đồ gia dụng">
-                          {/* {item.name} */}123
-                        </a>
-                      </li>
-                    </ul>
-                    {/* ))} */}
-                  </div>
-                </div>
+                <Category />
               </div>
               <div className="col-lg-9 col-md-9">
                 <nav className="header-nav">
