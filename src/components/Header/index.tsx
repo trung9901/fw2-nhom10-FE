@@ -5,7 +5,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { CategoryType } from '../../models/Category';
-import CategoryHead from '../../pages/categories';
+import CategoryHead from '../../pages/categories/CategoryHead';
 
 
 type Props = {

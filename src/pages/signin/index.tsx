@@ -40,7 +40,7 @@ const Signin = (props: Props) => {
                   </div>
                   <div className="h_recover" style={{ display: 'none' }}>
                     <div id="recover-password" className="form-signup page-login">
-                      <form acceptCharset="utf-8" action="/account/recover" id="recover_customer_password" method="post">
+                      <form >
                         <input name="FormType" type="hidden" defaultValue="recover_customer_password" />
                         <input name="utf8" type="hidden" defaultValue="true" />
                         <div className="form-signup" style={{ color: 'red' }}>

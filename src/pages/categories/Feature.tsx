@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react'
 import useCategories from '../../hook/use-categories';
 
@@ -20,16 +21,15 @@ const Feature = (props: Props) => {
                         }}
                         role="listbox"
                     >
-                        {category.map((cate: any, index: any) => (
+                        {category.map((cate: any) => (
                             <div
                                 className="slick-slide slick-current slick-active"
-                                data-slick-index={0}
+
                                 aria-hidden="false"
                                 style={{ width: 160 }}
-                                tabIndex={-1}
-                                role="option"
-                                aria-describedby="slick-slide00"
-                                key={index + 1}
+
+
+                                key={cate._id}
                             >
 
                                 <div >
@@ -39,20 +39,22 @@ const Feature = (props: Props) => {
                                     >
                                         <div className="item">
                                             <div className="thumb_s">
-                                                <a
-                                                    className="image"
-                                                    href="/dien-tu-va-cong-nghe"
-                                                    title={cate.name}
-                                                    tabIndex={0}
-                                                >
-                                                    <img
-                                                        className="image_cate_thumb lazyload loaded"
-                                                        src={cate.image}
-                                                        data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct1.png?v=1577470247840"
-                                                        alt="Điện tử và công nghệ"
-                                                        data-was-processed="true"
-                                                    />
-                                                </a>
+                                                <Link href={`/cateproduct/${cate._id}`} >
+                                                    <a
+                                                        className="image"
+
+                                                        title={cate.name}
+                                                        tabIndex={0}
+                                                    >
+                                                        <img
+                                                            className="image_cate_thumb lazyload loaded"
+                                                            src={cate.image}
+                                                            data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct1.png?v=1577470247840"
+                                                            alt="Điện tử và công nghệ"
+                                                            data-was-processed="true"
+                                                        />
+                                                    </a>
+                                                </Link>
                                                 <div className="info">
                                                     <h4 className="title_cate_">
                                                         <a
