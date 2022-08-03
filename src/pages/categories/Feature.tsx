@@ -20,16 +20,15 @@ const Feature = (props: Props) => {
                         }}
                         role="listbox"
                     >
-                        {category.map((cate: any, index: any) => (
+                        {category.map((cate: any) => (
                             <div
                                 className="slick-slide slick-current slick-active"
-                                data-slick-index={0}
+                             
                                 aria-hidden="false"
                                 style={{ width: 160 }}
-                                tabIndex={-1}
-                                role="option"
-                                aria-describedby="slick-slide00"
-                                key={index + 1}
+                             
+                          
+                                key={cate._id}
                             >
 
                                 <div >
@@ -39,7 +38,7 @@ const Feature = (props: Props) => {
                                     >
                                         <div className="item">
                                             <div className="thumb_s">
-                                                <Link href='cateproduct' >
+                                                <Link href={`/cateproduct/${cate._id}`} >
                                                 <a
                                                     className="image"
                                                     
