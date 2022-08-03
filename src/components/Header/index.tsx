@@ -10,7 +10,7 @@ type Props = {};
 const Header = (props: Props) => {
   return (
     <header>
-      {' '}
+      
       <div>
         <div className="wraphead_mobile clearfix">
           <div className="container">
@@ -314,10 +314,10 @@ const Header = (props: Props) => {
                       </div>
                     </div>
                     <div className="group_ac">
-                      <a className="btnx" href="/account/login">
-                        Đăng nhập
-                      </a>
-                      <a href="/account/register">Đăng ký</a>
+                      <Link href="/signin"><a className="btnx" >Đăng nhập
+                      </a></Link>
+                      
+                      <Link href="/signup"><a >Đăng ký</a></Link>
                     </div>
                   </div>
                 </div>

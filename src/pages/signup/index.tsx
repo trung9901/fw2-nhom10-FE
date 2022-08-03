@@ -2,7 +2,7 @@ import React from 'react';
 import { useRouter } from 'next/router'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { toast } from "react-toastify"
-import { signup } from "../../api/user"
+import { signup } from "../../api/auth"
 import Link from 'next/link';
 
 
@@ -10,7 +10,6 @@ type Props = {
   name: string,
   email: string
   password: string
-  phone: string
 }
 
 const Signup = (props: Props) => {
@@ -31,8 +30,9 @@ const Signup = (props: Props) => {
 
 
       reset();
+      toast.success("Đăng ký thành công, vui lòng đăng nhập");
       setTimeout(() => {
-        toast.success("Đăng ký thành công, vui lòng đăng nhập");
+        
         router.push("/signin")
       }
         , 3000)
@@ -65,7 +65,7 @@ const Signup = (props: Props) => {
                             <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                               <fieldset className="form-group">
                                 <input type="text" className="form-control form-control-lg" id="name" placeholder="Tên" {...register("name", { required: "Vui lòng nhập họ tên" })} />
-                                <p>{errors.name?.message}</p>
+                                <div className="text-danger">{errors.name?.message}</div>
                               </fieldset>
                             </div>
                           </div>
@@ -73,14 +73,14 @@ const Signup = (props: Props) => {
                             <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12" >
                               <fieldset className="form-group">
                                 <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" id="email" placeholder="Email" {...register("email", { required: "Vui lòng nhập email" })} />
-                                <div>{errors.email?.message}</div>
+                                <div className="text-danger">{errors.email?.message}</div>
                               </fieldset>
                             </div>
 
                             <div className="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                               <fieldset className="form-group">
                                 <input type="password" className="form-control form-control-lg" id="password" placeholder="Mật khẩu" {...register("password", { required: "Vui lòng nhập mật khẩu" })} />
-                                <div>{errors.password?.message}</div>
+                                <div className="text-danger">{errors.password?.message}</div>
                               </fieldset>
                             </div>
                           </div>
