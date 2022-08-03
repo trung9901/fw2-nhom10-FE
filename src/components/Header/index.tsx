@@ -14,14 +14,14 @@ type Props = {
 };
 
 const Header = (props: Props) => {
-  const [users, setUsers] = React.useState(null);
-  useEffect(() => {
-    const users = JSON.parse(localStorage.getItem('user') as string);
-    if (users) {
-      setUsers(users);
-    }
+  // const [users, setUsers] = React.useState(null);
+  // useEffect(() => {
+  //   const users = JSON.parse(localStorage.getItem('user') as string);
+  //   if (users) {
+  //     setUsers(users);
+  //   }
     
-  }, []);
+  // }, []);
    const logout = () => {
     localStorage.removeItem('user');
   };
@@ -328,7 +328,7 @@ const Header = (props: Props) => {
                       </div>
                     </div>
                     <div className="group_ac">
-                      {users ? (
+                      {/* {users ? (
                         <>
                           <Link href=""> Account </Link> 
                           {users.user.role == 1 ? (
@@ -352,7 +352,7 @@ const Header = (props: Props) => {
                             <a>Đăng ký</a>
                           </Link>
                         </>
-                      )}
+                      )} */}
                     </div>
                   </div>
                 </div>
