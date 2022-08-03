@@ -9,9 +9,8 @@ import CategoryHead from '../../pages/categories/CategoryHead';
 import { isAuthenticate } from '../../utils/localStorage';
 import { useEffect } from 'react';
 
-
 type Props = {
-  category: CategoryType
+  category: CategoryType;
 };
 
 const Header = (props: Props) => {
@@ -21,15 +20,13 @@ const Header = (props: Props) => {
     if (users) {
       setUsers(users);
     }
-  }, [])
-  const logout = () =>{
-    localStorage.removeItem('user')
-  }
- 
-
+    
+  }, []);
+   const logout = () => {
+    localStorage.removeItem('user');
+  };
   return (
     <header>
-
       <div>
         <div className="wraphead_mobile clearfix">
           <div className="container">
@@ -214,7 +211,6 @@ const Header = (props: Props) => {
                       <input
                         type="search"
                         name="query"
-
                         placeholder="Tìm kiếm... "
                         className="input-group-field st-default-search-input search-text"
                         autoComplete="off"
@@ -273,7 +269,6 @@ const Header = (props: Props) => {
                         <input
                           type="text"
                           name="query"
-
                           autoComplete="off"
                           required
                           placeholder="Tìm kiếm..."
@@ -290,12 +285,8 @@ const Header = (props: Props) => {
                     <div className="carthd">
                       <div className="mini-cart text-xs-center">
                         <div className="heading-cart cart_header">
-
                           <Link href="/cart">
-                            <a
-                              className="img_hover_cart"
-                              title="Giỏ hàng"
-                            >
+                            <a className="img_hover_cart" title="Giỏ hàng">
                               <div className="icon_hotline">
                                 <img
                                   src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/shopping-bag.svg?1656725435979"
@@ -337,24 +328,31 @@ const Header = (props: Props) => {
                       </div>
                     </div>
                     <div className="group_ac">
-                      {if (users) {
-      return (<><Link href="/admin">
-        <a className="btnx">
-          Admin
-        </a>
-      </Link>
-        <Link href="/account">Account</Link>
-        <a onClick={()=>logout()}>Đăng xuất</a>
-      </>)
-    } else {
-      return (<><Link href="/signin">
-        <a className="btnx">
-          Đăng nhập
-        </a>
-      </Link><Link href="/signup">
-          <a>Đăng ký</a>
-        </Link></>)
-    }}
+                      {users ? (
+                        <>
+                          <Link href=""> Account </Link> 
+                          {users.user.role == 1 ? (
+                            <div className="">
+                              <Link href="/admin">
+                                <a className="btnx">Admin</a>
+                              </Link>
+                            </div>
+                          ) : (
+                            ''
+                          )}
+
+                          <a onClick={() => logout()}>Đăng xuất</a> 
+                        </>
+                      ) : (
+                        <>
+                          <Link href="/signin">
+                            <a className="btnx">Đăng nhập</a>
+                          </Link>
+                          <Link href="/signup">
+                            <a>Đăng ký</a>
+                          </Link>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -381,11 +379,7 @@ const Header = (props: Props) => {
                     </li>
                     <li className="nav-item  has-mega">
                       <Link href="/products">
-                        <a
-                          className="a-img"
-
-                          title="Sản phẩm"
-                        >
+                        <a className="a-img" title="Sản phẩm">
                           <span>Sản phẩm</span>
                           <i className="fa fa-angle-down" />
                         </a>
@@ -721,9 +715,7 @@ const Header = (props: Props) => {
               <div className="containers">
                 {/* Menu mobile */}
                 <div className="contenttop">
-                  <div className="section margin-bottom-10 margin-top-20">
-
-                  </div>
+                  <div className="section margin-bottom-10 margin-top-20"></div>
                 </div>
                 <div className="menu_mobile">
                   <ul className="ul_collections">
