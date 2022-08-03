@@ -1,10 +1,9 @@
-/* eslint-disable react/jsx-no-undef */
 /* eslint-disable jsx-a11y/alt-text */
-
 import React from 'react';
+
 import { useForm } from 'react-hook-form';
 import AdminLayout from '../../../components/Layout/admin';
-import useCategories from './../../../hook/use-categories';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTrashAlt,
@@ -16,14 +15,19 @@ import Image from 'next/image';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import useSWR from 'swr';
+import useNews from '../../../hook/use-news';
 type Props = {};
 type FormData = {
-  name: String;
-  image: String;
-};
-const CategoryList = (props: Props) => {
-  const { data, error, create, remove, update } = useCategories();
+  title: String;
 
+  image: String;
+
+  content: String;
+};
+const NewsList = (props: Props) => {
+  const { data, error, create, remove, update } = useNews();
+  const [modalOpen, setModalOpen] = React.useState(false);
+  const [modalOpen2, setModalOpen2] = React.useState(false);
   const {
     register,
     setValue,
@@ -31,13 +35,9 @@ const CategoryList = (props: Props) => {
     reset,
     formState: { errors },
   } = useForm<FormData>();
-
-  const [modalOpen, setModalOpen] = React.useState(false);
-  const [modalOpen2, setModalOpen2] = React.useState(false);
-
   const onSubmit = handleSubmit((data) => {
     if (data) {
-      toast.success('Thêm danh mục thành công !');
+      toast.success('Thêm bài viết thành công !');
       create(data);
       reset();
       setModalOpen(!modalOpen);
@@ -45,9 +45,8 @@ const CategoryList = (props: Props) => {
   });
 
   const onSubmit2 = handleSubmit((data2) => {
-
     if (data2) {
-      toast.success('Cập nhật danh mục thành công');
+      toast.success('Cập nhật bài viết thành công');
 
       update(idCategory, data2);
 
@@ -55,19 +54,7 @@ const CategoryList = (props: Props) => {
 
       reset();
     }
-
   });
-
-  
-  const [idCategory, setIdCategory] = React.useState()
-  const { data: category } = useSWR(idCategory ? `/categories/${idCategory}` : null);
-
-  React.useEffect(() => {
-
-    console.log(idCategory)
-
-    reset(category)
-  }, [idCategory, category, reset])
 
   const onUpdate = (id: any) => {
     setModalOpen2(!modalOpen2);
@@ -75,16 +62,26 @@ const CategoryList = (props: Props) => {
   };
   const onDelete = (id: any) => {
     if (confirm('Are you sure you want to delete')) {
-      toast.success('Xoá danh mục thành công');
+      toast.success('Xoá bài viết thành công');
       remove(id);
     } else {
-      toast.error('Xoá danh mục thất bại');
+      toast.error('Xoá bài viết thất bại');
     }
   };
+  const [idCategory, setIdCategory] = React.useState();
+  const { data: category } = useSWR(idCategory ? `/news/${idCategory}` : null);
+
+  React.useEffect(() => {
+    console.log(idCategory);
+
+    reset(category);
+  }, [idCategory, category, reset]);
+
   const getDays = (data: any) => {
     const datas = new Date(data);
     return datas.toLocaleDateString('pt-PT');
   };
+
   return (
     <div>
       <div className="content">
@@ -93,7 +90,7 @@ const CategoryList = (props: Props) => {
             <div className="col">
               <div className="card">
                 <div className="card-header">
-                  <strong className="card-title">Custom Table</strong>
+                  <strong className="card-title">News List</strong>
                 </div>
                 <div className="table-stats order-table ov-h">
                   <table className="table ">
@@ -102,7 +99,8 @@ const CategoryList = (props: Props) => {
                         <th className="serial">#</th>
                         <th className="avatar">Image</th>
 
-                        <th>Name</th>
+                        <th>Title</th>
+                        <th>Content</th>
                         <th>Creat At</th>
                         <th>Updated At</th>
                         <th>Actions</th>
@@ -125,7 +123,7 @@ const CategoryList = (props: Props) => {
                                 className=" modal-title"
                                 id="exampleModalLabel"
                               >
-                                Thêm danh mục
+                                Thêm bài viết
                               </h5>
                               <button
                                 aria-label="Close"
@@ -157,19 +155,16 @@ const CategoryList = (props: Props) => {
                                 </div>
                                 <div className="form-group">
                                   <label htmlFor="exampleFormControlInput1">
-                                    Name
+                                    Title
                                   </label>
                                   <input
                                     type="text"
                                     className="form-control"
                                     id="name"
-                                    placeholder="Tên danh mục"
-                                    {...register('name', {
+                                    placeholder="Tiêu đề"
+                                    {...register('title', {
                                       required: 'Không được để trống !',
-                                      minLength: {
-                                        value: 5,
-                                        message: 'Tối thiểu 5 kí tự !',
-                                      },
+
                                       maxLength: {
                                         value: 20,
                                         message: 'Tối đa 20 kí tự !',
@@ -177,7 +172,20 @@ const CategoryList = (props: Props) => {
                                     })}
                                   />
                                   <div className="text-danger">
-                                    {errors.name?.message}
+                                    {errors.title?.message}
+                                  </div>
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="exampleFormControlInput1">
+                                    Content
+                                  </label>
+                                  <textarea
+                                    className="form-control"
+                                    placeholder="Nội dung"
+                                    {...register('content')}
+                                  ></textarea>
+                                  <div className="text-danger">
+                                    {errors.content?.message}
                                   </div>
                                 </div>
                               </ModalBody>
@@ -223,7 +231,11 @@ const CategoryList = (props: Props) => {
 
                           <td>
                             {' '}
-                            <span className="name">{item.name}</span>{' '}
+                            <span className="name">{item.title}</span>{' '}
+                          </td>
+                          <td>
+                            {' '}
+                            <span className="name">{item.content}</span>{' '}
                           </td>
                           <td>
                             <span className="">{getDays(item.createdAt)} </span>
@@ -297,18 +309,15 @@ const CategoryList = (props: Props) => {
                         </div>
                       </div>
                       <div className="form-group">
-                        <label htmlFor="exampleFormControlInput1">Name</label>
+                        <label htmlFor="exampleFormControlInput1">Title</label>
                         <input
                           type="text"
                           className="form-control"
                           id="name"
-                          placeholder="Tên danh mục"
-                          {...register('name', {
+                          placeholder="Tiêu đề"
+                          {...register('title', {
                             required: 'Không được để trống !',
-                            minLength: {
-                              value: 5,
-                              message: 'Tối thiểu 5 kí tự !',
-                            },
+
                             maxLength: {
                               value: 20,
                               message: 'Tối đa 20 kí tự !',
@@ -316,7 +325,20 @@ const CategoryList = (props: Props) => {
                           })}
                         />
                         <div className="text-danger">
-                          {errors.name?.message}
+                          {errors.title?.message}
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">
+                          Content
+                        </label>
+                        <textarea
+                          className="form-control"
+                          placeholder="Nội dung"
+                          {...register('content')}
+                        ></textarea>
+                        <div className="text-danger">
+                          {errors.content?.message}
                         </div>
                       </div>
                     </ModalBody>
@@ -344,5 +366,7 @@ const CategoryList = (props: Props) => {
     </div>
   );
 };
-CategoryList.Layout = AdminLayout;
-export default CategoryList;
+
+NewsList.Layout = AdminLayout;
+
+export default NewsList;
