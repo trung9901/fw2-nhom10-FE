@@ -16,16 +16,14 @@ import {
 import useSWR from 'swr';
 type Props = {};
 type FormData = {
-   
-    name: string;
-    email: string;
- 
-    password: string;
-    role?: number 
-}
+  name: string;
+  email: string;
+
+  password: string;
+  role?: number;
+};
 const UserList = (props: Props) => {
   const { data, error, remove, update } = useUsers();
-
 
   const [modalOpen, setModalOpen] = React.useState(false);
   const [modalOpen2, setModalOpen2] = React.useState(false);
@@ -112,7 +110,7 @@ const UserList = (props: Props) => {
                           <td>
                             {' '}
                             <span className="name">
-                              {item.role == 0 ? 'Admin' : 'Member'}
+                              {item.role == 0 ? 'Member' : 'Admin'}
                             </span>{' '}
                           </td>
                           <td>
@@ -125,7 +123,7 @@ const UserList = (props: Props) => {
                             <span className="">
                               <div className="d-flex justify-content-evenly">
                                 <div className="">
-                                  {item.role == 1 ? (
+                                  {item.role == 0 ? (
                                     <button
                                       type="button"
                                       className="btn btn-primary btn-sm  rounded "
@@ -194,21 +192,21 @@ const UserList = (props: Props) => {
                           {errors.name?.message}
                         </div>
                       </div>
-                     
-                      <div className="form-group">
-                      <label htmlFor="">Status</label>
 
-                      <select {...register('role')}>
-                        <option selected value={data?.role == 1 ? 1 : 0}>
-                          {data?.role == 1 ? 'Member' : 'Admin'}
-                        </option>
-                        {data?.role == 1 ? (
-                          <option value={0}>Admin</option>
-                        ) : (
-                          <option value={1}>Member</option>
-                        )}
-                      </select>
-                    </div>
+                      <div className="form-group">
+                        <label htmlFor="">Status</label>
+
+                        <select {...register('role')}>
+                          <option selected value={data?.role == 1 ? 1 : 0}>
+                            {data?.role == 1 ? 'Admin' : 'Member'}
+                          </option>
+                          {data?.role == 1 ? (
+                            <option value={0}>Member</option>
+                          ) : (
+                            <option value={1}>Admin</option>
+                          )}
+                        </select>
+                      </div>
                     </ModalBody>
                     <ModalFooter>
                       <Button
