@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 
 import { useForm } from 'react-hook-form';
 import AdminLayout from '../../../components/Layout/admin';
-import useNews from './../../../hook/use-categories';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faTrashAlt,
@@ -14,8 +15,15 @@ import Image from 'next/image';
 import { Button, Modal, ModalBody, ModalFooter } from 'reactstrap';
 import { ToastContainer, toast } from 'react-toastify';
 import useSWR from 'swr';
+import useNews from '../../../hook/use-news';
 type Props = {};
+type FormData = {
+  title: String;
 
+  image: String;
+
+  content: String;
+};
 const NewsList = (props: Props) => {
   const { data, error, create, remove, update } = useNews();
   const [modalOpen, setModalOpen] = React.useState(false);
@@ -29,7 +37,7 @@ const NewsList = (props: Props) => {
   } = useForm<FormData>();
   const onSubmit = handleSubmit((data) => {
     if (data) {
-      toast.success('Thêm danh mục thành công !');
+      toast.success('Thêm bài viết thành công !');
       create(data);
       reset();
       setModalOpen(!modalOpen);
@@ -38,7 +46,7 @@ const NewsList = (props: Props) => {
 
   const onSubmit2 = handleSubmit((data2) => {
     if (data2) {
-      toast.success('Cập nhật danh mục thành công');
+      toast.success('Cập nhật bài viết thành công');
 
       update(idCategory, data2);
 
@@ -48,19 +56,27 @@ const NewsList = (props: Props) => {
     }
   });
 
-
   const onUpdate = (id: any) => {
     setModalOpen2(!modalOpen2);
     setIdCategory(id);
   };
   const onDelete = (id: any) => {
     if (confirm('Are you sure you want to delete')) {
-      toast.success('Xoá danh mục thành công');
+      toast.success('Xoá bài viết thành công');
       remove(id);
     } else {
-      toast.error('Xoá danh mục thất bại');
+      toast.error('Xoá bài viết thất bại');
     }
   };
+  const [idCategory, setIdCategory] = React.useState();
+  const { data: category } = useSWR(idCategory ? `/news/${idCategory}` : null);
+
+  React.useEffect(() => {
+    console.log(idCategory);
+
+    reset(category);
+  }, [idCategory, category, reset]);
+
   const getDays = (data: any) => {
     const datas = new Date(data);
     return datas.toLocaleDateString('pt-PT');
@@ -107,7 +123,7 @@ const NewsList = (props: Props) => {
                                 className=" modal-title"
                                 id="exampleModalLabel"
                               >
-                                Thêm danh mục
+                                Thêm bài viết
                               </h5>
                               <button
                                 aria-label="Close"
@@ -139,19 +155,16 @@ const NewsList = (props: Props) => {
                                 </div>
                                 <div className="form-group">
                                   <label htmlFor="exampleFormControlInput1">
-                                    Name
+                                    Title
                                   </label>
                                   <input
                                     type="text"
                                     className="form-control"
                                     id="name"
-                                    placeholder="Tên danh mục"
-                                    {...register('name', {
+                                    placeholder="Tiêu đề"
+                                    {...register('title', {
                                       required: 'Không được để trống !',
-                                      minLength: {
-                                        value: 5,
-                                        message: 'Tối thiểu 5 kí tự !',
-                                      },
+
                                       maxLength: {
                                         value: 20,
                                         message: 'Tối đa 20 kí tự !',
@@ -159,7 +172,20 @@ const NewsList = (props: Props) => {
                                     })}
                                   />
                                   <div className="text-danger">
-                                    {errors.name?.message}
+                                    {errors.title?.message}
+                                  </div>
+                                </div>
+                                <div className="form-group">
+                                  <label htmlFor="exampleFormControlInput1">
+                                    Content
+                                  </label>
+                                  <textarea
+                                    className="form-control"
+                                    placeholder="Nội dung"
+                                    {...register('content')}
+                                  ></textarea>
+                                  <div className="text-danger">
+                                    {errors.content?.message}
                                   </div>
                                 </div>
                               </ModalBody>
@@ -283,18 +309,15 @@ const NewsList = (props: Props) => {
                         </div>
                       </div>
                       <div className="form-group">
-                        <label htmlFor="exampleFormControlInput1">Name</label>
+                        <label htmlFor="exampleFormControlInput1">Title</label>
                         <input
                           type="text"
                           className="form-control"
                           id="name"
-                          placeholder="Tên danh mục"
-                          {...register('name', {
+                          placeholder="Tiêu đề"
+                          {...register('title', {
                             required: 'Không được để trống !',
-                            minLength: {
-                              value: 5,
-                              message: 'Tối thiểu 5 kí tự !',
-                            },
+
                             maxLength: {
                               value: 20,
                               message: 'Tối đa 20 kí tự !',
@@ -302,7 +325,20 @@ const NewsList = (props: Props) => {
                           })}
                         />
                         <div className="text-danger">
-                          {errors.name?.message}
+                          {errors.title?.message}
+                        </div>
+                      </div>
+                      <div className="form-group">
+                        <label htmlFor="exampleFormControlInput1">
+                          Content
+                        </label>
+                        <textarea
+                          className="form-control"
+                          placeholder="Nội dung"
+                          {...register('content')}
+                        ></textarea>
+                        <div className="text-danger">
+                          {errors.content?.message}
                         </div>
                       </div>
                     </ModalBody>
@@ -331,6 +367,6 @@ const NewsList = (props: Props) => {
   );
 };
 
-NewsList.Layout = AdminLayout
+NewsList.Layout = AdminLayout;
 
 export default NewsList;
