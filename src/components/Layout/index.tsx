@@ -20,7 +20,10 @@ function Layout({ children }: LayoutProps) {
       </Head>
       <div className="">
         <div id="" className="inbody section">
-          <Header />
+          <Header category={{
+            _id: undefined,
+            name: ''
+          }} />
           <div className="bodywrap ">{children}</div>
           <Footer />
         </div>

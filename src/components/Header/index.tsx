@@ -6,20 +6,70 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CategoryType } from '../../models/Category';
 import CategoryHead from '../../pages/categories/CategoryHead';
-
+import { isAuthenticate } from '../../utils/localStorage';
+import { useEffect } from 'react';
 
 type Props = {
-  category: CategoryType
+  category: CategoryType;
 };
 
 const Header = (props: Props) => {
-
-  // const { data, error } = useCategories()
-  // if (!data) return <div>Loading...</div>
-  // if (error) return <div>Failed to loading</div>
+  const [users, setUsers] = React.useState(null);
+  const [logedin, setLogedin] = React.useState(true);
+  React.useEffect(() => {
+    const users = JSON.parse(localStorage.getItem('user') as string);
+    if(users){
+      setUsers(users);
+      setLogedin(false);
+      console.log(users);
+    }
+  }, []);
+  const logout = () => {
+    localStorage.removeItem('user');
+  };
+  const checkuser = () => {
+    if (logedin == false && users != null) {
+      return (
+        <div className="">
+          <Link href="/admin">
+            <a className="btnx">Admin</a>
+          </Link>
+          <a
+            onClick={() => {
+              logout(), setLogedin(true);
+            }}
+          >
+            Đăng xuất
+          </a>
+        </div>
+      );
+    }
+    if (logedin == true && !users) {
+      return (
+        <>
+          <Link href="/signin">
+            <a className="btnx" onClick={() => setLogedin(false)}>Đăng nhập</a>
+          </Link>
+          <Link href="/signup">
+            <a>Đăng ký</a>
+          </Link>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Link href="/signin">npm
+            <a className="btnx" onClick={() => setLogedin(false)}>Đăng nhập</a>
+          </Link>
+          <Link href="/signup">
+            <a>Đăng ký</a>
+          </Link>
+        </>
+      );
+    }
+  };
   return (
     <header>
-      {' '}
       <div>
         <div className="wraphead_mobile clearfix">
           <div className="container">
@@ -204,7 +254,6 @@ const Header = (props: Props) => {
                       <input
                         type="search"
                         name="query"
-
                         placeholder="Tìm kiếm... "
                         className="input-group-field st-default-search-input search-text"
                         autoComplete="off"
@@ -263,7 +312,6 @@ const Header = (props: Props) => {
                         <input
                           type="text"
                           name="query"
-
                           autoComplete="off"
                           required
                           placeholder="Tìm kiếm..."
@@ -280,12 +328,8 @@ const Header = (props: Props) => {
                     <div className="carthd">
                       <div className="mini-cart text-xs-center">
                         <div className="heading-cart cart_header">
-
                           <Link href="/cart">
-                            <a
-                              className="img_hover_cart"
-                              title="Giỏ hàng"
-                            >
+                            <a className="img_hover_cart" title="Giỏ hàng">
                               <div className="icon_hotline">
                                 <img
                                   src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/shopping-bag.svg?1656725435979"
@@ -326,16 +370,7 @@ const Header = (props: Props) => {
                         </span>
                       </div>
                     </div>
-                    <div className="group_ac">
-                      <Link href="/signin">
-                        <a className="btnx" >
-                          Đăng nhập
-                        </a>
-                      </Link>
-                      <Link href="signup">
-                        <a >Đăng ký</a>
-                      </Link>
-                    </div>
+                    <div className="group_ac">{checkuser()}</div>
                   </div>
                 </div>
               </div>
@@ -361,11 +396,7 @@ const Header = (props: Props) => {
                     </li>
                     <li className="nav-item  has-mega">
                       <Link href="/products">
-                        <a
-                          className="a-img"
-
-                          title="Sản phẩm"
-                        >
+                        <a className="a-img" title="Sản phẩm">
                           <span>Sản phẩm</span>
                           <i className="fa fa-angle-down" />
                         </a>
@@ -701,13 +732,7 @@ const Header = (props: Props) => {
               <div className="containers">
                 {/* Menu mobile */}
                 <div className="contenttop">
-                  <div className="section margin-bottom-10 margin-top-20">
-                    <a className="btnx" href="/account/login">
-                      Đăng nhập
-                    </a>
-                    &nbsp;/
-                    <a href="/account/register">Đăng ký</a>
-                  </div>
+                  <div className="section margin-bottom-10 margin-top-20"></div>
                 </div>
                 <div className="menu_mobile">
                   <ul className="ul_collections">
