@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { CategoryType } from '../../models/Category';
 import CategoryHead from '../../pages/categories/CategoryHead';
 import { isAuthenticate } from '../../utils/localStorage';
+import { useEffect } from 'react';
 
 
 type Props = {
@@ -14,26 +15,17 @@ type Props = {
 };
 
 const Header = (props: Props) => {
-
-  const checkUser = () => {
-    if (localStorage.getItem('user')) {
-      return (<><Link href="/signin">
-        <a className="btnx">
-          Đăng nhập
-        </a>
-      </Link><Link href="/signup">
-          <a>Đăng ký</a>
-        </Link></>)
-    } else {
-      return (<><Link href="/signin">
-        <a className="btnx">
-        Đăng nhập
-      </a>
-      </Link><Link href="/signup">
-          <a>Đăng ký</a>
-        </Link></>)
+  const [users, setUsers] = React.useState(null);
+  useEffect(() => {
+    const users = JSON.parse(localStorage.getItem('user') as string);
+    if (users) {
+      setUsers(users);
     }
+  }, [])
+  const logout = () =>{
+    localStorage.removeItem('user')
   }
+ 
 
   return (
     <header>
@@ -345,14 +337,24 @@ const Header = (props: Props) => {
                       </div>
                     </div>
                     <div className="group_ac">
-                      <Link href="/signin">
-                        <a className="btnx" >
-                          Đăng nhập
-                        </a>
-                      </Link>
-                      <Link href="signup">
-                        <a >Đăng ký</a>
-                      </Link>
+                      {if (users) {
+      return (<><Link href="/admin">
+        <a className="btnx">
+          Admin
+        </a>
+      </Link>
+        <Link href="/account">Account</Link>
+        <a onClick={()=>logout()}>Đăng xuất</a>
+      </>)
+    } else {
+      return (<><Link href="/signin">
+        <a className="btnx">
+          Đăng nhập
+        </a>
+      </Link><Link href="/signup">
+          <a>Đăng ký</a>
+        </Link></>)
+    }}
                     </div>
                   </div>
                 </div>
@@ -720,7 +722,6 @@ const Header = (props: Props) => {
                 {/* Menu mobile */}
                 <div className="contenttop">
                   <div className="section margin-bottom-10 margin-top-20">
-                    {checkUser()}
 
                   </div>
                 </div>
