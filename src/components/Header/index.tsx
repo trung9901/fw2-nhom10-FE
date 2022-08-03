@@ -14,16 +14,59 @@ type Props = {
 };
 
 const Header = (props: Props) => {
-  // const [users, setUsers] = React.useState(null);
-  // useEffect(() => {
-  //   const users = JSON.parse(localStorage.getItem('user') as string);
-  //   if (users) {
-  //     setUsers(users);
-  //   }
-    
-  // }, []);
-   const logout = () => {
+  const [users, setUsers] = React.useState(null);
+  const [logedin, setLogedin] = React.useState(true);
+  React.useEffect(() => {
+    const users = JSON.parse(localStorage.getItem('user') as string);
+    if(users){
+      setUsers(users);
+      setLogedin(false);
+      console.log(users);
+    }
+  }, []);
+  const logout = () => {
     localStorage.removeItem('user');
+  };
+  const checkuser = () => {
+    if (logedin == false && users != null) {
+      return (
+        <div className="">
+          <Link href="/admin">
+            <a className="btnx">Admin</a>
+          </Link>
+          <a
+            onClick={() => {
+              logout(), setLogedin(true);
+            }}
+          >
+            Đăng xuất
+          </a>
+        </div>
+      );
+    }
+    if (logedin == true && !users) {
+      return (
+        <>
+          <Link href="/signin">
+            <a className="btnx" onClick={() => setLogedin(false)}>Đăng nhập</a>
+          </Link>
+          <Link href="/signup">
+            <a>Đăng ký</a>
+          </Link>
+        </>
+      );
+    } else {
+      return (
+        <>
+          <Link href="/signin">npm
+            <a className="btnx" onClick={() => setLogedin(false)}>Đăng nhập</a>
+          </Link>
+          <Link href="/signup">
+            <a>Đăng ký</a>
+          </Link>
+        </>
+      );
+    }
   };
   return (
     <header>
@@ -327,33 +370,7 @@ const Header = (props: Props) => {
                         </span>
                       </div>
                     </div>
-                    <div className="group_ac">
-                      {/* {users ? (
-                        <>
-                          <Link href=""> Account </Link> 
-                          {users.user.role == 1 ? (
-                            <div className="">
-                              <Link href="/admin">
-                                <a className="btnx">Admin</a>
-                              </Link>
-                            </div>
-                          ) : (
-                            ''
-                          )}
-
-                          <a onClick={() => logout()}>Đăng xuất</a> 
-                        </>
-                      ) : (
-                        <>
-                          <Link href="/signin">
-                            <a className="btnx">Đăng nhập</a>
-                          </Link>
-                          <Link href="/signup">
-                            <a>Đăng ký</a>
-                          </Link>
-                        </>
-                      )} */}
-                    </div>
+                    <div className="group_ac">{checkuser()}</div>
                   </div>
                 </div>
               </div>

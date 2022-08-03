@@ -8,7 +8,7 @@ import useSWR from 'swr';
 type Props = {}
 
 const CategoryHead = (props: Props) => {
-    const [data, setData] = React.useState()
+    const [data, setData] = React.useState([])
     React.useEffect(() => {
         fetch('http://localhost:8000/api/categories')
             .then((res) => res.json())

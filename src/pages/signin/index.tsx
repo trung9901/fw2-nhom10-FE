@@ -9,6 +9,7 @@ type Props = {
   name: string,
   email: string
   password: string
+  phone: string
 }
 
 const Signin = (props: Props) => {
@@ -61,10 +62,10 @@ const Signin = (props: Props) => {
                       </span>
                       <div className="form-signup clearfix">
                         <fieldset className="form-group">
-                          <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" name="email" id="customer_email" placeholder="Email" {...register("email", { required: "Vui lòng nhập email" })} />
+                          <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" id="customer_email" placeholder="Email" {...register("email", { required: "Vui lòng nhập email" })} />
                         </fieldset>
                         <fieldset className="form-group">
-                          <input type="password" className="form-control form-control-lg" name="password" id="customer_password" placeholder="Mật khẩu" {...register("password", { required: "Vui lòng nhập mật khẩu" })} />
+                          <input type="password" className="form-control form-control-lg"  id="customer_password" placeholder="Mật khẩu" {...register("password", { required: "Vui lòng nhập mật khẩu" })} />
                         </fieldset>
                         <div className="d-flex flex-column-reverse">
                           <button type="submit" value="Đăng nhập" className="btn btn-success ">Đăng Nhập</button>
