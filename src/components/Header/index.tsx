@@ -1,5 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/role-supports-aria-props */
+
 import Head from 'next/head';
 import React from 'react';
 import Image from 'next/image';
@@ -14,21 +13,14 @@ type Props = {
 };
 
 const Header = (props: Props) => {
-  const [users, setUsers] = React.useState(null);
+  const [users, setUsers] = React.useState();
   const [logedin, setLogedin] = React.useState(true);
-  React.useEffect(() => {
-    const users = JSON.parse(localStorage.getItem('user') as string);
-    if(users){
-      setUsers(users);
-      setLogedin(false);
-      console.log(users);
-    }
-  }, []);
+
   const logout = () => {
     localStorage.removeItem('user');
   };
   const checkuser = () => {
-    if (logedin == false && users != null) {
+    if (logedin == false && users) {
       return (
         <div className="">
           <Link href="/admin">
@@ -44,22 +36,11 @@ const Header = (props: Props) => {
         </div>
       );
     }
-    if (logedin == true && !users) {
+     else {
       return (
         <>
           <Link href="/signin">
-            <a className="btnx" onClick={() => setLogedin(false)}>Đăng nhập</a>
-          </Link>
-          <Link href="/signup">
-            <a>Đăng ký</a>
-          </Link>
-        </>
-      );
-    } else {
-      return (
-        <>
-          <Link href="/signin">npm
-            <a className="btnx" onClick={() => setLogedin(false)}>Đăng nhập</a>
+            <a className="btnx">Đăng nhập</a>
           </Link>
           <Link href="/signup">
             <a>Đăng ký</a>
@@ -68,6 +49,15 @@ const Header = (props: Props) => {
       );
     }
   };
+  React.useEffect(() => {
+  
+    const users = JSON.parse(localStorage.getItem('user') as string);
+    if(users){
+      setUsers(users);
+      setLogedin(false);
+      console.log(users);
+    }
+  }, []);
   return (
     <header>
       <div>
