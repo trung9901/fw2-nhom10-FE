@@ -5,7 +5,9 @@ export const signup = (user: User) => {
     return axiosClient.post("/signup", user)
 
 }
-
+export const signin = (user: User) => {
+    return instance.post("/signin", user) 
+}
 
 export const updateItem=(id: any, user: User) =>{
     return instance.put(`/users/${id}`,user)

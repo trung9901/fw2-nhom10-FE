@@ -1,9 +1,44 @@
 import React from 'react'
+import { useRouter } from 'next/router'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { toast } from "react-toastify"
+import {signin} from '../../api/user'
 import Link from 'next/link'
 
-type Props = {}
+type Props = {
+  name: string,
+  email: string
+  password: string
+}
 
 const Signin = (props: Props) => {
+  const router = useRouter() 
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm<Props>()
+
+  const onSubmit: SubmitHandler<Props> = async (value: Props) => {
+    try {
+      await signin(value)
+
+
+      reset();
+      setTimeout(() => {
+        toast.success("Đăng nhập thành công, vui lòng chờ giây lát");
+        router.push("/")
+      }
+        , 3000)
+    } catch (error) {
+      console.log(error);
+      toast.error("Có lỗi xảy ra. Vui lòng thử lại!")
+
+    }
+  }
+
+
   return (
     <div className="container">
       <div className="wrap_background_aside page_login" style={{ paddingBottom: 30 }}>
@@ -19,17 +54,17 @@ const Signin = (props: Props) => {
                     </Link>
                   </span>
                   <div id="login" className="section">
-                    <form acceptCharset="utf-8" action="/signin" id="customer_login" method="post">
+                  <form onSubmit={handleSubmit(onSubmit)}>
                       <input name="FormType" type="hidden" defaultValue="customer_login" />
                       <input name="utf8" type="hidden" />
                       <span className="form-signup" style={{ color: 'red' }}>
                       </span>
                       <div className="form-signup clearfix">
                         <fieldset className="form-group">
-                          <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" name="email" id="customer_email" placeholder="Email" required />
+                          <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,63}$" className="form-control form-control-lg" name="email" id="customer_email" placeholder="Email" {...register("email", { required: "Vui lòng nhập email" })} />
                         </fieldset>
                         <fieldset className="form-group">
-                          <input type="password" className="form-control form-control-lg" name="password" id="customer_password" placeholder="Mật khẩu" required />
+                          <input type="password" className="form-control form-control-lg" name="password" id="customer_password" placeholder="Mật khẩu" {...register("password", { required: "Vui lòng nhập mật khẩu" })} />
                         </fieldset>
                         <div className="d-flex flex-column-reverse">
                           <button type="submit" value="Đăng nhập" className="btn btn-success ">Đăng Nhập</button>

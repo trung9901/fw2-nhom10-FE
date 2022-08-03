@@ -10,7 +10,6 @@ type Props = {
   name: string,
   email: string
   password: string
-  phone: string
 }
 
 const Signup = (props: Props) => {
