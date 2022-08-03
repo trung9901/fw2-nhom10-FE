@@ -6,6 +6,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CategoryType } from '../../models/Category';
 import CategoryHead from '../../pages/categories/CategoryHead';
+import { isAuthenticate } from '../../utils/localStorage';
 
 
 type Props = {
@@ -14,12 +15,29 @@ type Props = {
 
 const Header = (props: Props) => {
 
-  // const { data, error } = useCategories()
-  // if (!data) return <div>Loading...</div>
-  // if (error) return <div>Failed to loading</div>
+  const checkUser = () => {
+    if (localStorage.getItem('user')) {
+      return (<><Link href="/signin">
+        <a className="btnx">
+          Đăng nhập
+        </a>
+      </Link><Link href="/signup">
+          <a>Đăng ký</a>
+        </Link></>)
+    } else {
+      return (<><Link href="/signin">
+        <a className="btnx">
+        Đăng nhập
+      </a>
+      </Link><Link href="/signup">
+          <a>Đăng ký</a>
+        </Link></>)
+    }
+  }
+
   return (
     <header>
-      {' '}
+
       <div>
         <div className="wraphead_mobile clearfix">
           <div className="container">
@@ -702,11 +720,8 @@ const Header = (props: Props) => {
                 {/* Menu mobile */}
                 <div className="contenttop">
                   <div className="section margin-bottom-10 margin-top-20">
-                    <a className="btnx" href="/account/login">
-                      Đăng nhập
-                    </a>
-                    &nbsp;/
-                    <a href="/account/register">Đăng ký</a>
+                    {checkUser()}
+
                   </div>
                 </div>
                 <div className="menu_mobile">
