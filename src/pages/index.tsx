@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/role-has-required-aria-props */
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
 import Link from 'next/link';
@@ -203,19 +204,21 @@ const Home: NextPage = () => {
                                   encType="multipart/form-data"
                                 >
                                   <div className="product-thumbnail">
-                                    <a
-                                      className="image_thumb scale_hover"
-                                      href={`/products/${product._id}`}
-                                      title="iPad Pro 9.7 inch Wifi Cellular"
-                                      tabIndex={-1}
-                                    >
-                                      <img
-                                        className="lazyload"
-                                        src={product?.image}
-                                        data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/256gbgray1u696d20160331t224235.jpg?v=1577471309610"
-                                        alt="iPad Pro 9.7 inch Wifi Cellular"
-                                      />
-                                    </a>
+                                    <Link href={`/products/${product._id}`}>
+                                      <a
+                                        className="image_thumb scale_hover"
+                                        title="iPad Pro 9.7 inch Wifi Cellular"
+                                        tabIndex={-1}
+                                      >
+                                        <img
+                                          className="lazyload"
+                                          src={product?.image}
+                                          data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/256gbgray1u696d20160331t224235.jpg?v=1577471309610"
+                                          alt="iPad Pro 9.7 inch Wifi Cellular"
+                                        />
+                                      </a>
+                                    </Link>
+
                                     <div className="action">
                                       <a
                                         title="Xem nhanh"
@@ -257,11 +260,13 @@ const Home: NextPage = () => {
                                     <div className=""></div>
                                     <div className="">
                                       {' '}
-                                      <a href={`/products/${product._id}`}>
-                                        <div className="price-box">
-                                          {product.price}đ
-                                        </div>
-                                      </a>
+                                      <Link href={`/products/${product._id}`}>
+                                        <a>
+                                          <div className="price-box">
+                                            {product.price}đ
+                                          </div>
+                                        </a>
+                                      </Link>
                                     </div>
 
                                     <div className="">

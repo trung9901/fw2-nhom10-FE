@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link';
 import React from 'react';
 import useProducts from '../../hook/use-products';
@@ -2028,19 +2029,21 @@ const ProductPage = (props: Props) => {
                                   encType="multipart/form-data"
                                 >
                                   <div className="product-thumbnail">
-                                    <a
-                                      className="image_thumb scale_hover"
-                                      href={`/products/${product._id}`}
-                                      title="Bàn IBIE Rec-F chân đen màu kem"
-                                    >
-                                      <img
-                                        className="lazyload loaded"
-                                        src={product?.image}
-                                        data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/a6262f97a6f41dded346b37a0aaece-c1369390-32b5-4f97-a259-46ca3535447c.jpg?v=1577497546640"
-                                        alt="Bàn IBIE Rec-F chân đen màu kem"
-                                        data-was-processed="true"
-                                      />
-                                    </a>
+                                    <Link href={`/products/${product._id}`}>
+                                      <a
+                                        className="image_thumb scale_hover"
+                                        title="Bàn IBIE Rec-F chân đen màu kem"
+                                      >
+                                        <img
+                                          className="lazyload loaded"
+                                          src={product?.image}
+                                          data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/a6262f97a6f41dded346b37a0aaece-c1369390-32b5-4f97-a259-46ca3535447c.jpg?v=1577497546640"
+                                          alt="Bàn IBIE Rec-F chân đen màu kem"
+                                          data-was-processed="true"
+                                        />
+                                      </a>
+                                    </Link>
+
                                     <div className="action">
                                       <a
                                         title="Xem nhanh"
@@ -2065,18 +2068,18 @@ const ProductPage = (props: Props) => {
                                   </div>
                                   <div className="product-info">
                                     <h3 className="product-name">
-                                      <a
-                                        href="/ban-ibie-rec-f-chan-den-mau-kem"
-                                        title="Bàn IBIE Rec-F chân đen màu kem"
-                                      >
-                                        <div className="fw-bold text-uppercase">
-                                          {' '}
-                                          {product.name}
-                                        </div>
-                                      </a>
+                                      <Link href={`/products/${product._id}`}>
+                                        
+                                        <a>
+                                          <div className="fw-bold text-uppercase">
+                                            
+                                            {product.name}
+                                          </div>
+                                        </a>
+                                      </Link>
                                     </h3>
                                     <div className="price-box">
-                                      {product.price}₫
+                                      {product.price} ₫
                                     </div>
                                     <div className="mt-1">
                                       {product.status == 1 ? (
