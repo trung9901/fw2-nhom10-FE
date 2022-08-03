@@ -9,17 +9,10 @@ type Props = {};
 const CateByProductPage = (props: Props) => {
   const router = useRouter();
   const { id } = router.query;
-  // const [data, setData] = React.useState(null);
-  // useEffect(() => {
-  //   fetch(`http://localhost:8000/api/cateproduct/${id}`)
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setData(data)
-  //     })
-  // }, [id])
-  const {data } = useSWR(`http://localhost:8000/api/cateproduct/${id}`)
-  console.log(data.);
 
+  const { data:cate ,error } = useSWR(`http://localhost:8000/api/cateproduct/${id}`);
+  if (!cate) return <div className="">Loading</div>
+  if (error) return <div className="">False</div>
   return (
     <div className="bodywrap">
       <div className="section wrap_background">
@@ -41,7 +34,7 @@ const CateByProductPage = (props: Props) => {
                   </li>
                   <li>
                     <strong>
-                      <span> </span>
+                      <span>{cate.category.name}</span>
                     </strong>
                   </li>
                 </ul>
@@ -1979,7 +1972,7 @@ const CateByProductPage = (props: Props) => {
                     </div>
                   </div>
                   <div className="first clearfix">
-                    <h1 className="h1_title">Tất cả sản phẩm</h1>
+                    <h1 className="h1_title">Các sản phẩm thuộc : {cate.category.name}</h1>
                     <div className="category-products products">
                       <div className="section border-bottom">
                         <div className="sortPagiBar margin-bottom-15">
@@ -2025,10 +2018,10 @@ const CateByProductPage = (props: Props) => {
                       </div>
                       <section className="products-view products-view-grid collection_reponsive list_hover_pro">
                         <div className="row">
-                          {data?.map((product: any, index: number) => (
+                          {cate.products?.map((product: any) => (
                             <div
                               className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 product-col"
-                              key={index + 1}
+                              key={product._id}
                             >
                               <div className="item_product_main margin-bottom-15">
                                 <form

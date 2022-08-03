@@ -39,9 +39,10 @@ const Feature = (props: Props) => {
                                     >
                                         <div className="item">
                                             <div className="thumb_s">
+                                                <Link href='cateproduct' >
                                                 <a
                                                     className="image"
-                                                    href="/dien-tu-va-cong-nghe"
+                                                    
                                                     title={cate.name}
                                                     tabIndex={0}
                                                 >
@@ -53,6 +54,7 @@ const Feature = (props: Props) => {
                                                         data-was-processed="true"
                                                     />
                                                 </a>
+                                                <Link/>
                                                 <div className="info">
                                                     <h4 className="title_cate_">
                                                         <a
