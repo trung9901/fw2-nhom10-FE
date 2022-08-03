@@ -2,9 +2,9 @@ import React from 'react'
 import { useRouter } from 'next/router'
 import { useForm, SubmitHandler } from 'react-hook-form'
 import { toast } from "react-toastify"
-import {signin} from '../../api/user'
+import { signin } from '../../api/user'
 import Link from 'next/link'
-
+import { authenticated } from "../../utils/localStorage"
 type Props = {
   name: string,
   email: string
@@ -12,7 +12,7 @@ type Props = {
 }
 
 const Signin = (props: Props) => {
-  const router = useRouter() 
+  const router = useRouter()
   const {
     register,
     handleSubmit,
@@ -22,15 +22,15 @@ const Signin = (props: Props) => {
 
   const onSubmit: SubmitHandler<Props> = async (value: Props) => {
     try {
-      await signin(value)
-
-
+      const users = await signin(value)
       reset();
-      setTimeout(() => {
+      authenticated(users, () => {
         toast.success("Đăng nhập thành công, vui lòng chờ giây lát");
-        router.push("/")
-      }
-        , 3000)
+        setTimeout(() => {
+          router.push("/")
+        }, 3000)
+      })
+
     } catch (error) {
       console.log(error);
       toast.error("Có lỗi xảy ra. Vui lòng thử lại!")
@@ -54,7 +54,7 @@ const Signin = (props: Props) => {
                     </Link>
                   </span>
                   <div id="login" className="section">
-                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <form onSubmit={handleSubmit(onSubmit)}>
                       <input name="FormType" type="hidden" defaultValue="customer_login" />
                       <input name="utf8" type="hidden" />
                       <span className="form-signup" style={{ color: 'red' }}>
