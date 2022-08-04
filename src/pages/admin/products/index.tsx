@@ -49,29 +49,64 @@ const ProductList = (props: Props) => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [modalOpen2, setModalOpen2] = React.useState(false);
 
-  const onSubmit = handleSubmit((data: any) => {
-    if (data) {
-      toast.success('Thêm sản phẩm thành công');
-      create(data);
+  const onSubmit = handleSubmit((formdata: any) => {
+    if (formdata) {
+      //
+        const files = formdata.image;
+        const data = new FormData();
+        data.append('file', files[0]);
+        data.append('upload_preset', 'img_upload');
+        fetch(
+          ' https://api.cloudinary.com/v1_1/trung9901/image/upload/',
+          {
+            method: 'POST',
+            body: data,
+          }
+        ).then((res) => res.json()).then((data:any) => {
+          const file = data
+          const imageUrl = file.url
+          const datas = Object.assign({ ...formdata }, { image: imageUrl });
+          // 
+          create(datas);
+        })
 
+      //
+      toast.success('Thêm sản phẩm thành công');
       setModalOpen(!modalOpen);
       reset();
     }
+  
   });
 
-  const onSubmit2 = handleSubmit((data2: any) => {
-    if (data2) {
+  const onSubmit2 = handleSubmit((formdata2: any) => {
+    if (formdata2) {
+        //
+        const files = formdata2.image;
+        const data = new FormData();
+        data.append('file', files[0]);
+        data.append('upload_preset', 'img_upload');
+        fetch(
+          ' https://api.cloudinary.com/v1_1/trung9901/image/upload/',
+          {
+            method: 'POST',
+            body: data,
+          }
+        ).then((res) => res.json()).then((data:any) => {
+          const file = data
+          const imageUrl = file.url
+          const datas = Object.assign({ ...formdata2 }, { image: imageUrl });
+          // 
+          update(idProduct, datas);
+        })
+
+      //
+
       toast.success('Cập nhật sản phẩm thành công');
-
-      update(idProduct, data2);
-
       setModalOpen2(!modalOpen2);
-
       reset();
     }
   });
   const onAdd = () => {
-
     setModalOpen(!modalOpen);
   };
   const onDelete = (id: any) => {
@@ -86,7 +121,6 @@ const ProductList = (props: Props) => {
 
   const { data: product } = useSWR(idProduct ? `/products/${idProduct}` : null);
   React.useEffect(() => {
-
     reset(product);
   }, [idProduct, product, reset]);
 
@@ -101,6 +135,7 @@ const ProductList = (props: Props) => {
     return datas.toLocaleDateString('pt-PT');
   };
 
+ 
   return (
     <div>
       <div className="content ">
@@ -187,13 +222,13 @@ const ProductList = (props: Props) => {
                                   image
                                 </label>
                                 <input
-                                  type="text"
+                                  type="file"
                                   className="form-control-file"
                                   id="img"
                                   {...register('image', {
                                     required: 'Không được để trống !',
                                   })}
-                                  value="https://picsum.photos/200"
+                                 
                                 />
                                 <div className="text-danger">
                                   {errors.image?.message}
@@ -283,9 +318,9 @@ const ProductList = (props: Props) => {
                                 color="primary"
                                 type="submit"
                                 className="rounded"
-                              // onClick={() => {
+                                // onClick={() => {
 
-                              // }}
+                                // }}
                               >
                                 Thêm sản phẩm
                               </Button>
@@ -424,13 +459,13 @@ const ProductList = (props: Props) => {
                     <div className="form-group">
                       <label htmlFor="exampleFormControlFile1">image</label>
                       <input
-                        type="text"
+                        type="file"
                         className="form-control-file"
                         id="img"
                         {...register('image', {
-                          required: 'Không được để trống !',
+                          required: false,
                         })}
-                      // value={product?.image}
+           
                       />
                       <div className="text-danger">{errors.image?.message}</div>
                     </div>
@@ -492,7 +527,6 @@ const ProductList = (props: Props) => {
                         className="form-control"
                         {...register('category')}
                       >
-
                         {categories?.map((item: any) => (
                           <option value={item._id} key={item._id}>
                             {item.name}
@@ -527,9 +561,9 @@ const ProductList = (props: Props) => {
                       color="primary"
                       type="submit"
                       className="rounded"
-                    // onClick={() => {
+                      // onClick={() => {
 
-                    // }}
+                      // }}
                     >
                       Cập nhật sản phẩm
                     </Button>
