@@ -10,3 +10,6 @@ export const removeItem = (id: any) => {
 export const updateItem = (id: any, products: any) => {
   return instance.put(`/products/${id}`, products);
 };
+export const search = (b: any) => {
+  return instance.get(`/products/search?b=${b}`)
+}
