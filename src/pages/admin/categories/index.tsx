@@ -127,7 +127,7 @@ const CategoryList = (props: Props) => {
             <div className="col">
               <div className="card">
                 <div className="card-header">
-                  <strong className="card-title">Custom Table</strong>
+                  <strong className="card-title">Category List</strong>
                 </div>
                 <div className="table-stats order-table ov-h">
                   <table className="table ">
