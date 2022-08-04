@@ -23,9 +23,10 @@ const Header = (props: Props) => {
     if (logedin == false && users) {
       return (
         <div className="">
-          <Link href="/admin">
+          {users.user.role===1? <Link href="/admin">
             <a className="btnx">Admin</a>
-          </Link>
+          </Link> : ''}
+          
           <a
             onClick={() => {
               logout(), setLogedin(true);
