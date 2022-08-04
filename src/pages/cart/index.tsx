@@ -1,8 +1,23 @@
+import { useRouter } from 'next/router'
 import React from 'react'
+import useCart from '../../hook/use-cart'
+import Link from 'next/Link'
 
 type Props = {}
 
 const CartPage = (props: Props) => {
+  const router = useRouter()
+  const {data, error, increase} = useCart()
+
+  // const Increase = (id: any) => {
+  //   const cartItems = JSON.parse(localStorage.getItem('cart') || '[]')
+  //   const cartItem = cartItems.find(item:any) => item._id === id 
+  //   cartItem.quantity++
+  //   cartItem.total += cartItem.price._new 
+  //   localStorage.setItem('cart', JSON.stringify(cartItems))
+  //   router.replace('/cart)
+  // }
+
   return (
     <section className="main-cart-page main-container col1-layout">
       <div className="main container cartpcstyle">
