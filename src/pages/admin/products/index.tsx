@@ -52,45 +52,57 @@ const ProductList = (props: Props) => {
   const onSubmit = handleSubmit((formdata: any) => {
     if (formdata) {
       //
-      
-      const uploadImage = async () => {
         const files = formdata.image;
         const data = new FormData();
         data.append('file', files[0]);
         data.append('upload_preset', 'img_upload');
-        const res = await fetch(
+        fetch(
           ' https://api.cloudinary.com/v1_1/trung9901/image/upload/',
           {
             method: 'POST',
             body: data,
           }
-        );
-        const file = await res.json();
-        const imageUrl = file.url
-        return imageUrl
-      };
+        ).then((res) => res.json()).then((data:any) => {
+          const file = data
+          const imageUrl = file.url
+          const datas = Object.assign({ ...formdata }, { image: imageUrl });
+          // 
+          create(datas);
+        })
 
       //
       toast.success('Thêm sản phẩm thành công');
-      const datas = Object.assign({ ...data }, { image: uploadImage() });
-
-      console.log(datas);
-      // create(data);
-
       setModalOpen(!modalOpen);
       reset();
     }
   
   });
 
-  const onSubmit2 = handleSubmit((data2: any) => {
-    if (data2) {
+  const onSubmit2 = handleSubmit((formdata2: any) => {
+    if (formdata2) {
+        //
+        const files = formdata2.image;
+        const data = new FormData();
+        data.append('file', files[0]);
+        data.append('upload_preset', 'img_upload');
+        fetch(
+          ' https://api.cloudinary.com/v1_1/trung9901/image/upload/',
+          {
+            method: 'POST',
+            body: data,
+          }
+        ).then((res) => res.json()).then((data:any) => {
+          const file = data
+          const imageUrl = file.url
+          const datas = Object.assign({ ...formdata2 }, { image: imageUrl });
+          // 
+          update(idProduct, datas);
+        })
+
+      //
+
       toast.success('Cập nhật sản phẩm thành công');
-
-      update(idProduct, data2);
-
       setModalOpen2(!modalOpen2);
-
       reset();
     }
   });
@@ -447,13 +459,13 @@ const ProductList = (props: Props) => {
                     <div className="form-group">
                       <label htmlFor="exampleFormControlFile1">image</label>
                       <input
-                        type="text"
+                        type="file"
                         className="form-control-file"
                         id="img"
                         {...register('image', {
-                          required: 'Không được để trống !',
+                          required: false,
                         })}
-                        // value={product?.image}
+           
                       />
                       <div className="text-danger">{errors.image?.message}</div>
                     </div>

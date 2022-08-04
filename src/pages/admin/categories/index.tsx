@@ -35,39 +35,73 @@ const CategoryList = (props: Props) => {
   const [modalOpen, setModalOpen] = React.useState(false);
   const [modalOpen2, setModalOpen2] = React.useState(false);
 
-  const onSubmit = handleSubmit((data) => {
-    if (data) {
+  const onSubmit = handleSubmit((formdata) => {
+    if (formdata) {
+      //
+      const files = formdata.image;
+      const data = new FormData();
+      data.append('file', files[0]);
+      data.append('upload_preset', 'img_upload');
+      fetch(' https://api.cloudinary.com/v1_1/trung9901/image/upload', {
+        method: 'POST',
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data: any) => {
+          const file = data;
+          const imageUrl = file.url;
+          const datas = Object.assign({ ...formdata }, { image: imageUrl });
+          //
+          create(datas);
+        });
+
+      //
       toast.success('Thêm danh mục thành công !');
-      create(data);
+
       reset();
       setModalOpen(!modalOpen);
     }
   });
 
-  const onSubmit2 = handleSubmit((data2) => {
+  const onSubmit2 = handleSubmit((formdata2) => {
+    if (formdata2) {
+      //
+      const files = formdata2.image;
+      const data = new FormData();
+      data.append('file', files[0]);
+      data.append('upload_preset', 'img_upload');
+      fetch(' https://api.cloudinary.com/v1_1/trung9901/image/upload', {
+        method: 'POST',
+        body: data,
+      })
+        .then((res) => res.json())
+        .then((data: any) => {
+          const file = data;
+          const imageUrl = file.url;
+          const datas = Object.assign({ ...formdata2 }, { image: imageUrl });
+          //
+          update(idCategory, datas);
+        });
 
-    if (data2) {
+      //
       toast.success('Cập nhật danh mục thành công');
-
-      update(idCategory, data2);
 
       setModalOpen2(!modalOpen2);
 
       reset();
     }
-
   });
 
-  
-  const [idCategory, setIdCategory] = React.useState()
-  const { data: category } = useSWR(idCategory ? `/categories/${idCategory}` : null);
+  const [idCategory, setIdCategory] = React.useState();
+  const { data: category } = useSWR(
+    idCategory ? `/categories/${idCategory}` : null
+  );
 
   React.useEffect(() => {
+    console.log(idCategory);
 
-    console.log(idCategory)
-
-    reset(category)
-  }, [idCategory, category, reset])
+    reset(category);
+  }, [idCategory, category, reset]);
 
   const onUpdate = (id: any) => {
     setModalOpen2(!modalOpen2);
@@ -143,13 +177,12 @@ const CategoryList = (props: Props) => {
                                     image
                                   </label>
                                   <input
-                                    type="text"
+                                    type="file"
                                     className="form-control-file"
                                     id="img"
                                     {...register('image', {
                                       required: 'Không được để trống !',
                                     })}
-                                    value="https://picsum.photos/200"
                                   />
                                   <div className="text-danger">
                                     {errors.image?.message}
@@ -284,13 +317,12 @@ const CategoryList = (props: Props) => {
                       <div className="form-group">
                         <label htmlFor="exampleFormControlFile1">image</label>
                         <input
-                          type="text"
+                          type="file"
                           className="form-control-file"
                           id="img"
                           {...register('image', {
-                            required: 'Không được để trống !',
+                            required: false,
                           })}
-                          value="https://picsum.photos/200"
                         />
                         <div className="text-danger">
                           {errors.image?.message}

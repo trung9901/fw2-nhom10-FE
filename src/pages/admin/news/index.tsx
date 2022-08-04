@@ -35,20 +35,59 @@ const NewsList = (props: Props) => {
     reset,
     formState: { errors },
   } = useForm<FormData>();
-  const onSubmit = handleSubmit((data) => {
-    if (data) {
+  const onSubmit = handleSubmit((formdata) => {
+    if (formdata) {
+       //
+       const files = formdata.image;
+       const data = new FormData();
+       data.append('file', files[0]);
+       data.append('upload_preset', 'img_upload');
+       fetch(' https://api.cloudinary.com/v1_1/trung9901/image/upload', {
+         method: 'POST',
+         body: data,
+       })
+         .then((res) => res.json())
+         .then((data: any) => {
+           const file = data;
+           const imageUrl = file.url;
+           const datas = Object.assign({ ...formdata }, { image: imageUrl });
+           //
+           create(datas);
+         });
+ 
+       //
       toast.success('Thêm bài viết thành công !');
-      create(data);
+
       reset();
       setModalOpen(!modalOpen);
     }
   });
 
-  const onSubmit2 = handleSubmit((data2) => {
-    if (data2) {
+  const onSubmit2 = handleSubmit((formdata2) => {
+    if (formdata2) {
+
+       //
+       const files = formdata2.image;
+       const data = new FormData();
+       data.append('file', files[0]);
+       data.append('upload_preset', 'img_upload');
+       fetch(' https://api.cloudinary.com/v1_1/trung9901/image/upload', {
+         method: 'POST',
+         body: data,
+       })
+         .then((res) => res.json())
+         .then((data: any) => {
+           const file = data;
+           const imageUrl = file.url;
+           const datas = Object.assign({ ...formdata2 }, { image: imageUrl });
+           //
+           update(idCategory, datas);
+         });
+ 
+       //
       toast.success('Cập nhật bài viết thành công');
 
-      update(idCategory, data2);
+    
 
       setModalOpen2(!modalOpen2);
 
@@ -141,13 +180,13 @@ const NewsList = (props: Props) => {
                                     image
                                   </label>
                                   <input
-                                    type="text"
+                                    type="file"
                                     className="form-control-file"
-                                    id="img"
+                                    id="file"
                                     {...register('image', {
                                       required: 'Không được để trống !',
                                     })}
-                                    value="https://picsum.photos/200"
+                                    
                                   />
                                   <div className="text-danger">
                                     {errors.image?.message}
@@ -296,13 +335,13 @@ const NewsList = (props: Props) => {
                       <div className="form-group">
                         <label htmlFor="exampleFormControlFile1">image</label>
                         <input
-                          type="text"
+                          type="file"
                           className="form-control-file"
                           id="img"
                           {...register('image', {
-                            required: 'Không được để trống !',
+                            required: false,
                           })}
-                          value="https://picsum.photos/200"
+                         
                         />
                         <div className="text-danger">
                           {errors.image?.message}
