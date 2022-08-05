@@ -1,33 +1,31 @@
 import { useRouter } from 'next/router';
 import useSWR, { useSWRConfig } from 'swr';
-
 import instance from '../api/instance';
-import { add, removeItem, updateItem } from '../api/categories';
-// import { ProductType } from '../models/Products';
-const useCategories = () => {
+import { add, removeItem, updateItem } from '../api/news';
+
+
+const useNews = () => {
   const router = useRouter();
   const { id } = router.query;
-  const { data, error, mutate } = useSWR(`/categories`);
+  const { data, error, mutate } = useSWR(`/news`);
   const create = async (item: any) => {
-    const categories = await add(item);
-    mutate([...data, categories]);
-
+    const product = await add(item);
+    mutate([...data, product]);
   };
 
   const update = async (id: any, products: any) => {
     const updateData = await updateItem(id, products);
-    const categories = data.map((item: any) =>
+    const product = data.map((item: any) =>
       item.id == id ? updateData : item
     );
-    mutate(categories);
+    mutate(product);
   };
+
   const remove = async (id: any) => {
     await removeItem(id);
-    const categories = data.filter((item: any) => item.id != id);
-    mutate(categories);
+    const newProducts = data.filter((item: any) => item.id != id);
+    mutate(newProducts);
   };
-
-
   return {
     data,
     error,
@@ -37,4 +35,4 @@ const useCategories = () => {
   };
 };
 
-export default useCategories;
+export default useNews;

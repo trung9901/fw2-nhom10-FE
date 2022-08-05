@@ -1,8 +1,23 @@
+import { useRouter } from 'next/router'
 import React from 'react'
+import useCart from '../../hook/use-cart'
+import Link from 'next/Link'
 
 type Props = {}
 
 const CartPage = (props: Props) => {
+  const router = useRouter()
+  const {data, error, increase} = useCart()
+
+  // const Increase = (id: any) => {
+  //   const cartItems = JSON.parse(localStorage.getItem('cart') || '[]')
+  //   const cartItem = cartItems.find(item:any) => item._id === id 
+  //   cartItem.quantity++
+  //   cartItem.total += cartItem.price._new 
+  //   localStorage.setItem('cart', JSON.stringify(cartItems))
+  //   router.replace('/cart)
+  // }
+
   return (
     <section className="main-cart-page main-container col1-layout">
       <div className="main container cartpcstyle">
@@ -84,7 +99,7 @@ const CartPage = (props: Props) => {
                           <input
                             type="text"
                             maxLength={3}
-                            readOnly=""
+                            
                             min={0}
                             className="check_number_here input-text number-sidebar input_pop input_pop qtyItem29842219"
                             id="qtyItem29842219"
@@ -93,15 +108,15 @@ const CartPage = (props: Props) => {
                             defaultValue={1}
                           />
                           <button
-                            onClick="var result = document.getElementById('qtyItem29842219'); var qtyItem29842219 = result.value; if( !isNaN( qtyItem29842219 )) result.value++;return false;"
+                            
                             className="increase_pop items-count btn-plus"
                             type="button"
                           >
                             <i className="fas fa-plus-circle" />
                           </button>
                           <button
-                            onClick="var result = document.getElementById('qtyItem29842219'); var qtyItem29842219 = result.value; if( !isNaN( qtyItem29842219 ) && qtyItem29842219 > 1 ) result.value--;return false;"
-                            disabled=""
+                            
+                           
                             className="reduced_pop items-count btn-minus"
                             type="button"
                           >
@@ -170,7 +185,7 @@ const CartPage = (props: Props) => {
           <form
             action="/cart"
             method="post"
-            noValidate=""
+
             className="margin-bottom-0"
           >
             <div className="header-cart">
@@ -219,7 +234,7 @@ const CartPage = (props: Props) => {
                         defaultValue={29842219}
                       />
                       <button
-                        onClick="var result = document.getElementById('qtyMobile29842219'); var qtyMobile29842219 = result.value; if( !isNaN( qtyMobile29842219 ) && qtyMobile29842219 > 1 ) result.value--;return false;"
+                        
                         className="reduced items-count btn-minus"
                         type="button"
                       >
@@ -236,7 +251,7 @@ const CartPage = (props: Props) => {
                         defaultValue={1}
                       />
                       <button
-                        onClick="var result = document.getElementById('qtyMobile29842219'); var qtyMobile29842219 = result.value; if( !isNaN( qtyMobile29842219 )) result.value++;return false;"
+                        
                         className="increase items-count btn-plus"
                         type="button"
                       >
@@ -263,7 +278,7 @@ const CartPage = (props: Props) => {
                     className="btn-proceed-checkout-mobile"
                     title="Tiến hành thanh toán"
                     type="button"
-                    onClick="window.location.href='/checkout'"
+                 
                   >
                     <span>Tiến hành thanh toán</span>
                   </button>
@@ -271,7 +286,7 @@ const CartPage = (props: Props) => {
                     className="btn btn-white f-left"
                     title="Tiếp tục mua hàng"
                     type="button"
-                    onClick="window.location.href='/collections/all'"
+               
                   >
                     <span>Tiếp tục mua hàng</span>
                   </button>

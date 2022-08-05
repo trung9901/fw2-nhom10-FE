@@ -1,15 +1,21 @@
+/* eslint-disable jsx-a11y/role-has-required-aria-props */
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import useCategories from '../hook/use-categories';
 import useProducts from '../hook/use-products';
-
+import Feature from './categories/Feature';
 
 const Home: NextPage = () => {
-  const { data: products, error } = useProducts()
-  if (!products) return <div>Loading...</div>
-  if (error) return <div>Failed to loading</div>
+  const [color, setColor] = useState('blue');
+  useEffect(() => setColor('red'), []);
+  const { data: products, error } = useProducts();
+  if (!products) return <div>Loading...</div>;
+  if (error) return <div>Failed to loading</div>;
+
   return (
-    <div className="bodywrap">
+    <div className="bodywrap bg-white">
       <h1 className="d-none">Ego Mall - </h1>
       <section className="awe-section-1">
         <section className="s_slider">
@@ -54,538 +60,7 @@ const Home: NextPage = () => {
                 <div className="clearfix titlecate">
                   <h2>Danh mục nổi bật</h2>
                 </div>
-                <div className="owlnav_cate clearfix">
-                  <div className="owl_col_section owl_category slickcategory slick_margin slick-initialized slick-slider">
-                    <div aria-live="polite" className="slick-list draggable">
-                      <div
-                        className="slick-track"
-                        style={{
-                          opacity: 1,
-                          width: 1140,
-                          transform: 'translate3d(0px, 0px, 0px)',
-                        }}
-                        role="listbox"
-                      >
-                        <div
-                          className="slick-slide slick-current slick-active"
-                          data-slick-index={0}
-                          aria-hidden="false"
-                          style={{ width: 160 }}
-                          tabIndex={-1}
-                          role="option"
-                          aria-describedby="slick-slide00"
-                        >
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/dien-tu-va-cong-nghe"
-                                    title="Điện tử và công nghệ"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct1.png?v=1577470247840"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct1.png?v=1577470247840"
-                                      alt="Điện tử và công nghệ"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/dien-tu-va-cong-nghe"
-                                        title="Điện tử và công nghệ"
-                                        tabIndex={0}
-                                      >
-                                        Điện tử và công nghệ
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/dong-ho-hang-hieu"
-                                    title="Đồng hồ hàng hiệu"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct8.png?v=1577470357530"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct8.png?v=1577470357530"
-                                      alt="Đồng hồ hàng hiệu"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/dong-ho-hang-hieu"
-                                        title="Đồng hồ hàng hiệu"
-                                        tabIndex={0}
-                                      >
-                                        Đồng hồ hàng hiệu
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="slick-slide slick-active"
-                          data-slick-index={1}
-                          aria-hidden="false"
-                          style={{ width: 160 }}
-                          tabIndex={-1}
-                          role="option"
-                          aria-describedby="slick-slide01"
-                        >
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/thoi-trang-phu-kien"
-                                    title="Thời trang & phụ kiện"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/c2.png?v=1577470400140"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/c2.png?v=1577470400140"
-                                      alt="Thời trang & phụ kiện"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/thoi-trang-phu-kien"
-                                        title="Thời trang & phụ kiện"
-                                        tabIndex={0}
-                                      >
-                                        Thời trang &amp; phụ kiện
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/me-be-do-choi"
-                                    title="Mẹ, bé & đồ chơi"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct10.png?v=1577470452757"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct10.png?v=1577470452757"
-                                      alt="Mẹ, bé & đồ chơi"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/me-be-do-choi"
-                                        title="Mẹ, bé & đồ chơi"
-                                        tabIndex={0}
-                                      >
-                                        Mẹ, bé &amp; đồ chơi
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="slick-slide slick-active"
-                          data-slick-index={2}
-                          aria-hidden="false"
-                          style={{ width: 160 }}
-                          tabIndex={-1}
-                          role="option"
-                          aria-describedby="slick-slide02"
-                        >
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/lam-dep"
-                                    title="Làm đẹp"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct11.png?v=1577470527843"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct11.png?v=1577470527843"
-                                      alt="Làm đẹp"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/lam-dep"
-                                        title="Làm đẹp"
-                                        tabIndex={0}
-                                      >
-                                        Làm đẹp
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/the-gioi-nuoc-hoa"
-                                    title="Thế giới nước hoa"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct5.png?v=1577470543683"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct5.png?v=1577470543683"
-                                      alt="Thế giới nước hoa"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/the-gioi-nuoc-hoa"
-                                        title="Thế giới nước hoa"
-                                        tabIndex={0}
-                                      >
-                                        Thế giới nước hoa
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="slick-slide slick-active"
-                          data-slick-index={3}
-                          aria-hidden="false"
-                          style={{ width: 160 }}
-                          tabIndex={-1}
-                          role="option"
-                          aria-describedby="slick-slide03"
-                        >
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/do-choi-va-game"
-                                    title="Đồ chơi và game"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct12.png?v=1577470573337"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct12.png?v=1577470573337"
-                                      alt="Đồ chơi và game"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/do-choi-va-game"
-                                        title="Đồ chơi và game"
-                                        tabIndex={0}
-                                      >
-                                        Đồ chơi và game
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/the-thao-du-lich"
-                                    title="Thể thao, du lịch"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct10-c7ca391b-3881-4926-8973-3b0057a7967d.png?v=1577470604167"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct10-c7ca391b-3881-4926-8973-3b0057a7967d.png?v=1577470604167"
-                                      alt="Thể thao, du lịch"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/the-thao-du-lich"
-                                        title="Thể thao, du lịch"
-                                        tabIndex={0}
-                                      >
-                                        Thể thao, du lịch
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="slick-slide slick-active"
-                          data-slick-index={4}
-                          aria-hidden="false"
-                          style={{ width: 160 }}
-                          tabIndex={-1}
-                          role="option"
-                          aria-describedby="slick-slide04"
-                        >
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/noi-that-kien-truc"
-                                    title="Nội thất, kiến trúc"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct14.png?v=1577470610790"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct14.png?v=1577470610790"
-                                      alt="Nội thất, kiến trúc"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/noi-that-kien-truc"
-                                        title="Nội thất, kiến trúc"
-                                        tabIndex={0}
-                                      >
-                                        Nội thất, kiến trúc
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/phu-tung-xe-hoi"
-                                    title="Phụ tùng xe hơi"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct4.png?v=1577470658733"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct4.png?v=1577470658733"
-                                      alt="Phụ tùng xe hơi"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/phu-tung-xe-hoi"
-                                        title="Phụ tùng xe hơi"
-                                        tabIndex={0}
-                                      >
-                                        Phụ tùng xe hơi
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div
-                          className="slick-slide slick-active"
-                          data-slick-index={5}
-                          aria-hidden="false"
-                          style={{ width: 160 }}
-                          tabIndex={-1}
-                          role="option"
-                          aria-describedby="slick-slide05"
-                        >
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/do-gia-dung"
-                                    title="Đồ gia dụng"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct17.png?v=1577470678823"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct17.png?v=1577470678823"
-                                      alt="Đồ gia dụng"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/do-gia-dung"
-                                        title="Đồ gia dụng"
-                                        tabIndex={0}
-                                      >
-                                        Đồ gia dụng
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div>
-                            <div
-                              className="item_category"
-                              style={{ width: '100%', display: 'inline-block' }}
-                            >
-                              <div
-                                className="item"
-                              >
-                                <div className="thumb_s">
-                                  <a
-                                    className="image"
-                                    href="/cho-thu-cung"
-                                    title="Cho thú cưng"
-                                    tabIndex={0}
-                                  >
-                                    <img
-                                      className="image_cate_thumb lazyload loaded"
-                                      src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct18.png?v=1577470728620"
-                                      data-src="//bizweb.dktcdn.net/thumb/compact/100/374/880/collections/ct18.png?v=1577470728620"
-                                      alt="Cho thú cưng"
-                                      data-was-processed="true"
-                                    />
-                                  </a>
-                                  <div className="info">
-                                    <h4 className="title_cate_">
-                                      <a
-                                        href="/cho-thu-cung"
-                                        title="Cho thú cưng"
-                                        tabIndex={0}
-                                      >
-                                        Cho thú cưng
-                                      </a>
-                                    </h4>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                <Feature />
               </div>
             </div>
           </div>
@@ -593,11 +68,11 @@ const Home: NextPage = () => {
       </section>
       <section className="awe-section-3">
         <section className="clearfix">
-          <div className="container">
+          <div className="container mb-2">
             <a className="scale_hover" href="#" title="alt">
               <img
                 className="lazyload banner_leng"
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAAANSURBVBhXYzh8+PB/AAffA0nNPuCLAAAAAElFTkSuQmCC"
+                src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/banner-leng.jpg?1656725435979"
                 data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/banner-leng.jpg?1656725435979"
                 alt="alt"
               />
@@ -606,7 +81,7 @@ const Home: NextPage = () => {
         </section>
       </section>
 
-      <section className="awe-section-5">
+      {/* <section className="awe-section-5">
         <section className="section_three_banner">
           <div className="container">
             <div className="row">
@@ -643,7 +118,7 @@ const Home: NextPage = () => {
             </div>
           </div>
         </section>
-      </section>
+      </section> */}
 
       <section className="awe-section-8">
         <section className="section_product_block">
@@ -717,16 +192,13 @@ const Home: NextPage = () => {
                           role="option"
                           aria-describedby="slick-slide34"
                           key={product.id}
-
                         >
-
                           <div>
                             <div
                               className="item"
                               style={{ width: '100%', display: 'inline-block' }}
                             >
-
-                              <div className="item_product_main" >
+                              <div className="item_product_main">
                                 <form
                                   action="/cart/add"
                                   method="post"
@@ -735,19 +207,21 @@ const Home: NextPage = () => {
                                   encType="multipart/form-data"
                                 >
                                   <div className="product-thumbnail">
-                                    <a
-                                      className="image_thumb scale_hover"
-                                      href={`/products/${product._id}`}
-                                      title="iPad Pro 9.7 inch Wifi Cellular"
-                                      tabIndex={-1}
-                                    >
-                                      <img
-                                        className="lazyload"
-                                        src={product?.image}
-                                        data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/256gbgray1u696d20160331t224235.jpg?v=1577471309610"
-                                        alt="iPad Pro 9.7 inch Wifi Cellular"
-                                      />
-                                    </a>
+                                    <Link href={`/products/${product._id}`}>
+                                      <a
+                                        className="image_thumb scale_hover"
+                                        title="iPad Pro 9.7 inch Wifi Cellular"
+                                        tabIndex={-1}
+                                      >
+                                        <img
+                                          className="lazyload"
+                                          src={product?.image}
+                                          data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/256gbgray1u696d20160331t224235.jpg?v=1577471309610"
+                                          alt="iPad Pro 9.7 inch Wifi Cellular"
+                                        />
+                                      </a>
+                                    </Link>
+
                                     <div className="action">
                                       <a
                                         title="Xem nhanh"
@@ -775,20 +249,43 @@ const Home: NextPage = () => {
                                   </div>
                                   <div className="product-info">
                                     <h3 className="product-name">
-                                      <Link href={`/products/${product._id}`}
+                                      <Link
+                                        href={`/products/${product._id}`}
                                         title="iPad Pro 9.7 inch Wifi Cellular"
                                         tabIndex={-1}
                                       >
-                                        {product.name}
+                                        <div className="fw-bold text-uppercase">
+                                          {' '}
+                                          {product.name}
+                                        </div>
                                       </Link>
                                     </h3>
-                                    <a href={`/products/${product._id}`}>
-                                      <div className="price-box" >{product.price}₫</div>
-                                    </a>
+                                    <div className=""></div>
+                                    <div className="">
+                                      {' '}
+                                      <Link href={`/products/${product._id}`}>
+                                        <a>
+                                          <div className="price-box">
+                                            {product.price}đ
+                                          </div>
+                                        </a>
+                                      </Link>
+                                    </div>
+
+                                    <div className="">
+                                      {product.status == 1 ? (
+                                        <span className="border border-white rounded bg-success text-white p-1">
+                                          Còn Hàng
+                                        </span>
+                                      ) : (
+                                        <span className="border border-white rounded bg-danger text-white p-1">
+                                          Hết Hàng
+                                        </span>
+                                      )}
+                                    </div>
                                   </div>
                                 </form>
                               </div>
-
                             </div>
                           </div>
                         </div>
@@ -810,8 +307,8 @@ const Home: NextPage = () => {
               </div>
             </div>
           </div>
-        </section >
-      </section >
+        </section>
+      </section>
       <section className="awe-section-9">
         <section className="section_phukien">
           <div className="container">
@@ -1314,7 +811,7 @@ const Home: NextPage = () => {
           </div>
         </section>
       </section>
-    </div >
+    </div>
   );
 };
 

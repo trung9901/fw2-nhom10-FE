@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
+/* eslint-disable react/jsx-no-target-blank */
 /* eslint-disable @next/next/no-img-element */
 import React from 'react';
 
@@ -255,7 +257,7 @@ const Footer = (props: Props) => {
                         id="mc-form"
                         className="newsletter-form"
                         data-toggle="validator"
-                        noValidate="true"
+                        
                       >
                         <div className="input-group">
                           <div className="groupiput">

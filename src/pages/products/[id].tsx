@@ -1,20 +1,54 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useSWR from 'swr';
 import useProducts from '../../hook/use-products'
 import { ProductType } from '../../models/Products';
+import {toast} from 'react-toastify'
 
 
 type ProductProps = {
     product: ProductType[];
 };
 const ProductDetail = (props: ProductProps) => {
+    const [data, setProducts] = useState<any>([])
+    const [value, setValue] = useState<any>()
     const router = useRouter();
-    const { id } = router.query;
-    const { data, error } = useSWR(id ? `/products/${id}` : null);
-    if (!data) <div>Loading...</div>;
-    if (error) <div>Error</div>;
+    const  id  = router.query.id;
+    const category = router.query.category;
+    // const { detailProduct } = useProducts()
+    // useEffect(() => {
+    //     const getProduct = async () => {
+    //         const data: any = await detailProduct(id, category)
+    //         setProducts(data)
+    //     }
+    //     getProduct()
+    // }, [id]);
+    // let cart: any[] = []
+    // if(localStorage.getItem("cart")) {
+    //     cart = JSON.parse(localStorage.getItem("cart") as string) 
+    // }
+    // const addToCart = (product:any) => {
+    //     const existProduct = cart.find((item) => {
+    //         return item._id = product._id
+    //     })
+    //     const newItem = {
+    //         ...product,
+    //         quantity: value? +1
+    //         total: value? parseInt(value) * product.price_new : 1
+    //     }
+    //     if (!existProduct) {
+    //         cart.push(newItem)
+    //     } else {
+    //         existProduct.quantity += newItem.quantity
+    //         existProduct.total += (existProduct.price_new*value)
+    //     }
+    //     toast.success("Đã thêm vào giỏ hàng")
+    //     console.log(cart);
+    //     localStorage.setItem("cart", JSON.stringify(cart))
+        
+    // }
+
     return (
         <div className="container">
             <section className="bread-crumb">
@@ -322,10 +356,13 @@ const ProductDetail = (props: ProductProps) => {
                                                                 type="submit"
                                                                 className="btn btn_base normal_button btn_add_cart btn-cart add_to_cart"
                                                             >
-                                                                <span className="text_1">
-                                                                    <i className="fas fa-shopping-basket" /> Thêm vào
-                                                                    giỏ hàng
-                                                                </span>
+                                                                <button onClick={() => addToCart(data?.product)}>
+                                                                    <span className="text_1">
+                                                                        <i className="fas fa-shopping-basket" /> Thêm vào
+                                                                        giỏ hàng
+                                                                    </span>
+                                                                </button>
+                                                                
                                                             </button>
                                                             <button
                                                                 type="submit"

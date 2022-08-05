@@ -1,17 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
+import React, { useEffect } from 'react';
 import Link from 'next/link';
-import React from 'react';
-import useProducts from '../../hook/use-products';
 import CateProducts from '../categories/CateProducts';
-// import {search} from '@/api/products';
-// import {userRouter} from "next/router"
-
+import useSWR from 'swr';
+import { useRouter } from 'next/router';
 type Props = {};
 
-const ProductPage = (props: Props) => {
-  const { data: products, error } = useProducts();
-  if (!products) return <div>Loading...</div>;
-  if (error) return <div>Failed to loading</div>;
+const CateByProductPage = (props: Props) => {
+  const router = useRouter();
+  const { id } = router.query;
+
+  const { data:cate ,error } = useSWR(`http://localhost:8000/api/cateproduct/${id}`);
+  if (!cate) return <div className="">Loading</div>
+  if (error) return <div className="">False</div>
   return (
     <div className="bodywrap">
       <div className="section wrap_background">
@@ -33,7 +34,7 @@ const ProductPage = (props: Props) => {
                   </li>
                   <li>
                     <strong>
-                      <span> Tất cả sản phẩm</span>
+                      <span>{cate.category.name}</span>
                     </strong>
                   </li>
                 </ul>
@@ -1971,7 +1972,7 @@ const ProductPage = (props: Props) => {
                     </div>
                   </div>
                   <div className="first clearfix">
-                    <h1 className="h1_title">Tất cả sản phẩm</h1>
+                    <h1 className="h1_title">Các sản phẩm thuộc : {cate.category.name}</h1>
                     <div className="category-products products">
                       <div className="section border-bottom">
                         <div className="sortPagiBar margin-bottom-15">
@@ -2017,10 +2018,10 @@ const ProductPage = (props: Props) => {
                       </div>
                       <section className="products-view products-view-grid collection_reponsive list_hover_pro">
                         <div className="row">
-                          {products.map((product: any, index: number) => (
+                          {cate.products?.map((product: any) => (
                             <div
                               className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 product-col"
-                              key={index + 1}
+                              key={product._id}
                             >
                               <div className="item_product_main margin-bottom-15">
                                 <form
@@ -2071,10 +2072,8 @@ const ProductPage = (props: Props) => {
                                   <div className="product-info">
                                     <h3 className="product-name">
                                       <Link href={`/products/${product._id}`}>
-                                        
                                         <a>
                                           <div className="fw-bold text-uppercase">
-                                            
                                             {product.name}
                                           </div>
                                         </a>
@@ -2159,4 +2158,4 @@ const ProductPage = (props: Props) => {
   );
 };
 
-export default ProductPage;
+export default CateByProductPage;

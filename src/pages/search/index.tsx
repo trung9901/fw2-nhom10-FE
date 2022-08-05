@@ -1,17 +1,30 @@
-/* eslint-disable @next/next/no-img-element */
+import axios from 'axios';
 import Link from 'next/link';
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import useSWR from 'swr';
 import useProducts from '../../hook/use-products';
+import { ProductType } from '../../models/Products';
 import CateProducts from '../categories/CateProducts';
-// import {search} from '@/api/products';
-// import {userRouter} from "next/router"
+type Props = {
+  products: ProductType[];
+};
 
-type Props = {};
-
-const ProductPage = (props: Props) => {
-  const { data: products, error } = useProducts();
-  if (!products) return <div>Loading...</div>;
-  if (error) return <div>Failed to loading</div>;
+const SearchPage = ({ products }: Props) => {
+  const router = useRouter();
+  const query = router.query.q;
+  const [data, setData] = React.useState([]);
+  React.useEffect(() => {
+    fetch(`http://localhost:8000/api/search?q=${query}`,{method: 'POST',headers: {
+      'Content-Type': 'application/json'
+    },})
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      });
+  }, [query]);
+  const products = data
+  console.log(products);
   return (
     <div className="bodywrap">
       <div className="section wrap_background">
@@ -33,7 +46,7 @@ const ProductPage = (props: Props) => {
                   </li>
                   <li>
                     <strong>
-                      <span> Tất cả sản phẩm</span>
+                      <span>{query}</span>
                     </strong>
                   </li>
                 </ul>
@@ -1971,7 +1984,9 @@ const ProductPage = (props: Props) => {
                     </div>
                   </div>
                   <div className="first clearfix">
-                    <h1 className="h1_title">Tất cả sản phẩm</h1>
+                    <h1 className="h1_title">
+                      Sản phẩm tìm kiếm : {products?.name}
+                    </h1>
                     <div className="category-products products">
                       <div className="section border-bottom">
                         <div className="sortPagiBar margin-bottom-15">
@@ -2017,10 +2032,10 @@ const ProductPage = (props: Props) => {
                       </div>
                       <section className="products-view products-view-grid collection_reponsive list_hover_pro">
                         <div className="row">
-                          {products.map((product: any, index: number) => (
+                          {products?.map((product: any) => (
                             <div
                               className="col-6 col-sm-6 col-md-4 col-lg-4 col-xl-3 product-col"
-                              key={index + 1}
+                              key={product._id}
                             >
                               <div className="item_product_main margin-bottom-15">
                                 <form
@@ -2071,10 +2086,8 @@ const ProductPage = (props: Props) => {
                                   <div className="product-info">
                                     <h3 className="product-name">
                                       <Link href={`/products/${product._id}`}>
-                                        
                                         <a>
                                           <div className="fw-bold text-uppercase">
-                                            
                                             {product.name}
                                           </div>
                                         </a>
@@ -2159,4 +2172,4 @@ const ProductPage = (props: Props) => {
   );
 };
 
-export default ProductPage;
+export default SearchPage;

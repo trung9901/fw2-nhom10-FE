@@ -1,16 +1,24 @@
 /* eslint-disable @next/next/no-img-element */
-/* eslint-disable jsx-a11y/role-supports-aria-props */
+
 import Head from 'next/head';
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { CategoryType } from '../../models/Category';
+import CategoryHead from '../../pages/categories/CategoryHead';
 
-type Props = {};
+import { useEffect } from 'react';
+import { useAuth } from '../../hook/use-auth';
+import { isAuthenticate } from '../../utils/localStorage';
+import SearchComponent from '../Search';
+type Props = {
+  category: CategoryType;
+};
 
 const Header = (props: Props) => {
+  const { login, logout } = useAuth();
   return (
     <header>
-      {' '}
       <div>
         <div className="wraphead_mobile clearfix">
           <div className="container">
@@ -20,191 +28,20 @@ const Header = (props: Props) => {
                   <i className="fas fa-bars" />
                 </span>
                 <div className="logo">
-                  <a href="/" className="logo-wrapper ">
-                    <img
-                      src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/logo.png?1656725435979"
-                      alt="logo Ego Mall"
-                    />
-                  </a>
+                  <Link href="/">
+                    <a className="logo-wrapper ">
+                      <img
+                        src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/logo.png?1656725435979"
+                        alt="logo Ego Mall"
+                      />
+                    </a>
+                  </Link>
                 </div>
               </div>
               <div className="col-lg-9 col-md-12 col-sm-12 col-12">
                 <div className="col-search-engine hidden-991">
                   <div className="header_search">
-                    <form
-                      className="input-group search-bar"
-                      action="/search"
-                      method="get"
-                      role="search"
-                    >
-                      <div className="collection-selector hidden-xs hidden-sm">
-                        <div className="search_text">Chọn danh mục</div>
-                        <div
-                          id="search_info"
-                          className="list_search"
-                          style={{ display: 'none' }}
-                        >
-                          <div
-                            className="search_item"
-                            data-coll-id={2099463}
-                            title="Phòng tắm"
-                          >
-                            Phòng tắm
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099462}
-                            title="Phòng ngủ"
-                          >
-                            Phòng ngủ
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099461}
-                            title="Phòng bếp"
-                          >
-                            Phòng bếp
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099460}
-                            title="Phòng khách"
-                          >
-                            Phòng khách
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099416}
-                            title="Cho thú cưng"
-                          >
-                            Cho thú cưng
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099415}
-                            title="Đồ gia dụng"
-                          >
-                            Đồ gia dụng
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099414}
-                            title="Phụ tùng xe hơi"
-                          >
-                            Phụ tùng xe hơi
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099413}
-                            title="Nội thất, kiến trúc"
-                          >
-                            Nội thất, kiến trúc
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099412}
-                            title="Thể thao, du lịch"
-                          >
-                            Thể thao, du lịch
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099411}
-                            title="Đồ chơi và game"
-                          >
-                            Đồ chơi và game
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099410}
-                            title="Thế giới nước hoa"
-                          >
-                            Thế giới nước hoa
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099409}
-                            title="Trang điểm"
-                          >
-                            Trang điểm
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099408}
-                            title="Chăm sóc da"
-                          >
-                            Chăm sóc da
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099407}
-                            title="Chăm sóc tóc"
-                          >
-                            Chăm sóc tóc
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099406}
-                            title="Làm đẹp"
-                          >
-                            Làm đẹp
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099405}
-                            title="Mẹ, bé & đồ chơi"
-                          >
-                            Mẹ, bé &amp; đồ chơi
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099404}
-                            title="Trang sức nữ"
-                          >
-                            Trang sức nữ
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099403}
-                            title="Túi ví nữ"
-                          >
-                            Túi ví nữ
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099402}
-                            title="Giày dép nữ"
-                          >
-                            Giày dép nữ
-                          </div>
-                          <div
-                            className="search_item"
-                            data-coll-id={2099401}
-                            title="Trang phục nữ"
-                          >
-                            Trang phục nữ
-                          </div>
-                          <div className="liner_search" />
-                          <div className="search_item active" data-coll-id={0}>
-                            Tất cả
-                          </div>
-                        </div>
-                      </div>
-                      <input
-                        type="search"
-                        name="query"
-                        defaultValue
-                        placeholder="Tìm kiếm... "
-                        className="input-group-field st-default-search-input search-text"
-                        autoComplete="off"
-                        required
-                      />
-                      <span className="input-group-btn">
-                        <button className="btn icon-fallback-text">
-                          <i className="fa fa-search" />
-                        </button>
-                      </span>
-                    </form>
+                    <SearchComponent/>
                     <ul className="keysearch">
                       <li>
                         <a title="iPhone" href="/search?query=iPhone">
@@ -252,7 +89,6 @@ const Header = (props: Props) => {
                         <input
                           type="text"
                           name="query"
-                          defaultValue
                           autoComplete="off"
                           required
                           placeholder="Tìm kiếm..."
@@ -269,24 +105,22 @@ const Header = (props: Props) => {
                     <div className="carthd">
                       <div className="mini-cart text-xs-center">
                         <div className="heading-cart cart_header">
-                          <a
-                            className="img_hover_cart"
-                            href="/cart"
-                            title="Giỏ hàng"
-                          >
-                            <div className="icon_hotline">
-                              <img
-                                src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/shopping-bag.svg?1656725435979"
-                                alt="Giỏ hàng"
-                              />
-                              <span className="bolds cartext">
-                                Giỏ hàng
-                                <span className="count_item count_item_pr">
-                                  0
+                          <Link href="/cart">
+                            <a className="img_hover_cart" title="Giỏ hàng">
+                              <div className="icon_hotline">
+                                <img
+                                  src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/shopping-bag.svg?1656725435979"
+                                  alt="Giỏ hàng"
+                                />
+                                <span className="bolds cartext">
+                                  Giỏ hàng
+                                  <span className="count_item count_item_pr">
+                                    0
+                                  </span>
                                 </span>
-                              </span>
-                            </div>
-                          </a>
+                              </div>
+                            </a>
+                          </Link>
                         </div>
                         <div className="top-cart-content">
                           <ul
@@ -313,11 +147,30 @@ const Header = (props: Props) => {
                         </span>
                       </div>
                     </div>
+
                     <div className="group_ac">
-                      <a className="btnx" href="/account/login">
-                        Đăng nhập
-                      </a>
-                      <a href="/account/register">Đăng ký</a>
+                      {isAuthenticate() ? (
+                        <div className="">
+                          {isAuthenticate().user.role === 1 ? (
+                            <Link href="/admin">
+                              <a className="btnx">Admin</a>
+                            </Link>
+                          ) : (
+                            ''
+                          )}
+
+                          <a onClick={() => logout()}>Đăng xuất</a>
+                        </div>
+                      ) : (
+                        <div className="">
+                          <Link href="/signin">
+                            <a className="btnx">Đăng nhập</a>
+                          </Link>
+                          <Link href="/signup">
+                            <a>Đăng ký</a>
+                          </Link>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -330,228 +183,25 @@ const Header = (props: Props) => {
           <div className="container">
             <div className="row">
               <div className="col-lg-3 col-md-3 col-sm-12 col-xs-12 col-mega hidden-sm hidden-xs">
-                <div className="menu_mega">
-                  <div className="title_menu">
-                    <span className="title_">Danh mục sản phẩm</span>
-                    <span className="nav_button">
-                      <span>
-                        <i className="fa fa-align-left" aria-hidden="true" />
-                      </span>
-                    </span>
-                  </div>
-                  <div className="list_menu_header menu_all_site col-lg-3 col-md-3">
-                    <ul className="ul_menu site-nav-vetical">
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a
-                          href="/dien-tu-va-cong-nghe"
-                          title="Điện tử và công nghệ"
-                        >
-                          Điện tử và công nghệ
-                          <i className="fa fa-angle-right" />
-                        </a>
-                        <ul className="ul_content_right_1 row">
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/may-tinh" title="Máy tính">
-                              Máy tính
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/dien-thoai" title="Điện thoại">
-                              Điện thoại
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/tivi" title="Tivi">
-                              Tivi
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/dinh-vi" title="Định vị">
-                              Định vị
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/smart-watch" title="Smart watch">
-                              Smart watch
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/dong-ho-hang-hieu" title="Đồng hồ hàng hiệu">
-                          Đồng hồ hàng hiệu
-                          <i className="fa fa-angle-right" />
-                        </a>
-                        <ul className="ul_content_right_1 row">
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/dong-ho-nam" title="Đồng hồ nam">
-                              Đồng hồ nam
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/dong-ho-nu" title="Đồng hồ nữ">
-                              Đồng hồ nữ
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/dong-ho-be-trai" title="Đồng hồ bé trai">
-                              Đồng hồ bé trai
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/dong-ho-be-gai" title="Đồng hồ bé gái">
-                              Đồng hồ bé gái
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a
-                          href="/thoi-trang-phu-kien"
-                          title="Thời trang & phụ kiện"
-                        >
-                          Thời trang &amp; phụ kiện
-                          <i className="fa fa-angle-right" />
-                        </a>
-                        <ul className="ul_content_right_1 row">
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/trang-phuc-nu" title="Trang phục nữ">
-                              Trang phục nữ
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/giay-dep-nu" title="Giày dép nữ">
-                              Giày dép nữ
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/tui-vi-nu" title="Túi ví nữ">
-                              Túi ví nữ
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/trang-suc-nu" title="Trang sức nữ">
-                              Trang sức nữ
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/me-be-do-choi" title="Mẹ, bé & đồ chơi">
-                          Mẹ, bé &amp; đồ chơi
-                        </a>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/lam-dep" title="Làm đẹp">
-                          Làm đẹp
-                          <i className="fa fa-angle-right" />
-                        </a>
-                        <ul className="ul_content_right_1 row">
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/cham-soc-toc" title="Chăm sóc tóc">
-                              Chăm sóc tóc
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/cham-soc-da" title="Chăm sóc da">
-                              Chăm sóc da
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/trang-diem" title="Trang điểm">
-                              Trang điểm
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/the-gioi-nuoc-hoa" title="Thế giới nước hoa">
-                          Thế giới nước hoa
-                        </a>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/do-choi-va-game" title="Đồ chơi và game">
-                          Đồ chơi và game
-                        </a>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/the-thao-du-lich" title="Thể thao, du lịch">
-                          Thể thao, du lịch
-                        </a>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a
-                          href="/noi-that-kien-truc"
-                          title="Nội thất, kiến trúc"
-                        >
-                          Nội thất, kiến trúc
-                          <i className="fa fa-angle-right" />
-                        </a>
-                        <ul className="ul_content_right_1 row">
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/phong-khach" title="Phòng khách">
-                              Phòng khách
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/phong-bep" title="Phòng bếp">
-                              Phòng bếp
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/phong-ngu" title="Phòng ngủ">
-                              Phòng ngủ
-                            </a>
-                          </li>
-                          <li className="nav_item lv2 col-lg-4 col-md-12">
-                            <a href="/phong-tam" title="Phòng tắm">
-                              Phòng tắm
-                            </a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/phu-tung-xe-hoi" title="Phụ tùng xe hơi">
-                          Phụ tùng xe hơi
-                        </a>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/do-gia-dung" title="Đồ gia dụng">
-                          Đồ gia dụng
-                        </a>
-                      </li>
-                      <li className="nav_item lev-1 lv1 li_check">
-                        <a href="/cho-thu-cung" title="Cho thú cưng">
-                          Cho thú cưng
-                        </a>
-                      </li>
-                      <li className="lev-1 xemthem hidden-lgg nav_item clearfix ">
-                        <a href="javascript:;">Xem thêm</a>
-                      </li>
-                      <li className="lev-1 thugon hidden-lgg nav_item clearfix ">
-                        <a href="javascript:;">Thu gọn</a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+                <CategoryHead />
               </div>
               <div className="col-lg-9 col-md-9">
                 <nav className="header-nav">
                   <ul className="item_big">
                     <li className="nav-item active ">
-                      <a className="a-img" href="/" title="Trang chủ">
-                        <span>Trang chủ</span>
-                      </a>
+                      <Link href="/">
+                        <a className="a-img" title="Trang chủ">
+                          <span>Trang chủ</span>
+                        </a>
+                      </Link>
                     </li>
                     <li className="nav-item  has-mega">
-                      <a
-                        className="a-img"
-                        href="/collections/all"
-                        title="Sản phẩm"
-                      >
-                        <span>Sản phẩm</span>
-                        <i className="fa fa-angle-down" />
-                      </a>
+                      <Link href="/products">
+                        <a className="a-img" title="Sản phẩm">
+                          <span>Sản phẩm</span>
+                          <i className="fa fa-angle-down" />
+                        </a>
+                      </Link>
                       <div className="mega-content">
                         <div className="level0-wrapper2">
                           <div className="nav-block nav-block-center">
@@ -883,13 +533,7 @@ const Header = (props: Props) => {
               <div className="containers">
                 {/* Menu mobile */}
                 <div className="contenttop">
-                  <div className="section margin-bottom-10 margin-top-20">
-                    <a className="btnx" href="/account/login">
-                      Đăng nhập
-                    </a>
-                    &nbsp;/
-                    <a href="/account/register">Đăng ký</a>
-                  </div>
+                  <div className="section margin-bottom-10 margin-top-20"></div>
                 </div>
                 <div className="menu_mobile">
                   <ul className="ul_collections">
