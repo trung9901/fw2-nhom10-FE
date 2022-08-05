@@ -577,5 +577,6 @@ const ProductList = (props: Props) => {
     </div>
   );
 };
+
 ProductList.Layout = AdminLayout;
 export default ProductList;

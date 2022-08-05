@@ -376,5 +376,6 @@ const CategoryList = (props: Props) => {
     </div>
   );
 };
+
 CategoryList.Layout = AdminLayout;
 export default CategoryList;

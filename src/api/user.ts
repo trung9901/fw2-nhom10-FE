@@ -8,7 +8,9 @@ export const signup = (user: User) => {
 export const signin = (user: User) => {
     return instance.post("/signin", user) 
 }
-
+export const list = () => {
+    return instance.get("/users") 
+}
 export const updateItem=(id: any, user: User) =>{
     return instance.put(`/users/${id}`,user)
 }

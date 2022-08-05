@@ -5,6 +5,8 @@ import { toast } from "react-toastify"
 import { signin } from '../../api/user'
 import Link from 'next/link'
 import { authenticated } from "../../utils/localStorage"
+
+import { useAuth } from './../../hook/use-auth';
 type Props = {
   name: string,
   email: string
@@ -13,6 +15,7 @@ type Props = {
 }
 
 const Signin = (props: Props) => {
+  const {data,login,logout } = useAuth()
   const router = useRouter()
   const {
     register,
@@ -23,14 +26,12 @@ const Signin = (props: Props) => {
 
   const onSubmit: SubmitHandler<Props> = async (value: Props) => {
     try {
-      const users = await signin(value)
+      login(value)
       reset();
-      authenticated(users, () => {
-        toast.success("Đăng nhập thành công, vui lòng chờ giây lát");
-        setTimeout(() => {
-          router.push("/")
-        }, 3000)
-      })
+      toast.success("Đăng nhập thành công, vui lòng chờ giây lát");
+      setTimeout(() => {
+        router.push("/")
+      }, 3000)
 
     } catch (error) {
       console.log(error);
