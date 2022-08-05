@@ -19,12 +19,12 @@ export const useAuth = (options?) => {
   const login = async (user: User) => {
     const account = await signin(user);
     localStorage.setItem('user', JSON.stringify(account));
-    mutate([...data, account]);
+    mutate([...data, account], );
   };
   // logout
   const logout = async ()=>{
-     localStorage.removeItem('user');
-     mutate([...data])
+    const l = localStorage.removeItem('user');
+    mutate(l)
   }
   return {
     data,

@@ -7,25 +7,29 @@ export const authenticated = (user: any, next: () => void) => {
   next();
 };
 export const isAuthenticate = () => {
-  if (!localStorage.getItem('user')) return;
-  return JSON.parse(localStorage.getItem('user') as string);
-};
-
-let cart: any[] = [];
-if (localStorage.getItem('cart')) {
-    cart = JSON.parse(localStorage.getItem('cart') as string);
+  if (typeof window !== "undefined") {
+      if (!localStorage.getItem('user')) return;
+      return JSON.parse(localStorage.getItem('user') as string)
+  }
 }
 
-export const addToCart = (newProduct: any, next: () => void) => {
-    const existProduct = cart.find(product => product._id === newProduct._id);
-    if (!existProduct) {
-        cart.push(newProduct);
-    } else {
-        existProduct.quantity++;
-    }
-    localStorage.setItem('cart', JSON.stringify(cart))
-    next();
-}
+// let cart: any[] = [];
+// if (localStorage.getItem('cart')) {
+//     cart = JSON.parse(localStorage.getItem('cart') as string);
+// }
+
+// export const addToCart = (newProduct: any, next: () => void) => {
+//     const existProduct = cart.find(product => product._id === newProduct._id);
+//     if (!existProduct) {
+//         cart.push(newProduct);
+//     } else {
+//         existProduct.quantity++;
+//     }
+//     localStorage.setItem('cart', JSON.stringify(cart))
+//     next();
+// }
+
+
 // export const increaseItemInCart = (id: any, next: () => void) => {
 //     cart.find(product => product._id === id).quantity++;
 //     localStorage.setItem('cart', JSON.stringify(cart))

@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 
 import Head from 'next/head';
 import React from 'react';
@@ -7,58 +8,13 @@ import { CategoryType } from '../../models/Category';
 import CategoryHead from '../../pages/categories/CategoryHead';
 import { isAuthenticate } from '../../utils/localStorage';
 import { useEffect } from 'react';
+import AuthComponnet from '../AuthHeader';
 
 type Props = {
   category: CategoryType;
 };
 
 const Header = (props: Props) => {
-  const [users, setUsers] = React.useState();
-  const [logedin, setLogedin] = React.useState(true);
-
-  const logout = () => {
-    localStorage.removeItem('user');
-  };
-  const checkuser = () => {
-    if (logedin == false && users) {
-      return (
-        <div className="">
-          {users.user.role ===1? <Link href="/admin">
-            <a className="btnx">Admin</a>
-          </Link> : ''}
-          
-          <a
-            onClick={() => {
-              logout(), setLogedin(true);
-            }}
-          >
-            Đăng xuất
-          </a>
-        </div>
-      );
-    }
-     else {
-      return (
-        <>
-          <Link href="/signin">
-            <a className="btnx">Đăng nhập</a>
-          </Link>
-          <Link href="/signup">
-            <a>Đăng ký</a>
-          </Link>
-        </>
-      );
-    }
-  };
-  React.useEffect(() => {
-  
-    const users = JSON.parse(localStorage.getItem('user') as string);
-    if(users){
-      setUsers(users);
-      setLogedin(false);
-      console.log(users);
-    }
-  }, []);
   return (
     <header>
       <div>
@@ -361,7 +317,9 @@ const Header = (props: Props) => {
                         </span>
                       </div>
                     </div>
-                    <div className="group_ac">{checkuser()}</div>
+                    
+                      <AuthComponnet/>
+                   
                   </div>
                 </div>
               </div>
