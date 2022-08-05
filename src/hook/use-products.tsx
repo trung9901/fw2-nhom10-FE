@@ -26,8 +26,8 @@ const useProducts = () => {
     const newProducts = data.filter((item: any) => item.id != id);
     mutate(newProducts);
   };
-  const searchProduct = async (b:any) => {
-    const getSearch = await search(b)
+  const searchProduct = async (query:any) => {
+    const getSearch = await search(query)
     mutate (getSearch)
   }
   return {
