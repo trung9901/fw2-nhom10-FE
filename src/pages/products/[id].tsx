@@ -16,38 +16,38 @@ const ProductDetail = (props: ProductProps) => {
     const router = useRouter();
     const  id  = router.query.id;
     const category = router.query.category;
-    const { detailProduct } = useProducts()
-    useEffect(() => {
-        const getProduct = async () => {
-            const data: any = await detailProduct(id, category)
-            setProducts(data)
-        }
-        getProduct()
-    }, [id]);
-    let cart: any[] = []
-    if(localStorage.getItem("cart")) {
-        cart = JSON.parse(localStorage.getItem("cart") as string) 
-    }
-    const addToCart = (product:any) => {
-        const existProduct = cart.find((item) => {
-            return item._id = product._id
-        })
-        const newItem = {
-            ...product,
-            quantity: value? +1
-            total: value? parseInt(value) * product.price_new : 1
-        }
-        if (!existProduct) {
-            cart.push(newItem)
-        } else {
-            existProduct.quantity += newItem.quantity
-            existProduct.total += (existProduct.price_new*value)
-        }
-        toast.success("Đã thêm vào giỏ hàng")
-        console.log(cart);
-        localStorage.setItem("cart", JSON.stringify(cart))
+    // const { detailProduct } = useProducts()
+    // useEffect(() => {
+    //     const getProduct = async () => {
+    //         const data: any = await detailProduct(id, category)
+    //         setProducts(data)
+    //     }
+    //     getProduct()
+    // }, [id]);
+    // let cart: any[] = []
+    // if(localStorage.getItem("cart")) {
+    //     cart = JSON.parse(localStorage.getItem("cart") as string) 
+    // }
+    // const addToCart = (product:any) => {
+    //     const existProduct = cart.find((item) => {
+    //         return item._id = product._id
+    //     })
+    //     const newItem = {
+    //         ...product,
+    //         quantity: value? +1
+    //         total: value? parseInt(value) * product.price_new : 1
+    //     }
+    //     if (!existProduct) {
+    //         cart.push(newItem)
+    //     } else {
+    //         existProduct.quantity += newItem.quantity
+    //         existProduct.total += (existProduct.price_new*value)
+    //     }
+    //     toast.success("Đã thêm vào giỏ hàng")
+    //     console.log(cart);
+    //     localStorage.setItem("cart", JSON.stringify(cart))
         
-    }
+    // }
 
     return (
         <div className="container">
