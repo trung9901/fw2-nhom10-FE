@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import useSWR, { useSWRConfig } from 'swr';
 import instance from '../api/instance';
-import { add, removeItem, updateItem } from '../api/products';
+import { add, removeItem, updateItem, search } from '../api/products';
 
 
 const useProducts = () => {
@@ -26,12 +26,17 @@ const useProducts = () => {
     const newProducts = data.filter((item: any) => item.id != id);
     mutate(newProducts);
   };
+  const searchProduct = async (b:any) => {
+    const getSearch = await search(b)
+    mutate (getSearch)
+  }
   return {
     data,
     error,
     create,
     remove,
     update,
+    searchProduct,
   };
 };
 

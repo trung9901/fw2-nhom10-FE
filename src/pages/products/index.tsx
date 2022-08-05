@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 import useProducts from '../../hook/use-products';
 import CateProducts from '../categories/CateProducts';
+// import {search} from '@/api/products';
+// import {userRouter} from "next/router"
 
 type Props = {};
 
