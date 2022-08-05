@@ -10,7 +10,7 @@ type Props = {
   products: ProductType[];
 };
 
-const SearchPage = ({ products }: Props) => {
+const SearchPage = () => {
   const router = useRouter();
   const query = router.query.q;
   const [data, setData] = React.useState([]);
@@ -24,7 +24,7 @@ const SearchPage = ({ products }: Props) => {
       });
   }, [query]);
   const products = data
-  console.log(products);
+
   return (
     <div className="bodywrap">
       <div className="section wrap_background">
