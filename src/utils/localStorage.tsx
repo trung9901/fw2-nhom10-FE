@@ -10,6 +10,8 @@ export const isAuthenticate = () => {
   if (typeof window !== "undefined") {
       if (!localStorage.getItem('user')) return;
       return JSON.parse(localStorage.getItem('user') as string)
+  }else{
+    
   }
 }
 

@@ -2,11 +2,14 @@
 /* eslint-disable @next/next/no-img-element */
 import type { NextPage } from 'next';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import useCategories from '../hook/use-categories';
 import useProducts from '../hook/use-products';
 import Feature from './categories/Feature';
 
 const Home: NextPage = () => {
+  const [color, setColor] = useState('blue');
+  useEffect(() => setColor('red'), []);
   const { data: products, error } = useProducts();
   if (!products) return <div>Loading...</div>;
   if (error) return <div>Failed to loading</div>;

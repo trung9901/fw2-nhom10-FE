@@ -6,15 +6,17 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { CategoryType } from '../../models/Category';
 import CategoryHead from '../../pages/categories/CategoryHead';
-import { isAuthenticate } from '../../utils/localStorage';
+
 import { useEffect } from 'react';
 import AuthComponnet from '../AuthHeader';
-
+import { useAuth } from '../../hook/use-auth';
+import { isAuthenticate } from '../../utils/localStorage';
 type Props = {
   category: CategoryType;
 };
 
 const Header = (props: Props) => {
+  const { login, logout } = useAuth();
   return (
     <header>
       <div>
@@ -317,9 +319,31 @@ const Header = (props: Props) => {
                         </span>
                       </div>
                     </div>
-                    
-                      <AuthComponnet/>
-                   
+
+                    <div className="group_ac">
+                      {isAuthenticate() ? (
+                        <div className="">
+                          {isAuthenticate().user.role === 1 ? (
+                            <Link href="/admin">
+                              <a className="btnx">Admin</a>
+                            </Link>
+                          ) : (
+                            ''
+                          )}
+
+                          <a onClick={() => logout()}>Đăng xuất</a>
+                        </div>
+                      ) : (
+                        <div className="">
+                          <Link href="/signin">
+                            <a className="btnx">Đăng nhập</a>
+                          </Link>
+                          <Link href="/signup">
+                            <a>Đăng ký</a>
+                          </Link>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
