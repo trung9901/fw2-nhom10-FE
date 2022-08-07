@@ -1,7 +1,7 @@
 import swr, { mutate } from 'swr';
 
 const useCart = () => {
-  const { data, error } = swr('/cart');
+
 
   let cart: any[] = [];
   if (typeof window !== 'undefined' && window.localStorage) {
@@ -22,7 +22,7 @@ const useCart = () => {
     localStorage.setItem('cart', JSON.stringify(cart));
     next();
   };
-
+  
   const increaseItemInCart = (id: any, next: () => void) => {
     cart.find((product) => product._id === id).quantity++;
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -44,16 +44,14 @@ const useCart = () => {
     next();
   };
   const removeItemInCart = (id: any, next: () => void) => {
-    const confirm = window.confirm('Bạn có muốn xóa sản phẩm này không?');
-    if (confirm) {
+ 
       cart = cart.filter((item) => item._id !== id);
-    }
+  
     localStorage.setItem('cart', JSON.stringify(cart));
     next();
   };
   return {
-    data,
-    error,
+  
     addToCart,
     increaseItemInCart,
     decreaseItemInCart,

@@ -2,8 +2,8 @@ import useSWR, { useSWRConfig } from 'swr';
 import { list, signin, signup } from '../api/user';
 import { User } from '../models/User';
 import { isAuthenticate, authenticated } from '../utils/localStorage';
-export const useAuth = (options?) => {
-  const { data, error, mutate } = useSWR('/users', { ...options });
+export const useAuth = () => {
+  const { data, error, mutate } = useSWR('/users');
 
   // register
 

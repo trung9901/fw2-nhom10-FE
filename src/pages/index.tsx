@@ -9,12 +9,12 @@ import Feature from './categories/Feature';
 import useCart from '../hook/use-cart';
 import { toast } from 'react-toastify';
 const Home: NextPage = () => {
+  const {cart,addToCart} = useCart()
   const [color, setColor] = useState('blue');
   useEffect(() => setColor('red'), []);
   const { data: products, error } = useProducts();
   if (!products) return <div>Loading...</div>;
   if (error) return <div>Failed to loading</div>;
-  const {cart,addToCart} = useCart()
   return (
     <div className="bodywrap bg-white">
       <h1 className="d-none">Ego Mall - </h1>

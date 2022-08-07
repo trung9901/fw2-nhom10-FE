@@ -14,6 +14,8 @@ import SearchComponent from '../Search';
 
 import useCart from './../../hook/use-cart';
 import CartItem from './../CartItem/index';
+
+import CartHover from './../CartHover/index';
 type Props = {
   category: CategoryType;
 };
@@ -48,32 +50,32 @@ const Header = (props: Props) => {
                     <SearchComponent/>
                     <ul className="keysearch">
                       <li>
-                        <a title="iPhone" href="/search?query=iPhone">
+                        <a title="iPhone" >
                           iPhone
                         </a>
                       </li>
                       <li>
-                        <a title="iPad Pro" href="/search?query=iPad%20Pro">
+                        <a title="iPad Pro" >
                           iPad Pro
                         </a>
                       </li>
                       <li>
                         <a
                           title="Samsung Note 10"
-                          href="/search?query=Samsung%20Note%2010"
+                          
                         >
                           Samsung Note 10
                         </a>
                       </li>
                       <li>
-                        <a title="Xiaomi" href="/search?query=Xiaomi">
+                        <a title="Xiaomi" >
                           Xiaomi
                         </a>
                       </li>
                       <li>
                         <a
                           title="Apple Watch"
-                          href="/search?query=Apple%20Watch"
+                         
                         >
                           Apple Watch
                         </a>
@@ -85,7 +87,7 @@ const Header = (props: Props) => {
                   <div className="cartsearch">
                     <div className="searchhd hidden-md">
                       <form
-                        action="/search"
+                        
                         method="get"
                         className="input-group search-bar"
                         role="search"
@@ -129,9 +131,7 @@ const Header = (props: Props) => {
                             id="cart-sidebar"
                             className="mini-products-list count_li"
                           >
-                            <div className="no-item">
-                              <p>Không có sản phẩm nào.</p>
-                            </div>
+                            <CartHover/>
                           </ul>
                         </div>
                       </div>

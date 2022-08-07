@@ -8,6 +8,7 @@ type FormData = {
   query: string;
 };
 const SearchComponent = (props: Props) => {
+  const color = typeof window !== 'undefined' ? 'red' : 'blue'
   const {
     register,
     setValue,
@@ -184,6 +185,7 @@ const SearchComponent = (props: Props) => {
           autoComplete="off"
           required
         />
+        <input type="hidden" name="" value={color} />
         <span className="input-group-btn">
           <button className="btn icon-fallback-text">
             <i className="fa fa-search" />
