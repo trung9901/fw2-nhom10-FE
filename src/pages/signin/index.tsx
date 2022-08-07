@@ -26,7 +26,7 @@ const Signin = (props: Props) => {
 
   const onSubmit: SubmitHandler<Props> = async (value: Props) => {
     try {
-      login(value)
+      await login(value)
       reset();
       toast.success("Đăng nhập thành công, vui lòng chờ giây lát");
       setTimeout(() => {

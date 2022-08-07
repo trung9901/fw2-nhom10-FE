@@ -65,7 +65,7 @@ const ProductList = (props: Props) => {
         ).then((res) => res.json()).then((data:any) => {
           const file = data
           const imageUrl = file.url
-          const datas = Object.assign({ ...formdata }, { image: imageUrl });
+          const datas = { ...formdata,image: imageUrl };
           // 
           create(datas);
         })
