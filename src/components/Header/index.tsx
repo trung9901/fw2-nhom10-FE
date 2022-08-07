@@ -11,12 +11,16 @@ import { useEffect } from 'react';
 import { useAuth } from '../../hook/use-auth';
 import { isAuthenticate } from '../../utils/localStorage';
 import SearchComponent from '../Search';
+
+import useCart from './../../hook/use-cart';
+import CartItem from './../CartItem/index';
 type Props = {
   category: CategoryType;
 };
 
 const Header = (props: Props) => {
   const { login, logout } = useAuth();
+ 
   return (
     <header>
       <div>
@@ -114,9 +118,7 @@ const Header = (props: Props) => {
                                 />
                                 <span className="bolds cartext">
                                   Giỏ hàng
-                                  <span className="count_item count_item_pr">
-                                    0
-                                  </span>
+                                <CartItem/>
                                 </span>
                               </div>
                             </a>

@@ -28,7 +28,7 @@ type FormData = {
   name: String;
   price: Number;
   image: String;
-  quantity: Number;
+
   status: Number;
   description: String;
   category: String;
@@ -253,7 +253,7 @@ const ProductList = (props: Props) => {
                                   {errors.price?.message}
                                 </div>
                               </div>
-                              <div className="form-group">
+                              {/* <div className="form-group">
                                 <label htmlFor="">Quantity</label>
                                 <input
                                   type="text"
@@ -271,7 +271,7 @@ const ProductList = (props: Props) => {
                                 <div className="text-danger">
                                   {errors.quantity?.message}
                                 </div>
-                              </div>
+                              </div> */}
                               <div className="form-group">
                                 <label htmlFor="">Status</label>
 
@@ -487,7 +487,7 @@ const ProductList = (props: Props) => {
                       />
                       <div className="text-danger">{errors.price?.message}</div>
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <label htmlFor="">Quantity</label>
                       <input
                         type="text"
@@ -506,7 +506,7 @@ const ProductList = (props: Props) => {
                       <div className="text-danger">
                         {errors.quantity?.message}
                       </div>
-                    </div>
+                    </div> */}
                     <div className="form-group">
                       <label htmlFor="">Status</label>
 
