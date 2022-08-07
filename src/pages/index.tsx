@@ -6,14 +6,15 @@ import { useEffect, useState } from 'react';
 import useCategories from '../hook/use-categories';
 import useProducts from '../hook/use-products';
 import Feature from './categories/Feature';
-
+import useCart from '../hook/use-cart';
+import { toast } from 'react-toastify';
 const Home: NextPage = () => {
   const [color, setColor] = useState('blue');
   useEffect(() => setColor('red'), []);
   const { data: products, error } = useProducts();
   if (!products) return <div>Loading...</div>;
   if (error) return <div>Failed to loading</div>;
-
+  const {cart,addToCart} = useCart()
   return (
     <div className="bodywrap bg-white">
       <h1 className="d-none">Ego Mall - </h1>
@@ -199,13 +200,7 @@ const Home: NextPage = () => {
                               style={{ width: '100%', display: 'inline-block' }}
                             >
                               <div className="item_product_main">
-                                <form
-                                  action="/cart/add"
-                                  method="post"
-                                  className="variants product-action"
-                                  data-id="product-actions-16610188"
-                                  encType="multipart/form-data"
-                                >
+                               
                                   <div className="product-thumbnail">
                                     <Link href={`/products/${product._id}`}>
                                       <a
@@ -241,7 +236,7 @@ const Home: NextPage = () => {
                                       <button
                                         className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
                                         title="Thêm vào giỏ hàng"
-                                        tabIndex={-1}
+                                        onClick={() =>addToCart(product, ()=>{toast('thêm giỏ hàng thành công')})}
                                       >
                                         <i className="fas fa-shopping-basket iconcart" />
                                       </button>
@@ -284,7 +279,7 @@ const Home: NextPage = () => {
                                       )}
                                     </div>
                                   </div>
-                                </form>
+                            
                               </div>
                             </div>
                           </div>
