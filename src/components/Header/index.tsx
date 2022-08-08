@@ -22,7 +22,7 @@ type Props = {
 
 const Header = (props: Props) => {
   const { login, logout } = useAuth();
- 
+
   return (
     <header>
       <div>
@@ -47,7 +47,7 @@ const Header = (props: Props) => {
               <div className="col-lg-9 col-md-12 col-sm-12 col-12">
                 <div className="col-search-engine hidden-991">
                   <div className="header_search">
-                    <SearchComponent/>
+                    <SearchComponent />
                     <ul className="keysearch">
                       <li>
                         <a title="iPhone" >
@@ -62,7 +62,7 @@ const Header = (props: Props) => {
                       <li>
                         <a
                           title="Samsung Note 10"
-                          
+
                         >
                           Samsung Note 10
                         </a>
@@ -75,7 +75,7 @@ const Header = (props: Props) => {
                       <li>
                         <a
                           title="Apple Watch"
-                         
+
                         >
                           Apple Watch
                         </a>
@@ -87,7 +87,7 @@ const Header = (props: Props) => {
                   <div className="cartsearch">
                     <div className="searchhd hidden-md">
                       <form
-                        
+
                         method="get"
                         className="input-group search-bar"
                         role="search"
@@ -120,7 +120,7 @@ const Header = (props: Props) => {
                                 />
                                 <span className="bolds cartext">
                                   Giỏ hàng
-                                <CartItem/>
+                                  <CartItem />
                                 </span>
                               </div>
                             </a>
@@ -131,7 +131,7 @@ const Header = (props: Props) => {
                             id="cart-sidebar"
                             className="mini-products-list count_li"
                           >
-                            <CartHover/>
+                            <CartHover />
                           </ul>
                         </div>
                       </div>
@@ -154,7 +154,7 @@ const Header = (props: Props) => {
                       {isAuthenticate() ? (
                         <div className="">
                           {isAuthenticate().user.role === 1 ? (
-                            <Link href="/admin">
+                            <Link href="/admin" >
                               <a className="btnx">Admin</a>
                             </Link>
                           ) : (
