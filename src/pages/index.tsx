@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/role-has-required-aria-props */
 /* eslint-disable @next/next/no-img-element */
+import React from 'react'
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -9,9 +10,8 @@ import Feature from './categories/Feature';
 import useCart from '../hook/use-cart';
 import { toast } from 'react-toastify';
 const Home: NextPage = () => {
-  const {cart,addToCart} = useCart()
-  const [color, setColor] = useState('blue');
-  useEffect(() => setColor('red'), []);
+  const { cart, addToCart } = useCart()
+
   const { data: products, error } = useProducts();
   if (!products) return <div>Loading...</div>;
   if (error) return <div>Failed to loading</div>;
@@ -200,86 +200,86 @@ const Home: NextPage = () => {
                               style={{ width: '100%', display: 'inline-block' }}
                             >
                               <div className="item_product_main">
-                               
-                                  <div className="product-thumbnail">
+
+                                <div className="product-thumbnail">
+                                  <Link href={`/products/${product._id}`}>
+                                    <a
+                                      className="image_thumb scale_hover"
+                                      title="iPad Pro 9.7 inch Wifi Cellular"
+                                      tabIndex={-1}
+                                    >
+                                      <img
+                                        className="lazyload"
+                                        src={product?.image}
+                                        data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/256gbgray1u696d20160331t224235.jpg?v=1577471309610"
+                                        alt="iPad Pro 9.7 inch Wifi Cellular"
+                                      />
+                                    </a>
+                                  </Link>
+
+                                  <div className="action">
+                                    <a
+                                      title="Xem nhanh"
+                                      href="/ipad-pro-9-7-inch-wifi-cellular"
+                                      data-handle="ipad-pro-9-7-inch-wifi-cellular"
+                                      className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
+                                      tabIndex={-1}
+                                    >
+                                      <i className="fas fa-search-plus" />
+                                    </a>
+                                    <input
+                                      type="hidden"
+                                      name="variantId"
+                                      defaultValue={29842205}
+                                      tabIndex={-1}
+                                    />
+                                    <button
+                                      className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
+                                      title="Thêm vào giỏ hàng"
+                                      onClick={() => addToCart(product, () => { toast('thêm giỏ hàng thành công') })}
+                                    >
+                                      <i className="fas fa-shopping-basket iconcart" />
+                                    </button>
+                                  </div>
+                                </div>
+                                <div className="product-info">
+                                  <h3 className="product-name">
+                                    <Link
+                                      href={`/products/${product._id}`}
+                                      title="iPad Pro 9.7 inch Wifi Cellular"
+                                      tabIndex={-1}
+                                    >
+                                      <div className="fw-bold text-uppercase">
+                                        {' '}
+                                        {product.name}
+                                      </div>
+                                    </Link>
+                                  </h3>
+                                  <div className=""></div>
+                                  <div className="">
+                                    {' '}
                                     <Link href={`/products/${product._id}`}>
-                                      <a
-                                        className="image_thumb scale_hover"
-                                        title="iPad Pro 9.7 inch Wifi Cellular"
-                                        tabIndex={-1}
-                                      >
-                                        <img
-                                          className="lazyload"
-                                          src={product?.image}
-                                          data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/256gbgray1u696d20160331t224235.jpg?v=1577471309610"
-                                          alt="iPad Pro 9.7 inch Wifi Cellular"
-                                        />
+                                      <a>
+                                        <div className="price-box">
+                                          {product.price}đ
+                                        </div>
                                       </a>
                                     </Link>
-
-                                    <div className="action">
-                                      <a
-                                        title="Xem nhanh"
-                                        href="/ipad-pro-9-7-inch-wifi-cellular"
-                                        data-handle="ipad-pro-9-7-inch-wifi-cellular"
-                                        className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                                        tabIndex={-1}
-                                      >
-                                        <i className="fas fa-search-plus" />
-                                      </a>
-                                      <input
-                                        type="hidden"
-                                        name="variantId"
-                                        defaultValue={29842205}
-                                        tabIndex={-1}
-                                      />
-                                      <button
-                                        className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                                        title="Thêm vào giỏ hàng"
-                                        onClick={() =>addToCart(product, ()=>{toast('thêm giỏ hàng thành công')})}
-                                      >
-                                        <i className="fas fa-shopping-basket iconcart" />
-                                      </button>
-                                    </div>
                                   </div>
-                                  <div className="product-info">
-                                    <h3 className="product-name">
-                                      <Link
-                                        href={`/products/${product._id}`}
-                                        title="iPad Pro 9.7 inch Wifi Cellular"
-                                        tabIndex={-1}
-                                      >
-                                        <div className="fw-bold text-uppercase">
-                                          {' '}
-                                          {product.name}
-                                        </div>
-                                      </Link>
-                                    </h3>
-                                    <div className=""></div>
-                                    <div className="">
-                                      {' '}
-                                      <Link href={`/products/${product._id}`}>
-                                        <a>
-                                          <div className="price-box">
-                                            {product.price}đ
-                                          </div>
-                                        </a>
-                                      </Link>
-                                    </div>
 
-                                    <div className="">
-                                      {product.status == 1 ? (
-                                        <span className="border border-white rounded bg-success text-white p-1">
-                                          Còn Hàng
-                                        </span>
-                                      ) : (
-                                        <span className="border border-white rounded bg-danger text-white p-1">
-                                          Hết Hàng
-                                        </span>
-                                      )}
-                                    </div>
+                                  <div className="">
+                                    {product.status == 1 ? (
+                                      <span className="border border-white rounded bg-success text-white p-1">
+                                        Còn Hàng
+                                      </span>
+                                    ) : (
+                                      <span className="border border-white rounded bg-danger text-white p-1">
+                                        Hết Hàng
+                                      </span>
+                                    )}
                                   </div>
-                            
+                                </div>
+
                               </div>
                             </div>
                           </div>

@@ -15,14 +15,14 @@ const useCart = () => {
   const addToCart = (newProduct: any, next: () => void) => {
     const existProduct = cart.find((product) => product._id === newProduct._id);
     if (!existProduct) {
-      cart.push(newProduct);
+      cart.push({ ...newProduct, quantity: 1 });
     } else {
       existProduct.quantity++;
     }
     localStorage.setItem('cart', JSON.stringify(cart));
     next();
   };
-  
+
   const increaseItemInCart = (id: any, next: () => void) => {
     cart.find((product) => product._id === id).quantity++;
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -44,14 +44,14 @@ const useCart = () => {
     next();
   };
   const removeItemInCart = (id: any, next: () => void) => {
- 
-      cart = cart.filter((item) => item._id !== id);
-  
+
+    cart = cart.filter((item) => item._id !== id);
+
     localStorage.setItem('cart', JSON.stringify(cart));
     next();
   };
   return {
-  
+
     addToCart,
     increaseItemInCart,
     decreaseItemInCart,

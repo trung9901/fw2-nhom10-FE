@@ -52,52 +52,52 @@ const ProductList = (props: Props) => {
   const onSubmit = handleSubmit((formdata: any) => {
     if (formdata) {
       //
-        const files = formdata.image;
-        const data = new FormData();
-        data.append('file', files[0]);
-        data.append('upload_preset', 'img_upload');
-        fetch(
-          ' https://api.cloudinary.com/v1_1/trung9901/image/upload/',
-          {
-            method: 'POST',
-            body: data,
-          }
-        ).then((res) => res.json()).then((data:any) => {
-          const file = data
-          const imageUrl = file.url
-          const datas = { ...formdata,image: imageUrl };
-          // 
-          create(datas);
-        })
+      const files = formdata.image;
+      const data = new FormData();
+      data.append('file', files[0]);
+      data.append('upload_preset', 'img_upload');
+      fetch(
+        ' https://api.cloudinary.com/v1_1/trung9901/image/upload/',
+        {
+          method: 'POST',
+          body: data,
+        }
+      ).then((res) => res.json()).then((data: any) => {
+        const file = data
+        const imageUrl = file.url
+        const datas = { ...formdata, image: imageUrl };
+        // 
+        create(datas);
+      })
 
       //
       toast.success('Thêm sản phẩm thành công');
       setModalOpen(!modalOpen);
       reset();
     }
-  
+
   });
 
   const onSubmit2 = handleSubmit((formdata2: any) => {
     if (formdata2) {
-        //
-        const files = formdata2.image;
-        const data = new FormData();
-        data.append('file', files[0]);
-        data.append('upload_preset', 'img_upload');
-        fetch(
-          ' https://api.cloudinary.com/v1_1/trung9901/image/upload/',
-          {
-            method: 'POST',
-            body: data,
-          }
-        ).then((res) => res.json()).then((data:any) => {
-          const file = data
-          const imageUrl = file.url
-          const datas = Object.assign({ ...formdata2 }, { image: imageUrl });
-          // 
-          update(idProduct, datas);
-        })
+      //
+      const files = formdata2.image;
+      const data = new FormData();
+      data.append('file', files[0]);
+      data.append('upload_preset', 'img_upload');
+      fetch(
+        ' https://api.cloudinary.com/v1_1/trung9901/image/upload/',
+        {
+          method: 'POST',
+          body: data,
+        }
+      ).then((res) => res.json()).then((data: any) => {
+        const file = data
+        const imageUrl = file.url
+        const datas = Object.assign({ ...formdata2 }, { image: imageUrl });
+        // 
+        update(idProduct, datas);
+      })
 
       //
 
@@ -135,7 +135,7 @@ const ProductList = (props: Props) => {
     return datas.toLocaleDateString('pt-PT');
   };
 
- 
+
   return (
     <div>
       <div className="content ">
@@ -155,7 +155,7 @@ const ProductList = (props: Props) => {
                       <th>Name</th>
                       <th>Category</th>
                       <th>Price</th>
-                     
+
                       <th>Description</th>
                       <th>Status</th>
                       <th>Creat At</th>
@@ -228,7 +228,7 @@ const ProductList = (props: Props) => {
                                   {...register('image', {
                                     required: 'Không được để trống !',
                                   })}
-                                 
+
                                 />
                                 <div className="text-danger">
                                   {errors.image?.message}
@@ -318,9 +318,9 @@ const ProductList = (props: Props) => {
                                 color="primary"
                                 type="submit"
                                 className="rounded"
-                                // onClick={() => {
+                              // onClick={() => {
 
-                                // }}
+                              // }}
                               >
                                 Thêm sản phẩm
                               </Button>
@@ -359,7 +359,7 @@ const ProductList = (props: Props) => {
                         <td>
                           <span className="">{item.price} $</span>
                         </td>
-                        
+
                         <td>
                           <span className="">{item.description}</span>
                         </td>
@@ -463,7 +463,7 @@ const ProductList = (props: Props) => {
                         {...register('image', {
                           required: false,
                         })}
-           
+
                       />
                       <div className="text-danger">{errors.image?.message}</div>
                     </div>
@@ -559,9 +559,9 @@ const ProductList = (props: Props) => {
                       color="primary"
                       type="submit"
                       className="rounded"
-                      // onClick={() => {
+                    // onClick={() => {
 
-                      // }}
+                    // }}
                     >
                       Cập nhật sản phẩm
                     </Button>
