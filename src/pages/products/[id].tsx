@@ -176,7 +176,7 @@ const ProductDetail = (props: ProductProps) => {
                                 data-slick-index={1}
                                 aria-hidden="false"
                                 tabIndex={-1}
-       
+
                                 aria-describedby="slick-slide11"
                                 style={{ width: 109 }}
                               >
@@ -200,7 +200,7 @@ const ProductDetail = (props: ProductProps) => {
                                 data-slick-index={2}
                                 aria-hidden="false"
                                 tabIndex={-1}
-                              
+
                                 aria-describedby="slick-slide12"
                                 style={{ width: 109 }}
                               >
@@ -224,7 +224,7 @@ const ProductDetail = (props: ProductProps) => {
                                 data-slick-index={3}
                                 aria-hidden="false"
                                 tabIndex={-1}
-                             
+
                                 aria-describedby="slick-slide13"
                                 style={{ width: 109 }}
                               >
@@ -250,111 +250,109 @@ const ProductDetail = (props: ProductProps) => {
                     </div>
                   </div>
                   <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 details-pro">
-              
-                      <div
-                        className="fw w_100"
-                        itemProp="offers"
-                        itemType="https://schema.org/Offer"
-                      >
-                        <div className="group-status">
-                          <span className="first_status hidden">
-                            Thương hiệu:{' '}
-                            <span className="status_name">Honor</span>
+
+                    <div
+                      className="fw w_100"
+                      itemProp="offers"
+                      itemType="https://schema.org/Offer"
+                    >
+                      <div className="group-status">
+                        <span className="first_status hidden">
+                          Thương hiệu:{' '}
+                          <span className="status_name">Honor</span>
+                        </span>
+                      </div>
+                      <div className="price-box">
+                        <div className="special-price">
+                          <span className="price product-price">
+                            {data?.price}₫
                           </span>
+                          <meta itemProp="price" />
+                          <meta itemProp="priceCurrency" content="VND" />
+                        </div>{' '}
+                        {/* Giá */}
+                        <span className="first_status status_2 d-none">
+                          <span className="status_name availabel">
+                            <link
+                              itemProp="availability"
+                              href="http://schema.org/InStock"
+                            />
+                            Còn hàng
+                          </span>
+                        </span>
+                      </div>
+                      <div className="product-summary">
+                        <div className="rte">
+                          <em>{data?.description}</em>
                         </div>
-                        <div className="price-box">
-                          <div className="special-price">
-                            <span className="price product-price">
-                              {data?.price}₫
-                            </span>
-                            <meta itemProp="price" />
-                            <meta itemProp="priceCurrency" content="VND" />
-                          </div>{' '}
-                          {/* Giá */}
-                          <span className="first_status status_2 d-none">
-                            <span className="status_name availabel">
-                              <link
-                                itemProp="availability"
-                                href="http://schema.org/InStock"
+                      </div>
+                    </div>
+                    <div className="form-product section">
+                      <div className="box-variant clearfix ">
+                        <input
+                          type="hidden"
+                          name="variantId"
+                          defaultValue={29842224}
+                        />
+                      </div>
+                      <div className="form-group form_button_details margin-top-15">
+                        <div className="form_product_content type1 ">
+                          <div className="soluong soluong_type_1 show">
+                            <label className="section margin-bottom-10">
+                              Số lượng:
+                            </label>
+                            <div className="custom input_number_product custom-btn-number form-control">
+                              <button
+                                className="btn_num num_1 button button_qty"
+                                type="button"
+                              >
+                                <i className="fas fa-minus-circle" />
+                              </button>
+                              <input
+                                type="text"
+                                id="qtym"
+                                name="quantity"
+                                defaultValue={1}
+                                maxLength={3}
+                                className="form-control prd_quantity"
                               />
-                              Còn hàng
-                            </span>
-                          </span>
-                        </div>
-                        <div className="product-summary">
-                          <div className="rte">
-                            <em>{data?.description}</em>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="form-product section">
-                        <div className="box-variant clearfix ">
-                          <input
-                            type="hidden"
-                            name="variantId"
-                            defaultValue={29842224}
-                          />
-                        </div>
-                        <div className="form-group form_button_details margin-top-15">
-                          <div className="form_product_content type1 ">
-                            <div className="soluong soluong_type_1 show">
-                              <label className="section margin-bottom-10">
-                                Số lượng:
-                              </label>
-                              <div className="custom input_number_product custom-btn-number form-control">
-                                <button
-                                  className="btn_num num_1 button button_qty"
-                                  type="button"
-                                >
-                                  <i className="fas fa-minus-circle" />
-                                </button>
-                                <input
-                                  type="text"
-                                  id="qtym"
-                                  name="quantity"
-                                  defaultValue={1}
-                                  maxLength={3}
-                                  className="form-control prd_quantity"
-                                />
-                                <button
-                                  className="btn_num num_2 button button_qty"
-                                  type="button"
-                                >
-                                  <i className="fas fa-plus-circle" />
-                                </button>
-                              </div>
-                            </div>
-                            <div className="button_actions clearfix">
                               <button
-                                type="submit"
-                                className="btn btn_base normal_button btn_add_cart btn-cart add_to_cart"
+                                className="btn_num num_2 button button_qty"
+                                type="button"
                               >
-                                <button
-                                  onClick={() =>
-                                    addToCart(data, () => {
-                                      toast('thêm giỏ hàng thành công');
-                                    })
-                                  }
-                                >
-                                  <span className="text_1">
-                                    <i className="fas fa-shopping-basket" />{' '}
-                                    Thêm vào giỏ hàng
-                                  </span>
-                                </button>
-                              </button>
-                              <button
-                                type="submit"
-                                className="btn fast btn_base btn_add_cart btn-cart"
-                              >
-                                <span className="text_1">
-                                  <i className="fas fa-check" /> Mua ngay
-                                </span>
+                                <i className="fas fa-plus-circle" />
                               </button>
                             </div>
                           </div>
+                          <div className="button_actions clearfix">
+                            <button
+                              type="submit"
+                              className="btn btn_base normal_button btn_add_cart btn-cart add_to_cart"
+                              onClick={() =>
+                                addToCart(data, () => {
+                                  toast('Thêm giỏ hàng thành công');
+                                })
+                              }
+                            >
+
+                              <span className="text_1">
+                                <i className="fas fa-shopping-basket" />{' '}
+                                Thêm vào giỏ hàng
+                              </span>
+                            </button>
+                            <button
+                              type="submit"
+                              className="btn fast btn_base btn_add_cart btn-cart"
+                            >
+                              <span className="text_1">
+                                <i className="fas fa-check" /> Mua ngay
+                              </span>
+                            </button>
+                          </div>
                         </div>
                       </div>
-                
+                    </div>
+
                     <div className="section form_contactproduct">
                       <a
                         className="block scale_hover a-center"
@@ -494,7 +492,7 @@ const ProductDetail = (props: ProductProps) => {
                   data-slick-index={0}
                   aria-hidden="true"
                   tabIndex={-1}
-             
+
                   aria-describedby="slick-slide00"
                   style={{ width: 258 }}
                 >
@@ -626,64 +624,64 @@ const ProductDetail = (props: ProductProps) => {
                   data-slick-index={2}
                   aria-hidden="false"
                   tabIndex={-1}
-            
+
                   aria-describedby="slick-slide02"
                   style={{ width: 258 }}
                 >
                   <div className="item_product_main">
-                 
-                      <div className="product-thumbnail">
+
+                    <div className="product-thumbnail">
+                      <a
+                        className="image_thumb scale_hover"
+                        href="/dien-thoai-xiaomi-mi-a1-64gb-4gb"
+                        title="Điện thoại Xiaomi Mi A1 64GB/4GB"
+                        tabIndex={0}
+                      >
+                        <img
+                          className="lazyload loaded"
+                          src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/0u4939d20170926t1409476909912.jpg?v=1577471325000"
+                          data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/0u4939d20170926t1409476909912.jpg?v=1577471325000"
+                          alt="Điện thoại Xiaomi Mi A1 64GB/4GB"
+                          data-was-processed="true"
+                        />
+                      </a>
+                      <span
+                        className="smart lazyload"
+                        data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979"
+                        data-was-processed="true"
+                        style={{
+                          backgroundImage:
+                            'url("//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979")',
+                        }}
+                      />
+                      <div className="action">
                         <a
-                          className="image_thumb scale_hover"
+                          title="Xem nhanh"
+                          href="/dien-thoai-xiaomi-mi-a1-64gb-4gb"
+                          data-handle="dien-thoai-xiaomi-mi-a1-64gb-4gb"
+                          className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
+                          tabIndex={0}
+                        >
+                          <i className="fas fa-search-plus" />
+                        </a>
+                      </div>
+                    </div>
+                    <div className="product-info">
+                      <h3 className="product-name">
+                        <a
                           href="/dien-thoai-xiaomi-mi-a1-64gb-4gb"
                           title="Điện thoại Xiaomi Mi A1 64GB/4GB"
                           tabIndex={0}
                         >
-                          <img
-                            className="lazyload loaded"
-                            src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/0u4939d20170926t1409476909912.jpg?v=1577471325000"
-                            data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/0u4939d20170926t1409476909912.jpg?v=1577471325000"
-                            alt="Điện thoại Xiaomi Mi A1 64GB/4GB"
-                            data-was-processed="true"
-                          />
+                          Điện thoại Xiaomi Mi A1 64GB/4GB
                         </a>
-                        <span
-                          className="smart lazyload"
-                          data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979"
-                          data-was-processed="true"
-                          style={{
-                            backgroundImage:
-                              'url("//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979")',
-                          }}
-                        />
-                        <div className="action">
-                          <a
-                            title="Xem nhanh"
-                            href="/dien-thoai-xiaomi-mi-a1-64gb-4gb"
-                            data-handle="dien-thoai-xiaomi-mi-a1-64gb-4gb"
-                            className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                            tabIndex={0}
-                          >
-                            <i className="fas fa-search-plus" />
-                          </a>
-                        </div>
+                      </h3>
+                      <div className="price-box">
+                        4.790.000₫&nbsp;
+                        <span className="compare-price">5.590.000₫</span>
                       </div>
-                      <div className="product-info">
-                        <h3 className="product-name">
-                          <a
-                            href="/dien-thoai-xiaomi-mi-a1-64gb-4gb"
-                            title="Điện thoại Xiaomi Mi A1 64GB/4GB"
-                            tabIndex={0}
-                          >
-                            Điện thoại Xiaomi Mi A1 64GB/4GB
-                          </a>
-                        </h3>
-                        <div className="price-box">
-                          4.790.000₫&nbsp;
-                          <span className="compare-price">5.590.000₫</span>
-                        </div>
-                      </div>
-                 
+                    </div>
+
                   </div>
                 </div>
                 <div
@@ -691,77 +689,77 @@ const ProductDetail = (props: ProductProps) => {
                   data-slick-index={3}
                   aria-hidden="false"
                   tabIndex={-1}
-         
+
                   aria-describedby="slick-slide03"
                   style={{ width: 258 }}
                 >
                   <div className="item_product_main">
-                 
-                      <div className="product-thumbnail">
+
+                    <div className="product-thumbnail">
+                      <a
+                        className="image_thumb scale_hover"
+                        href="/dien-thoai-samsung-galaxy-j7-prime"
+                        title="Điện thoại Samsung Galaxy J7 Prime"
+                        tabIndex={0}
+                      >
+                        <img
+                          className="lazyload loaded"
+                          src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/samsunggalaxyj7black1u504d2016.jpg?v=1577471324203"
+                          data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/samsunggalaxyj7black1u504d2016.jpg?v=1577471324203"
+                          alt="Điện thoại Samsung Galaxy J7 Prime"
+                          data-was-processed="true"
+                        />
+                      </a>
+                      <span
+                        className="smart lazyload"
+                        data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979"
+                        data-was-processed="true"
+                        style={{
+                          backgroundImage:
+                            'url("//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979")',
+                        }}
+                      />
+                      <div className="action">
                         <a
-                          className="image_thumb scale_hover"
+                          title="Xem nhanh"
+                          href="/dien-thoai-samsung-galaxy-j7-prime"
+                          data-handle="dien-thoai-samsung-galaxy-j7-prime"
+                          className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
+                          tabIndex={0}
+                        >
+                          <i className="fas fa-search-plus" />
+                        </a>
+                        <input
+                          type="hidden"
+                          name="variantId"
+                          defaultValue={29842220}
+                          tabIndex={0}
+                        />
+                        <button
+                          className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
+                          title="Thêm vào giỏ hàng"
+                          tabIndex={0}
+                        >
+                          <i className="fas fa-shopping-basket iconcart" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="product-info">
+                      <h3 className="product-name">
+                        <a
                           href="/dien-thoai-samsung-galaxy-j7-prime"
                           title="Điện thoại Samsung Galaxy J7 Prime"
                           tabIndex={0}
                         >
-                          <img
-                            className="lazyload loaded"
-                            src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/samsunggalaxyj7black1u504d2016.jpg?v=1577471324203"
-                            data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/samsunggalaxyj7black1u504d2016.jpg?v=1577471324203"
-                            alt="Điện thoại Samsung Galaxy J7 Prime"
-                            data-was-processed="true"
-                          />
+                          Điện thoại Samsung Galaxy J7 Prime
                         </a>
-                        <span
-                          className="smart lazyload"
-                          data-src="//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979"
-                          data-was-processed="true"
-                          style={{
-                            backgroundImage:
-                              'url("//bizweb.dktcdn.net/100/374/880/themes/748270/assets/sale_label.png?1656725435979")',
-                          }}
-                        />
-                        <div className="action">
-                          <a
-                            title="Xem nhanh"
-                            href="/dien-thoai-samsung-galaxy-j7-prime"
-                            data-handle="dien-thoai-samsung-galaxy-j7-prime"
-                            className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                            tabIndex={0}
-                          >
-                            <i className="fas fa-search-plus" />
-                          </a>
-                          <input
-                            type="hidden"
-                            name="variantId"
-                            defaultValue={29842220}
-                            tabIndex={0}
-                          />
-                          <button
-                            className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                            title="Thêm vào giỏ hàng"
-                            tabIndex={0}
-                          >
-                            <i className="fas fa-shopping-basket iconcart" />
-                          </button>
-                        </div>
+                      </h3>
+                      <div className="price-box">
+                        4.690.000₫&nbsp;
+                        <span className="compare-price">5.900.000₫</span>
                       </div>
-                      <div className="product-info">
-                        <h3 className="product-name">
-                          <a
-                            href="/dien-thoai-samsung-galaxy-j7-prime"
-                            title="Điện thoại Samsung Galaxy J7 Prime"
-                            tabIndex={0}
-                          >
-                            Điện thoại Samsung Galaxy J7 Prime
-                          </a>
-                        </h3>
-                        <div className="price-box">
-                          4.690.000₫&nbsp;
-                          <span className="compare-price">5.900.000₫</span>
-                        </div>
-                      </div>
-                  
+                    </div>
+
                   </div>
                 </div>
                 <div
@@ -769,65 +767,65 @@ const ProductDetail = (props: ProductProps) => {
                   data-slick-index={4}
                   aria-hidden="false"
                   tabIndex={-1}
-             
+
                   aria-describedby="slick-slide04"
                   style={{ width: 258 }}
                 >
                   <div className="item_product_main">
-                
-                      <div className="product-thumbnail">
+
+                    <div className="product-thumbnail">
+                      <a
+                        className="image_thumb scale_hover"
+                        href="/dien-thoai-xiaomi-redmi-5-16gb"
+                        title="Điện Thoại Xiaomi Redmi 5 16GB"
+                        tabIndex={0}
+                      >
+                        <img
+                          className="lazyload loaded"
+                          src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/1348fb2bd0f05cdebcf54b3f03d8bf.jpg?v=1577471323167"
+                          data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/1348fb2bd0f05cdebcf54b3f03d8bf.jpg?v=1577471323167"
+                          alt="Điện Thoại Xiaomi Redmi 5 16GB"
+                          data-was-processed="true"
+                        />
+                      </a>
+                      <div className="action">
                         <a
-                          className="image_thumb scale_hover"
+                          title="Xem nhanh"
+                          href="/dien-thoai-xiaomi-redmi-5-16gb"
+                          data-handle="dien-thoai-xiaomi-redmi-5-16gb"
+                          className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
+                          tabIndex={0}
+                        >
+                          <i className="fas fa-search-plus" />
+                        </a>
+                        <input
+                          type="hidden"
+                          name="variantId"
+                          defaultValue={29842219}
+                          tabIndex={0}
+                        />
+                        <button
+                          className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
+                          title="Thêm vào giỏ hàng"
+                          tabIndex={0}
+                        >
+                          <i className="fas fa-shopping-basket iconcart" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="product-info">
+                      <h3 className="product-name">
+                        <a
                           href="/dien-thoai-xiaomi-redmi-5-16gb"
                           title="Điện Thoại Xiaomi Redmi 5 16GB"
                           tabIndex={0}
                         >
-                          <img
-                            className="lazyload loaded"
-                            src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/1348fb2bd0f05cdebcf54b3f03d8bf.jpg?v=1577471323167"
-                            data-src="//bizweb.dktcdn.net/thumb/large/100/374/880/products/1348fb2bd0f05cdebcf54b3f03d8bf.jpg?v=1577471323167"
-                            alt="Điện Thoại Xiaomi Redmi 5 16GB"
-                            data-was-processed="true"
-                          />
+                          Điện Thoại Xiaomi Redmi 5 16GB
                         </a>
-                        <div className="action">
-                          <a
-                            title="Xem nhanh"
-                            href="/dien-thoai-xiaomi-redmi-5-16gb"
-                            data-handle="dien-thoai-xiaomi-redmi-5-16gb"
-                            className="xem_nhanh btn right-to quick-view btn-views hidden-xs hidden-sm hidden-md"
-                            tabIndex={0}
-                          >
-                            <i className="fas fa-search-plus" />
-                          </a>
-                          <input
-                            type="hidden"
-                            name="variantId"
-                            defaultValue={29842219}
-                            tabIndex={0}
-                          />
-                          <button
-                            className="hidden-xs btn-buy btn-cart btn btn-views left-to add_to_cart active "
-                            title="Thêm vào giỏ hàng"
-                            tabIndex={0}
-                          >
-                            <i className="fas fa-shopping-basket iconcart" />
-                          </button>
-                        </div>
-                      </div>
-                      <div className="product-info">
-                        <h3 className="product-name">
-                          <a
-                            href="/dien-thoai-xiaomi-redmi-5-16gb"
-                            title="Điện Thoại Xiaomi Redmi 5 16GB"
-                            tabIndex={0}
-                          >
-                            Điện Thoại Xiaomi Redmi 5 16GB
-                          </a>
-                        </h3>
-                        <div className="price-box">2.700.000₫</div>
-                      </div>
-                
+                      </h3>
+                      <div className="price-box">2.700.000₫</div>
+                    </div>
+
                   </div>
                 </div>
               </div>
