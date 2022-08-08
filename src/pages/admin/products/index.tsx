@@ -155,7 +155,7 @@ const ProductList = (props: Props) => {
                       <th>Name</th>
                       <th>Category</th>
                       <th>Price</th>
-                      <th>Quantity</th>
+                     
                       <th>Description</th>
                       <th>Status</th>
                       <th>Creat At</th>
@@ -359,9 +359,7 @@ const ProductList = (props: Props) => {
                         <td>
                           <span className="">{item.price} $</span>
                         </td>
-                        <td>
-                          <span className="count">{item.quantity}</span>
-                        </td>
+                        
                         <td>
                           <span className="">{item.description}</span>
                         </td>
