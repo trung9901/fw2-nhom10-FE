@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -23,7 +24,7 @@ const SearchPage = () => {
         setData(data);
       });
   }, [query]);
-  const products = data
+  const products:any = data
 
   return (
     <div className="bodywrap">

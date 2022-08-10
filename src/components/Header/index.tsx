@@ -11,12 +11,18 @@ import { useEffect } from 'react';
 import { useAuth } from '../../hook/use-auth';
 import { isAuthenticate } from '../../utils/localStorage';
 import SearchComponent from '../Search';
+
+import useCart from './../../hook/use-cart';
+import CartItem from './../CartItem/index';
+
+import CartHover from './../CartHover/index';
 type Props = {
   category: CategoryType;
 };
 
 const Header = (props: Props) => {
   const { login, logout } = useAuth();
+
   return (
     <header>
       <div>
@@ -41,35 +47,35 @@ const Header = (props: Props) => {
               <div className="col-lg-9 col-md-12 col-sm-12 col-12">
                 <div className="col-search-engine hidden-991">
                   <div className="header_search">
-                    <SearchComponent/>
+                    <SearchComponent />
                     <ul className="keysearch">
                       <li>
-                        <a title="iPhone" href="/search?query=iPhone">
+                        <a title="iPhone" >
                           iPhone
                         </a>
                       </li>
                       <li>
-                        <a title="iPad Pro" href="/search?query=iPad%20Pro">
+                        <a title="iPad Pro" >
                           iPad Pro
                         </a>
                       </li>
                       <li>
                         <a
                           title="Samsung Note 10"
-                          href="/search?query=Samsung%20Note%2010"
+
                         >
                           Samsung Note 10
                         </a>
                       </li>
                       <li>
-                        <a title="Xiaomi" href="/search?query=Xiaomi">
+                        <a title="Xiaomi" >
                           Xiaomi
                         </a>
                       </li>
                       <li>
                         <a
                           title="Apple Watch"
-                          href="/search?query=Apple%20Watch"
+
                         >
                           Apple Watch
                         </a>
@@ -81,7 +87,7 @@ const Header = (props: Props) => {
                   <div className="cartsearch">
                     <div className="searchhd hidden-md">
                       <form
-                        action="/search"
+
                         method="get"
                         className="input-group search-bar"
                         role="search"
@@ -114,9 +120,7 @@ const Header = (props: Props) => {
                                 />
                                 <span className="bolds cartext">
                                   Giỏ hàng
-                                  <span className="count_item count_item_pr">
-                                    0
-                                  </span>
+                                  <CartItem />
                                 </span>
                               </div>
                             </a>
@@ -127,9 +131,7 @@ const Header = (props: Props) => {
                             id="cart-sidebar"
                             className="mini-products-list count_li"
                           >
-                            <div className="no-item">
-                              <p>Không có sản phẩm nào.</p>
-                            </div>
+                            <CartHover />
                           </ul>
                         </div>
                       </div>
@@ -152,7 +154,7 @@ const Header = (props: Props) => {
                       {isAuthenticate() ? (
                         <div className="">
                           {isAuthenticate().user.role === 1 ? (
-                            <Link href="/admin">
+                            <Link href="/admin" >
                               <a className="btnx">Admin</a>
                             </Link>
                           ) : (

@@ -50,7 +50,7 @@ const NewsList = (props: Props) => {
          .then((data: any) => {
            const file = data;
            const imageUrl = file.url;
-           const datas = Object.assign({ ...formdata }, { image: imageUrl });
+           const datas ={ ...formdata,image: imageUrl };
            //
            create(datas);
          });

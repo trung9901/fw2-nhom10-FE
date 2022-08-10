@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import { useRouter } from 'next/router'
 import { useForm, SubmitHandler } from 'react-hook-form'
@@ -26,7 +27,7 @@ const Signin = (props: Props) => {
 
   const onSubmit: SubmitHandler<Props> = async (value: Props) => {
     try {
-      login(value)
+      await login(value)
       reset();
       toast.success("Đăng nhập thành công, vui lòng chờ giây lát");
       setTimeout(() => {
@@ -97,8 +98,8 @@ const Signin = (props: Props) => {
                     <p className="a-center">
                       Hoặc đăng nhập bằng
                     </p>
-                    <a href="javascript:void(0)" className="social-login--facebook" ><img className='m-2' width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg" /></a>
-                    <a href="javascript:void(0)" className="social-login--google" ><img width="129px" height="37px" alt="google-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg" /></a>
+                    <a  className="social-login--facebook" ><img className='m-2' width="129px" height="37px" alt="facebook-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/fb-btn.svg" /></a>
+                    <a  className="social-login--google" ><img width="129px" height="37px" alt="google-login-button" src="//bizweb.dktcdn.net/assets/admin/images/login/gp-btn.svg" /></a>
                   </div>
                 </div>
               </div>
